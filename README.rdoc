@@ -1,0 +1,36 @@
+Use Cases
+ -trips
+ -concert tickets
+ -meals
+ -fun runs
+ -sporting events
+ -intramurals
+ -generalized: money or time commitments
+
+Inspiration:
+-Winestyr
+-IFTTT
+-webcreme.com
+
+Tools:
+https://github.com/compass/compass-rails
+
+2 sides to site:
+-event planner
+-potential attendees
+
+Possibile conditions:
+-Number of attendees
+-Specific attendee(s)
+(-Date/time)
+
+User Stories:
+Admin-
+(-Down payment is automatically transfered to his paypal)
+
+User-
+Mobile or Desktop
+Sign in using OAuth &/or custom signin
+(1) Things you're committed to
+(2) Things you're waiting on
+(3) Create a new thing
