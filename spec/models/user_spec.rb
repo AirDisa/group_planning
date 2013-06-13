@@ -27,5 +27,7 @@ describe User do
 
   it { should have_many(:invitees) }
   it { should have_many(:events) }
+  it 'should have many created events'
+  it 'should have many events through invitees'
 
 end
