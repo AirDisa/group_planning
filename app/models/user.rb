@@ -2,7 +2,7 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  acts_as_url :full_name
+  acts_as_url :full_name, :sync_url => true
 
   attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :url
   has_many :invitees
@@ -33,7 +33,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  # Related to Stringex slugs
   # def to_param
   #   url
   # end
