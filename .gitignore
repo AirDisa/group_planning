@@ -5,5 +5,5 @@
 /log/*.log
 /tmp
 
-# Ignore Gemfile.lock
-Gemfile.lock
+# Ignore DS_Store
+.DS_Store
