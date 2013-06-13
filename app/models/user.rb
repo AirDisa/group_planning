@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
 
+  acts_as_url :full_name
+
   attr_accessible :email, :first_name, :last_name, :password_digest
   has_many :invitees
   has_many :events,  :through     => :invitees
@@ -18,5 +20,13 @@ class User < ActiveRecord::Base
         errors.add :password, "must include at least one lowercase letter, \
                                one uppercase letter, and one digit"
     end
+  end
+
+  def to_param
+    url
+  end
+
+  def full_name
+    "#{self.first_name} #{self.last_name}"
   end
 end

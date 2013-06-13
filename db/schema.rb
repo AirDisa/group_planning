@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130612232803) do
+ActiveRecord::Schema.define(:version => 20130613145310) do
 
   create_table "conditions", :force => true do |t|
     t.string   "text",       :null => false
@@ -52,6 +52,9 @@ ActiveRecord::Schema.define(:version => 20130612232803) do
     t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "url"
   end
+
+  add_index "users", ["url"], :name => "index_users_on_url", :unique => true
 
 end
