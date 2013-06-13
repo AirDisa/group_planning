@@ -15,6 +15,7 @@ class SessionsController < ApplicationController
     else
       flash[:error] = "Unsuccesful login attempt!"
       redirect_to root_path
+    end
   end
 
   def destroy
