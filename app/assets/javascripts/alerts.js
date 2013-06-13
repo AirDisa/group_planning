@@ -1,3 +1,3 @@
 $(document).ready(function() {
-  $('.alert').delay(1000).fadeToggle();
+  $('.alert').delay(5000).fadeToggle();
 });

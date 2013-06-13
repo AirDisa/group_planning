@@ -8,8 +8,12 @@ $(document).ready(function(){
   $('#home_hover').hide();
 
   // Show entire intro paragraph on hover
-  $('#home_intro').hover(function(){
-    $('#home_hover').delay(500).fadeToggle();
+  $('#home_intro').mouseover(function(){
+    $('#home_hover').delay(200).fadeToggle();
+  });
+
+  $('#home_intro').mouseout(function(){
+    $('#home_hover').toggle();
   });
 
   // Toggle login form on click
