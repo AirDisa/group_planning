@@ -1,10 +1,14 @@
-<h1>Admin Portal: <%= @user.first_name %> <%= @user.last_name %></h1>
+<div id="admin_top">
+  <div class="wrapper">
+  <h1>Admin Portal: <%= @user.first_name %> <%= @user.last_name %></h1>
 
-<ul id="user_admin_nav">
-  <li><a href="#new">new</a></li>
-  <li><a href="#invited">invited</a></li>
-  <li><a href="#created">created</a></li>
-</ul>
+  <ul id="user_admin_nav">
+    <li><a href="#new">new</a></li>
+    <li><a href="#invited">invited</a></li>
+    <li><a href="#created">created</a></li>
+  </ul>
+  </div>
+</div>
 
 <div id="create_event">
 <a id="new"></a>
