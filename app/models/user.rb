@@ -1,9 +1,10 @@
+
 class User < ActiveRecord::Base
   has_secure_password
 
   acts_as_url :full_name
-  attr_accessible :email, :first_name, :last_name, :password, :password_confirmation
 
+  attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :url
   has_many :invitees
   has_many :events,  :through     => :invitees
   has_many :events,  :foreign_key => :creator_id
@@ -15,10 +16,13 @@ class User < ActiveRecord::Base
                          :too_short  => "must have at least %{count} letters"}
 
   validates :email,      :uniqueness => {:case_sensitive => false,
-                         :message    => "that email is already registered"}, 
-                         :format     => {:with => /\w+@\w+\.\w{2,3}/,
+                         :message    => "has already been taken"}, 
+                         :format     => {:with => /\w{3,}@\w+\.\w{2,3}/,
                          :message    => "must be a valid format" }
+                         
   validate  :password_complexity
+  validates :password,   :length     => {:minimum => 6,
+                         :too_short  => "must have at least %{count} characters"}
   validates_confirmation_of :password
 
   def password_complexity
