@@ -1,1 +1,39 @@
-<h1>User Admin Page Template</h1>
+<h1>Admin Portal: <%= @user.first_name %> <%= @user.last_name %></h1>
+
+<ul id="user_admin_nav">
+  <li><a href="#new">new</a></li>
+  <li><a href="#invited">invited</a></li>
+  <li><a href="#created">created</a></li>
+</ul>
+
+<div id="create_event">
+<a id="new"></a>
+
+  <h2>create a groupact:</h2>
+  <h3>PLACEHOLDER FOR EVENT CREATION FORM</h3>
+
+</div>
+
+<div id="invited_events">
+<a id="invited"></a>
+
+  <h2>groupacts you're invited to:</h2>
+  <ul>
+    <% @user.events.each do |event| %>
+      <li><%= link_to event.title, event_path(event.url) %></li>
+    <% end %>
+  </ul>
+
+</div>
+
+<div id="created_events">
+<a id="created"></a>
+
+  <h2>groupacts you've created:</h2>
+  <ul>
+    <% @user.created_events.each do |event| %>
+      <li><%= link_to event.title, event_path(event.url) %></li>
+    <% end %>
+  </ul>
+
+</div>
