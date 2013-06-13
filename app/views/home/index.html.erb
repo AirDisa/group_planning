@@ -33,10 +33,11 @@
       <%= u.text_field :first_name, :placeholder => "First name" %>
       <%= u.text_field :last_name, :placeholder => "Last name" %>
       <%= u.email_field :email, :placeholder => "Email" %>
-      <%= u.password_field :password, :placeholder => "Password" %>
-      <%= u.password_field :password_confrim, :placeholder => "Confirm Password" %>
+       <%= u.password_field :password, :placeholder => "Password" %>
+      <%= u.password_field :password_confirmation, :placeholder => "Confirm Password" %>
       <%= u.submit "Create Account" %>
     <% end %>
     <%= link_to "close", '#', :class=> "home_form_close" %>
   </div>
 <% end %>
+
