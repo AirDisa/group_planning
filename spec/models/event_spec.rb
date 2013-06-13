@@ -15,6 +15,5 @@ describe Event do
   it { should_not allow_value(DateTime.new(2000,1,1)).for(:commit_date) }
 
   it { should allow_value("/assets/images/test.png").for(:image) }
-  it { should_not allow_value("test.wrong", "test").for(:image) }
 
 end
