@@ -1,6 +1,7 @@
 Planning::Application.routes.draw do
 
   resources :sessions, :only => [:create, :new, :destroy]
+  resources :users, :only => [:create, :new]
 
   root :to => 'home#index'
 
