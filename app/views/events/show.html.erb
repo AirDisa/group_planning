@@ -1,19 +1,8 @@
 <h1><%= @event.title %></h1>
-
-<br>
-
 <h3><%= @event.description %></h3>
+Creator:
+<%= User.find(@event.creator_id).full_name %>
 
 <p>Invited:</p>
-<% @event.invitees.each do |invitee| %>
-  <% if invitee.status == "Pending" %>
-    <p>Waffling:</p>
-    <%= User.find(invitee.user_id) %>
-  <% elsif invitee.status == "Yes" %>
-    <p>Down to have fun:</p>
-    <%= User.find(invitee.user_id) %>
-  <% elsif invitee.status == "No" %>
-    <p>Missing out:</p>
-    <%= User.find(invitee.user_id) %>
-  <% end %>
-<% end %>
+<br>
+<%= render :partial => "invited_user", :locals => { :event => @event } %>
