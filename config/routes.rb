@@ -1,9 +1,11 @@
 Planning::Application.routes.draw do
 
-  resources :sessions, :only => [:create, :new, :destroy]
+  resources :sessions, :only => [:create, :new]
   resources :users, :only => [:create, :new]
 
   root :to => 'home#index'
+
+  get '/logout/' => "sessions#logout", :as => 'logout'
 
   get '/events/:slug' => 'events#show', :as => 'event'
 

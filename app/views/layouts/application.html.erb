@@ -10,7 +10,22 @@
 
 <h1><%= link_to "home", root_path %></h1>
 
+<% if flash %>
+  <% flash.each do |k, v| %>
+    <p class="<%= flash_class(k) %>"><%= k %>: <%= v %></p>
+  <% end %>
+<% end %>
+
 <%= yield %>
+
+<% if current_user %>
+  <footer>
+    You are logged in as <%= current_user.first_name %> <%= current_user.last_name %> |
+    <%= link_to "Admin Page", admin_path(current_user.url) %> |
+    <%= link_to "Profile Page", profile_path(current_user.url) %> |
+    <%= link_to "Sign Out", logout_path %>
+  </footer>
+<% end %>
 
 </body>
 </html>

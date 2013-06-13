@@ -5,11 +5,6 @@
 
   <div class="log_in_form">
     <h4>log in</h4>
-    <% if flash %>
-      <% flash.each do |k, v| %>
-        <p class="<%= flash_class(k) %>"><%= k %>: <%= v %></p>
-      <% end %>
-    <% end %>
 
     <%= form_tag sessions_path do %>
       <%= email_field_tag :email, nil, :placeholder => "Email" %>
@@ -21,11 +16,6 @@
 
   <div class="join_form">
     <h4>join</h4>
-    <% if flash %>
-      <% flash.each do |k, v| %>
-        <p class="<%= flash_class(k) %>"><%= k %>: <%= v %></p>
-      <% end %>
-    <% end %>
 
     <%= form_for @user do |u| %>
       <%= u.text_field :first_name, :placeholder => "First name" %>
