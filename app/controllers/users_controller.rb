@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
 
   skip_before_filter :require_login, :only => [:new, :create]
-  
+
   def admin
+    @user = User.find_by_url(params[:slug])
+    if @user != current_user
+      redirect_to root_path
+    end
   end
 
   def profile
