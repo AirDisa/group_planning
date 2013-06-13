@@ -7,21 +7,139 @@
 
 $home_red:   #ff2929;
 
+body:before, body:after {
+    content: "";
+    position: fixed;
+    background: white;
+    left: 0;
+    right: 0;
+    height: 10px;
+}
+body:before {
+    top: 0;
+}
+body:after {
+    bottom: 0;
+}
+body {
+    border-left: 10px solid white;
+    border-right: 10px solid white;
+}
+
 html {
   background: white;
-  min-height: 100%;
+  font-family: Helvetica, "Helvetica", sans-serif;
+  height: 100%;
 }
 
 body {
   background: $home_red;
-  margin: 10px;
   min-height: 100%;
+  position: relative;
 }
 
-h1 {
+h1 a {
   background: url('/assets/home_logo.jpg');
+  display: block;
   height: 75px;
   margin: 0 auto;
   text-indent: -999999px;
   width: 300px
 }
+
+/* Home Page Style */
+
+#home_intro {
+  color: white;
+  font-size: 32px;
+  font-weight: lighter;
+  margin: 70px  auto 0;
+  text-align: center;
+  width: 80%;
+}
+
+#home_form_links {
+  color: white;
+  font-size: 42px;
+  font-weight: bolder;
+  margin: 0 25% 0;
+  position: absolute;
+    bottom: 50px;
+  text-align: center;
+  width: 50%;
+  a {
+    color: white;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Login Forms */
+
+.log_in_form,
+.join_form {
+  margin: 0 auto;
+  padding: 30px 0 60px;
+  width: 700px;
+  h4 {
+    color: white;
+    font-size: 48px;
+    padding: 30px;
+    text-align: center;
+  }
+}
+
+input, textarea {
+    border: 5px solid white;
+    color: gray;
+    font-size: 2em;
+    -webkit-box-shadow:
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1);
+    -moz-box-shadow:
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1);
+    box-shadow:
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1);
+    padding: 15px;
+    background: rgba(255,255,255,0.75);
+    margin: 0 0 10px 0;
+    width: 660px;
+}
+
+button {
+  background: white;
+  border: none;
+  color: $home_red;
+  font-size: 18px;
+  font-weight: bolder;
+  padding: 12px;
+}
+
+button:hover {
+  background: $home_red;
+  color: white;
+  cursor: pointer;
+}
+
+a.home_form_close {
+  color: white;
+  display: block;
+  font-size: 24px;
+  padding: 30px 0 0;
+  text-align: center;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
+
+
+
+
+
