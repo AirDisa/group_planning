@@ -1,0 +1,25 @@
+<ul>
+  <li> Waffling:
+    <br>
+    <ul>
+      <% event.waffling.each do |invitee| %>
+      <li><%=link_to(User.find(invitee.user_id).full_name, profile_path(User.find(invitee.user_id).url)) %></li>
+      <% end %>
+    </ul>
+  </li>
+  <li> Down To Have Fun:
+    <ul>
+      <% event.going.each do |invitee| %>
+      <li><%=link_to(User.find(invitee.user_id).full_name, profile_path(User.find(invitee.user_id).url)) %></li>
+      <% end %>
+    </ul>
+  </li>
+  <li> Missing Out:
+    <br>
+    <ul>
+      <% event.not_going.each do |invitee| %>
+      <li><%=link_to(User.find(invitee.user_id).full_name, profile_path(User.find(invitee.user_id).url)) %></li>
+      <% end %>
+    </ul>
+  </li>
+</ul>

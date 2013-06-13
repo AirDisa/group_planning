@@ -1,1 +1,8 @@
-<h1>Single Event Page Template</h1>
+<h1><%= @event.title %></h1>
+<h3><%= @event.description %></h3>
+Creator:
+<%= User.find(@event.creator_id).full_name %>
+
+<p>Invited:</p>
+<br>
+<%= render :partial => "invited_user", :locals => { :event => @event } %>

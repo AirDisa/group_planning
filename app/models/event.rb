@@ -13,6 +13,18 @@ class Event < ActiveRecord::Base
   validates :commit_date, :presence => true
   validate  :commit_date_is_in_the_future
 
+  def waffling
+    invitees.select { |invitee| invitee.status == "Pending" }
+  end
+
+  def going
+    invitees.select { |invitee| invitee.status == "Yes" }
+  end
+
+  def not_going
+    invitees.select { |invitee| invitee.status == "No" }
+  end
+
   private
 
   def commit_date_is_in_the_future
@@ -21,3 +33,4 @@ class Event < ActiveRecord::Base
     end
   end
 end
+
