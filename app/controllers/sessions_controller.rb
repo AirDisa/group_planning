@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       flash[:success] = "You successfully logged in!"
       redirect_to admin_path(user.url)
     else
-      flash[:error] = user.errors.messages
+      flash[:error] = "Unsuccessful login. Please try again."
       redirect_to root_path
     end
   end

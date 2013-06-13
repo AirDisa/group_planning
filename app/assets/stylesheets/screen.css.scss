@@ -6,6 +6,7 @@
 @import "compass/reset";
 
 $home_red:   #ff2929;
+$dark_color: darken( $home_red, 30% );
 
 body:before, body:after {
   content: "";
@@ -48,7 +49,7 @@ h1 a {
 }
 
 .alert {
-  color: white;
+  color: $dark_color;
   font-size: 2em;
   padding: 20px 0 0;
   margin: 0 25% 0;
@@ -60,10 +61,11 @@ h1 a {
 
 /* Home Page Style */
 
-#home_intro {
+#home_intro,  #home_hover {
   color: white;
   font-size: 32px;
   font-weight: lighter;
+  line-height: 44px;
   margin: 70px  auto 0;
   text-align: center;
   width: 80%;
@@ -159,13 +161,9 @@ footer {
   width: 75%;
   a {
     color: white;
-    text-decoration: none;
+    text-decoration: underline;
     &:hover {
-      text-decoration: underline;
+      text-decoration: none;
     }
   }
 }
-
-
-
-
