@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-
   acts_as_url :full_name
   attr_accessible :email, :first_name, :last_name, :password, :password_confirmation
 
@@ -9,10 +8,16 @@ class User < ActiveRecord::Base
   has_many :events,  :through     => :invitees
   has_many :events,  :foreign_key => :creator_id
 
-  validates :first_name, :presence => true, :length => {:minimum => 3}
-  validates :last_name,  :presence => true, :length => {:minimum => 3}
-  validates :email,      :uniqueness => {:case_sensitive => false}, 
-                         :format => /\w+@\w+\.\w{2,3}/
+  validates :first_name, :length     => {:minimum => 2,
+                         :too_short  => "must have at least %{count} letters"}
+
+  validates :last_name,  :length     => {:minimum => 2,
+                         :too_short  => "must have at least %{count} letters"}
+
+  validates :email,      :uniqueness => {:case_sensitive => false,
+                         :message    => "that email is already registered"}, 
+                         :format     => {:with => /\w+@\w+\.\w{2,3}/,
+                         :message    => "must be a valid format" }
   validate  :password_complexity
   validates_confirmation_of :password
 
@@ -23,8 +28,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  # Saw this with a lot of the applications... could be useful if we run into a bug later, so I'm going
-  # to leave it commented out.
+  # Related to Stringex slugs
   # def to_param
   #   url
   # end
