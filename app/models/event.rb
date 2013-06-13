@@ -3,6 +3,8 @@ class Event < ActiveRecord::Base
   acts_as_url :title
   attr_accessible :commit_date, :creator_id, :description, :title, :image
   belongs_to :creator, :class_name => "User", :foreign_key => :creator_id
+  has_many :invitees
+  has_many :users, :through => :invitees
   mount_uploader :image, ImageUploader
   
   validates :title,       :length => {:minimum => 4,
