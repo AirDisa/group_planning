@@ -7,11 +7,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_email(params[:session][:email])
-    if user && user.authenticate(params[:session][:password])
+    user = User.find_by_email(params[:email])
+    if user && user.authenticate(params[:password])
       session[:current_user_id] = user.id
       flash[:success] = "You successfully logged in!"
-      redirect_to admin_path(user.slug)
+      redirect_to admin_path(user.url)
     else
       flash[:error] = user.errors.messages
       redirect_to root_path
