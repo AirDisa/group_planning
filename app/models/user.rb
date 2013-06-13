@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :url
   has_many :invitees
   has_many :events,  :through => :invitees
-  has_many :created_events,  :foreign_key => :creator_id
+  has_many :created_events, :class_name => "Event", :foreign_key => :creator_id
 
   validates :first_name, :length     => {:minimum => 2,
                          :too_short  => "must have at least %{count} letters"}
