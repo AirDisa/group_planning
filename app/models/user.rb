@@ -22,9 +22,11 @@ class User < ActiveRecord::Base
     end
   end
 
-  def to_param
-    url
-  end
+  # Saw this with a lot of the applications... could be useful if we run into a bug later, so I'm going
+  # to leave it commented out.
+  # def to_param
+  #   url
+  # end
 
   def full_name
     "#{self.first_name} #{self.last_name}"
