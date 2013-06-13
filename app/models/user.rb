@@ -1,9 +1,10 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  acts_as_url :full_name
 
-  attr_accessible :email, :first_name, :last_name, :password_digest
+  acts_as_url :full_name
+  attr_accessible :email, :first_name, :last_name, :password, :password_confirmation
+
   has_many :invitees
   has_many :events,  :through     => :invitees
   has_many :events,  :foreign_key => :creator_id
