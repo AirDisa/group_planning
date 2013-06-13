@@ -23,9 +23,14 @@ users = User.all
 end
 
 events = Event.all
+status = ['No', 'Pending', 'Yes']
 
-# User.all.each do |user|
-#   user.events.each do |event|
-#     Invitee.create(user_id: users.sample(rand(2..10)))
+users.each do |user|
+  events.sample(rand(1..30)).each do |event|
+    Invitee.create(user_id: user.id,
+                   event_id: event.id,
+                   status: status.sample)
+  end
+end
 
 
