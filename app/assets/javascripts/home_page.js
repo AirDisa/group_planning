@@ -9,29 +9,36 @@ $(document).ready(function(){
 
   // Show entire intro paragraph on hover
   $('#home_intro').hover(function(){
-    $('#home_hover').toggle();
+    $('#home_hover').delay(500).fadeToggle();
   });
 
   // Toggle login form on click
   $('a.home_login').click(function(){
-    $('.log_in_form').toggle();
+    $('.log_in_form').delay(500).fadeToggle();
     toggleLinks();
   });
 
   // Toggle join form on click
   $('a.home_join').click(function(){
-    $('.join_form').toggle();
+    $('.join_form').delay(500).fadeToggle();
     toggleLinks();
   });
 
-  // Close login form with link
+  // Close forms with link
   $('.home_form_close').click(function(){
-    $(this).parent().toggle();
+    scrollTop();
+    $(this).parent().delay(500).fadeToggle();
     toggleLinks();
   });
 
 });
 
 var toggleLinks = function() {
-  $('#home_form_links').toggle();
+  $('#home_form_links').delay(500).fadeToggle();
 };
+
+var scrollTop = function() {
+  $('body,html').animate({
+    scrollTop: 0
+  }, 500);
+}
