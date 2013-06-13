@@ -1,3 +1,19 @@
-<h1>Single Event Page Template</h1>
+<h1><%= @event.title %></h1>
 
-<%= @event.title %>
+<br>
+
+<h3><%= @event.description %></h3>
+
+<p>Invited:</p>
+<% @event.invitees.each do |invitee| %>
+  <% if invitee.status == "Pending" %>
+    <p>Waffling:</p>
+    <%= User.find(invitee.user_id) %>
+  <% elsif invitee.status == "Yes" %>
+    <p>Down to have fun:</p>
+    <%= User.find(invitee.user_id) %>
+  <% elsif invitee.status == "No" %>
+    <p>Missing out:</p>
+    <%= User.find(invitee.user_id) %>
+  <% end %>
+<% end %>
