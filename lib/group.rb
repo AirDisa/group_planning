@@ -7,10 +7,13 @@ class Group
 
   def solve
     get_rid_of_party_poopers
-    filter_by_person_condition
-    filter_by_person_condition while filter_by_count_condition
+
+    "run" while filter_by_person_condition || filter_by_count_condition
+    
     going
   end
+
+  private
 
   def get_rid_of_party_poopers
     going.reject! { |invitee| invitee.status == "No" }
