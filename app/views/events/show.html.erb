@@ -8,4 +8,5 @@
 </div>
 <div class='conditional'>
   <p> Will you attend? </p>
-  </div>
+  <%= render :partial => "invitee_conditions", :locals => { :event => @event } %>
+</div>

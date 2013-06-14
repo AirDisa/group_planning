@@ -1,1 +1,21 @@
-I will attend this event <button id="condition">if...</button>
+<div class="condition-builder">
+  <div id="sentence">I will attend this event <span class="droppable-options" id="1">(drag condition here...)</span></div> <br>
+
+  Conditions: <br>
+  <ul class='draggable-options'>
+    <li id="min_num">if at least (number of) people go</li>
+    <li id="person">if (this specific person) goes</li>
+  </ul>
+  
+  <br><button>Commit</button><br>
+</div>
+
+<div class="hide">
+  <div id="minNumSelection">
+    if at least <%= select(:event, :users, (2..event.users.count)) %> people go, and
+  </div>
+
+  <div id="personSelection">
+    if <%= collection_select(:event, :users, event.users.all, :id, :full_name) %> goes, and
+  </div>
+</div>

@@ -316,7 +316,7 @@ background-color: #3232A6;
 .conditional {
   position:fixed;
   width:74%;
-  height: 25%;
+  height: 40%;
   bottom: 0;
   right: 0;
   border-top:10px solid white;
@@ -338,3 +338,6 @@ background-color: #3232A6;
   height:50%;
 }
 
+.hide {
+  display: none;
+}
