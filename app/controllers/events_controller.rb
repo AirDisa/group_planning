@@ -6,7 +6,6 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    p params.inspect
     respond_to do |format|
       if @event.update_attributes(params[:event])
         format.html { redirect_to event_path(@event) }
