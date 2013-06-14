@@ -1,0 +1,5 @@
+<% if flash %>
+  <% flash.each do |k, v| %>
+    <div class="<%= flash_class(k) %>"><%= v %></div>
+  <% end %>
+<% end %>
