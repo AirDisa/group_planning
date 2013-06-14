@@ -20,14 +20,7 @@
 
 <%= yield %>
 
-<% if current_user %>
-  <footer>
-    You are logged in as <%= current_user.first_name %> <%= current_user.last_name %> |
-    <%= link_to "Admin Page", admin_path(current_user.url) %> |
-    <%= link_to "Profile Page", profile_path(current_user.url) %> |
-    <%= link_to "Sign Out", logout_path %>
-  </footer>
-<% end %>
+<%= render :partial => "layouts/footer" %>
 
 </body>
 </html>
