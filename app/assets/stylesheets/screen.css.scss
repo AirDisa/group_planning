@@ -425,6 +425,16 @@ background-color: $home_blue;
   border-top:10px solid white;
   background: #29A329;
 }
+.thanks {
+  display: none;
+  position:fixed;
+  width:74%;
+  height: 40%;
+  bottom: 0;
+  right: 0;
+  border-top:10px solid white;
+  background: #29A329;
+}
 
 .conditional p {
   color: white;
