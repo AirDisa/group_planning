@@ -6,4 +6,20 @@ class Invitee < ActiveRecord::Base
 
   validates :user, :event, :status, :presence => true
 
+  def self.status_return(events, status)
+    events.reject { |event| Invitee.where(:event_id => event.id, :status => status, :user_id => event.creator_id ).empty? }
+  end
+
+  def self.pending(events)
+    self.status_return(events, "Pending")
+  end
+
+  def self.going(events)
+    self.status_return(events, "Yes")
+  end
+
+  def self.not_going(events)
+    self.status_return(events, "No")
+  end
+
 end

@@ -38,7 +38,7 @@ html {
 
 body {
   background: $home_red;
-  height: 100%;
+  min-height: 100%;
   position: relative;
 }
 
@@ -162,40 +162,8 @@ a.home_form_close {
 /* Admin Page */
 
 .admin_block {
-  min-height: 100%;
+  min-height: 900px;
   margin: 0 0 50px;
-  .wrapper {
-    h2 {
-      color: white;
-      display: block;
-      font-size: 48px;
-      font-weight: lighter;
-      margin: 0 0 30px;
-    }
-    p.user_admin_nav {
-      font-size: 28px;
-      font-weight: lighter;
-      margin: 20px 0 0;
-      text-align: center;
-      a {
-        color: white;
-        text-decoration: none;
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-    }
-    ul li a {
-      color: white;
-      display: block;
-      font-size: 24px;
-      margin: 0 0 14px;
-      text-decoration: none;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
 }
 
 #multiColumn {
@@ -244,6 +212,39 @@ a.home_form_close {
 
 #created_events {
   background: $home_orange;
+}
+
+.wrapper {
+  h2 {
+    color: white;
+    display: block;
+    font-size: 48px;
+    font-weight: lighter;
+    margin: 0 0 30px;
+  }
+  p.user_admin_nav {
+    font-size: 28px;
+    font-weight: lighter;
+    margin: 20px 0 0;
+    text-align: center;
+    a {
+      color: white;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  ul li a {
+    color: white;
+    display: block;
+    font-size: 24px;
+    margin: 0 0 14px;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 /* Footer */
