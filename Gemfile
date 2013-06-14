@@ -26,3 +26,4 @@ gem 'mini_magick'
 
 gem 'jquery-rails'
 gem 'best_in_place'
+gem 'jquery-ui-rails'
