@@ -22,7 +22,7 @@ $(document).ready(function() {
   });
 
   addPunctuation = function(input){
-    var sentence_length = $('#sentence').children("span").length; 
+    var sentence_length = $('#sentence').children("span").length;
     if (sentence_length <= 3) {
       $(input).after(', and if');
     } else {
@@ -39,16 +39,16 @@ $(document).ready(function() {
     if (screen === 'Yes') {
       $.post('/invitees/update/'+id, {status: 'Yes'} , function(){
       $('.conditional').hide();
-      $('.yes').animate({ width: 'show' }); 
+      $('.yes').animate({ width: 'show' });
       $('.yes').delay(2000).fadeOut();
       });
     } else if (screen ==='yes_if') {
       $('.conditional').hide();
-      $('.yes_if').animate({ width: 'show' }); 
+      $('.yes_if').animate({ width: 'show' });
     } else if (screen === 'No') {
       $.post('/invitees/update/'+id, {status: 'No'} , function(){
       $('.conditional').hide();
-      $('.no').animate({ width: 'show' }); 
+      $('.no').animate({ width: 'show' });
       $('.no').delay(2000).fadeOut();
     });
     }
@@ -60,7 +60,7 @@ $(document).ready(function() {
   var data = $('form').serialize();
   $.post('/conditions', data, function(){
     $('.yes_if').hide();
-     $('.thanks').animate({ width: 'show' }); 
+     $('.thanks').animate({ width: 'show' });
       $('.thanks').delay(2000).fadeOut();
     });
   });
