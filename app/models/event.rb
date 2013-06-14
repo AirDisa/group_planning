@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
  
-  acts_as_url :title
+  acts_as_url :title, :sync_url => true
   attr_accessible :commit_date, :creator_id, :description, :title, :image
   has_many :invitees
   belongs_to :creator, :class_name => "User"
@@ -24,6 +24,10 @@ class Event < ActiveRecord::Base
   def not_going
     invitees.select { |invitee| invitee.status == "No" }
   end
+
+  # def to_param
+  #   url
+  # end
 
   private
 

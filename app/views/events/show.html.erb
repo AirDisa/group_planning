@@ -1,8 +1,11 @@
-<h1><%= @event.title %></h1>
-<h3><%= @event.description %></h3>
-Creator:
-<%= User.find(@event.creator_id).full_name %>
+<div class ='vertical'>
 
-<p>Invited:</p>
-<br>
+<h1 id='event_header'><%= best_in_place_if current_user.id == @event.creator_id, @event, :title, :type => :input%></h1>
+<h3 id='event_description'><%=  best_in_place_if current_user.id == @event.creator_id, @event, :description, :type => :input %></h3>
+<span id='creator'><%= User.find(@event.creator_id).full_name %></span>
+
 <%= render :partial => "invited_user", :locals => { :event => @event } %>
+</div>
+<div class='conditional'>
+  <p> Will you attend? </p>
+  </div>
