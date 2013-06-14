@@ -1,5 +1,5 @@
 $(function() {
-  $('.user_admin_nav a').bind('click', function(event){
+  $('.user_admin_nav a').on('click', function(event){
     var $anchor = $(this);
 
     $('html, body').stop().animate({
