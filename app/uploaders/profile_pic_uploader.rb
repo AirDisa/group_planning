@@ -1,12 +1,10 @@
 # encoding: utf-8
 
-class ImageUploader < CarrierWave::Uploader::Base
+class ProfilePicUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   include Sprockets::Helpers::RailsHelper
   include Sprockets::Helpers::IsolatedHelper
   permissions 0600
-  
-  # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
 
   storage :file
 
@@ -23,5 +21,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   def extension_white_list
     %w(jpg jpeg gif png)
   end
-  
+
+  def default_url
+    asset_path("fallback/profile_default.png")  
+  end
 end
