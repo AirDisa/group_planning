@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130613151553) do
+ActiveRecord::Schema.define(:version => 20130614003231) do
 
   create_table "conditions", :force => true do |t|
     t.string   "text",       :null => false
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(:version => 20130613151553) do
 
   add_index "events", ["url"], :name => "index_events_on_url", :unique => true
 
+  create_table "invitee_conditions", :force => true do |t|
+    t.integer  "condition_id", :null => false
+    t.integer  "invitee_id",   :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "invitee_conditions", ["condition_id"], :name => "index_invitee_conditions_on_condition_id"
+  add_index "invitee_conditions", ["invitee_id"], :name => "index_invitee_conditions_on_invitee_id"
+
   create_table "invitees", :force => true do |t|
     t.integer  "user_id",    :null => false
     t.integer  "event_id",   :null => false
@@ -56,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20130613151553) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "url"
+    t.string   "profile_pic"
   end
 
   add_index "users", ["url"], :name => "index_users_on_url", :unique => true
