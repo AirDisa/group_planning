@@ -14,7 +14,7 @@
 
 <% if flash %>
   <% flash.each do |k, v| %>
-    <p class="<%= flash_class(k) %>"><%= v %></p>
+    <div class="<%= flash_class(k) %>"><%= v %></div>
   <% end %>
 <% end %>
 

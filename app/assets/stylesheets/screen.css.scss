@@ -52,14 +52,21 @@ h1 a {
 }
 
 .alert {
-  color: $dark_red;
-  font-size: 2em;
-  padding: 20px 0 0;
-  margin: 0 25% 0;
+  background: #8f0000;
+  border-radius: 20px;
+  box-shadow: 0 0 15px black;
+  color: white;
+  display: block;
+  font-size: 18px;
+  font-weight: lighter;
+  height: auto;
+  padding: 20px;
   position: absolute;
-    top: 70px;
+    top: 100px;
+    left: 50%;
+    margin-left: -200px;
   text-align: center;
-  width: 50%;
+  width: 350px;
 }
 
 .wrapper {
