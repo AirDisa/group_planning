@@ -39,8 +39,10 @@ $(document).ready(function() {
     if (screen === 'Yes') {
       $.post('/invitees/update/'+id, {status: 'Yes'} , function(){
       $('.conditional').hide();
+      console.log("yolo");
       $('.yes').animate({ width: 'show' });
       $('.yes').delay(2000).fadeOut();
+      $('.yes').show();
       });
     } else if (screen ==='yes_if') {
       $('.conditional').hide();
