@@ -1,0 +1,14 @@
+<div id="created_events" class="admin_block">
+<a id="created"></a>
+  <div class="wrapper">
+    <h2>groupacts you've created:</h2>
+    <div id="multiColumn">
+      <ul>
+        <% user.created_events.each do |event| %>
+          <li><%= link_to event.title, event_path(event.url) %></li>
+        <% end %>
+      </ul>
+    </div>
+    <p class="user_admin_nav"><a href="#top">top</a></p>
+  </div>
+</div>

@@ -1,49 +1,7 @@
-<div id="admin_top" class="admin_block">
-  <div class="wrapper">
-    <h1>Admin Portal: <%= @user.first_name %> <%= @user.last_name %></h1>
-    <ul class="user_admin_nav">
-      <li><a href="#new">new</a></li>
-      <li><a href="#invited">invited</a></li>
-      <li><a href="#created">created</a></li>
-    </ul>
-  </div>
-</div>
+<%= render :partial => "users/admin_nav", :locals => { :user => @user } %>
 
-<div id="create_event" class="admin_block">
-<a id="new"></a>
-  <div class="wrapper">
-    <h2>create a groupact:</h2>
-    <h3>PLACEHOLDER FOR EVENT CREATION FORM</h3>
-    <p class="user_admin_nav"><a href="#top">top</a></p>
-  </div>
-</div>
+<%= render :partial => "users/admin_create", :locals => { :user => @user } %>
 
-<div id="invited_events" class="admin_block">
-<a id="invited"></a>
-  <div class="wrapper">
-    <h2>groupacts you're invited to:</h2>
-    <div id="multiColumn">
-      <ul>
-        <% @user.events.each do |event| %>
-          <li><%= link_to event.title, event_path(event.url) %></li>
-        <% end %>
-      </ul>
-    </div>
-    <p class="user_admin_nav"><a href="#top">top</a></p>
-  </div>
-</div>
+<%= render :partial => "users/admin_invited", :locals => { :user => @user } %>
 
-<div id="created_events" class="admin_block">
-<a id="created"></a>
-  <div class="wrapper">
-    <h2>groupacts you've created:</h2>
-    <div id="multiColumn">
-      <ul>
-        <% @user.created_events.each do |event| %>
-          <li><%= link_to event.title, event_path(event.url) %></li>
-        <% end %>
-      </ul>
-    </div>
-    <p class="user_admin_nav"><a href="#top">top</a></p>
-  </div>
-</div>
+<%= render :partial => "users/admin_created", :locals => { :user => @user } %>

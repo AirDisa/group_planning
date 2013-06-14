@@ -1,0 +1,8 @@
+<% if @created_going.length > 0 %>
+<h5>going:</h5>
+  <ul>
+    <% @created_going.each do |event| %>
+      <li><%= link_to event.title, event_path(event.url) %></li>
+    <% end %>
+  </ul>
+<% end %>

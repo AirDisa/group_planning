@@ -1,0 +1,8 @@
+<% if @invited_not_going.length > 0 %>
+  <h5>not going:</h5>
+  <ul>
+    <% @invited_not_going.each do |event| %>
+      <li><%= link_to event.title, event_path(event.url) %></li>
+    <% end %>
+  </ul>
+<% end %>

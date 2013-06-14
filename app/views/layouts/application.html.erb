@@ -12,11 +12,7 @@
 
 <h1><%= link_to "home", root_path %></h1>
 
-<% if flash %>
-  <% flash.each do |k, v| %>
-    <div class="<%= flash_class(k) %>"><%= v %></div>
-  <% end %>
-<% end %>
+<%= render :partial => "layouts/alerts" %>
 
 <%= yield %>
 
