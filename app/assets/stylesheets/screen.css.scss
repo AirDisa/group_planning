@@ -39,7 +39,6 @@ html {
 body {
   background: $home_red;
   min-height: 100%;
-  padding: 0 0 200px;
   position: relative;
 }
 
@@ -241,6 +240,7 @@ a.home_form_close {
 }
 
 .wrapper {
+  padding-bottom: 600px;
   h2 {
     color: white;
     display: block;
@@ -317,11 +317,13 @@ footer {
   height: 40px;
   font-weight: normal;
   margin: 0 30% 0;
+  min-width: 650px;
   padding: 12px 14px 0;
   position: fixed;
     bottom: 0;
+    left: 50%;
+    margin-left: -325px;
   text-align: center;
-  min-width: 40%;
   a {
     color: $home_red;
     text-decoration: underline;
