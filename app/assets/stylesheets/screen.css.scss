@@ -313,7 +313,7 @@ a.home_form_close {
 
 footer {
   background: white;
-  color: $home_red;
+  color: gray;
   height: 40px;
   font-weight: normal;
   margin: 0 30% 0;
@@ -325,7 +325,7 @@ footer {
     margin-left: -325px;
   text-align: center;
   a {
-    color: $home_red;
+    color: gray;
     text-decoration: underline;
     &:hover {
       text-decoration: none;
