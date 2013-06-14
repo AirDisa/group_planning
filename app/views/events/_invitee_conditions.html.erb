@@ -1,21 +1,24 @@
 <div class="condition-builder">
-  <div id="sentence">I will attend this event <span class="droppable-options" id="1">(drag condition here...)</span></div> <br>
+  <%= form_tag({:controller => 'conditions', :action=>'create'}, :method => 'post') do %>
+  <div id="sentence">I will attend this event if <span class="droppable-options" id="1">(drag condition here...)</span></div> <br>
+  <%= hidden_field_tag 'event_id', event.id%>
+  <%= button_tag("Commit") %><br>
+  <% end %>
 
   Conditions: <br>
   <ul class='draggable-options'>
-    <li id="min_num">if at least (number of) people go</li>
-    <li id="person">if (this specific person) goes</li>
+    <li id="min_num"> at least (number of) people go</li>
+    <li id="person">(this specific person) goes</li>
   </ul>
   
-  <br><button>Commit</button><br>
 </div>
 
 <div class="hide">
   <div id="minNumSelection">
-    if at least <%= select(:event, :users, (2..event.users.count)) %> people go, and
+    <span id='min_people'>at least <%= select(:event, :invitees, (2..event.users.count)) %> people go</span>
   </div>
 
   <div id="personSelection">
-    if <%= collection_select(:event, :users, event.users.all, :id, :full_name) %> goes, and
+    <span id='person_selector'><%= collection_select(:event, :users, event.users.where("status != 'No'"), :id, :full_name, {}, {:id => "event", :name => "event[users][]"}) %> goes</span>
   </div>
 </div>
