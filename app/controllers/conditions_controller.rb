@@ -10,7 +10,7 @@ class ConditionsController < ApplicationController
                      :invitee_id => params[:invitee_id])
 
     params[:event][:users].each do |user|
-    @condition = Condition.create(:text => "person", 
+    Condition.create(:text => "person", 
                                :method => "method",
                                :value => user,
                                :invitee_id => params[:invitee_id])

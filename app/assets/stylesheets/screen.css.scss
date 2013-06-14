@@ -376,6 +376,9 @@ margin-top:-65px;
 background-color: $home_blue;
 }
 
+
+
+
 .invited {
   a{
   text-decoration:none;
@@ -390,6 +393,47 @@ background-color: $home_blue;
   right: 0;
   border-top:10px solid white;
   background: $home_green;
+}
+
+.yes {
+  display: none;
+  position:fixed;
+  width:74%;
+  height: 40%;
+  bottom: 0;
+  right: 0;
+  border-top:10px solid white;
+  background: white;
+}
+.yes_if {
+  display: none;
+  position:fixed;
+  width:74%;
+  height: 40%;
+  bottom: 0;
+  right: 0;
+  border-top:10px solid white;
+  background: #29A329;
+}
+.no {
+  display: none;
+  position:fixed;
+  width:74%;
+  height: 40%;
+  bottom: 0;
+  right: 0;
+  border-top:10px solid white;
+  background: #29A329;
+}
+.thanks {
+  display: none;
+  position:fixed;
+  width:74%;
+  height: 40%;
+  bottom: 0;
+  right: 0;
+  border-top:10px solid white;
+  background: #29A329;
 }
 
 .conditional p {

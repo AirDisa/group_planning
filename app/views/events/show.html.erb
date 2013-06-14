@@ -5,8 +5,36 @@
 <span id='creator'><%= User.find(@event.creator_id).full_name %></span>
 
 <%= render :partial => "invited_user", :locals => { :event => @event } %>
+
 </div>
+
 <div class='conditional'>
   <p> Will you attend? </p>
+  <div class ='cond_buttons'>
+  <button id='Yes' data-invitee_id='<%=Invitee.find_by_event_id(@event.id).id%>'>yes</button><button id='yes_if' data-invitee_id='<%=Invitee.find_by_event_id(@event.id).id%>'>yes, IF</button><button id='No' data-invitee_id='<%=Invitee.find_by_event_id(@event.id).id%>'>no</button>
+  <div>
+</div>
+
+<div class="yes">
+
+  See you there!
+
+</div>
+
+<div class='yes_if'>
+  Choose Your Conditions:<br><br>
+
   <%= render :partial => "invitee_conditions", :locals => { :event => @event } %>
+
+</div>
+
+<div class='thanks'>
+  Thank you for participating!
+</div>
+
+
+<div class ='no'>
+
+  Party Pooper.
+
 </div>
