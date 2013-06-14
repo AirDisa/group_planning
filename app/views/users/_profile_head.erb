@@ -1,5 +1,5 @@
 <h2>your groupact profile:</h2>
-<%= image_tag user.profile_pic.thumb %>
+<%= image_tag user.profile_pic.thumb, :class => "profile_pic", :size => "120x120" %>
 <ul id="profile">
   <li><span>Name:</span> <%= user.first_name %> <%= user.last_name %></li>
   <li><span>Email:</span> <%= mail_to(user.email) %></li>
