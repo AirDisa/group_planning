@@ -29,10 +29,11 @@ $(document).ready(function(){
   });
 
   // Close forms with link
-  $('.home_form_close').click(function(){
+  $('.home_form_close').click(function(event){
     scrollTop();
     $(this).parent().delay(500).fadeToggle();
     toggleLinks();
+    event.preventDefault();
   });
 
 });
