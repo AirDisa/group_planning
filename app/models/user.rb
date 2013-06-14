@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   acts_as_url :full_name, :sync_url => true
 
-  attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :url
+  attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :url, :profile_pic
   has_many :invitees
   has_many :events,  :through => :invitees
   has_many :created_events, :class_name => "Event", :foreign_key => :creator_id
