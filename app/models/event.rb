@@ -1,12 +1,12 @@
 class Event < ActiveRecord::Base
- 
+
   acts_as_url :title, :sync_url => true
   attr_accessible :commit_date, :creator_id, :description, :title, :image
   has_many :invitees
   belongs_to :creator, :class_name => "User"
   has_many :users, :through => :invitees
   mount_uploader :image, ImageUploader
-  
+
   validates :title,       :length => {:minimum => 4,
                           :too_short => "must have at least %{count} letters"}
   validates :creator_id,  :presence => true
@@ -15,6 +15,10 @@ class Event < ActiveRecord::Base
 
   def waffling
     invitees.select { |invitee| invitee.status == "Pending" }
+  end
+
+  def waffling_by_user(user_id)
+    waffling.select { |invitee| invitee.user_id == user_id }
   end
 
   def going

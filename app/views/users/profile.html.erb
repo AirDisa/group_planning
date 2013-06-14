@@ -1,8 +1,69 @@
 <div class="wrapper">
-  <h2>your groupact profile</h2>
+
+  <h2>your groupact profile:</h2>
   <ul id="profile">
-    <li>First name: <%= best_in_place_if current_user.id == @user.id, @user, :first_name, :type => :input %></li>
-    <li>Last name: <%= @user.last_name %></li>
-    <li>Email: <%= best_in_place_if current_user.id == @user.id, @user, :email, :type => :input %></li>
+    <li>Name: <%= @user.first_name %> <%= @user.last_name %></li>
+    <li>Email: <%= @user.email %></li>
   </ul>
+
+  <h3>your groupact statuses:</h3>
+
+  <h4>created events</h4>
+
+  <% if @created_pending.length > 0 %>
+    <h5>pending:</h5>
+    <ul>
+      <% @created_pending.each do |event| %>
+        <li><%= event.title %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+    <% if @created_going.length > 0 %>
+    <h5>going:</h5>
+    <ul>
+      <% @created_going.each do |event| %>
+        <li><%= event.title %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+    <% if @created_not_going.length > 0 %>
+    <h5>not going:</h5>
+    <ul>
+      <% @created_not_going.each do |event| %>
+        <li><%= event.title %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <h4>invited events</h4>
+
+  <% if @invited_pending.length > 0 %>
+    <h5>pending:</h5>
+    <ul>
+      <% @invited_pending.each do |event| %>
+        <li><%= event.title %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+    <% if @invited_going.length > 0 %>
+    <h5>going:</h5>
+    <ul>
+      <% @invited_going.each do |event| %>
+        <li><%= event.title %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+    <% if @invited_not_going.length > 0 %>
+    <h5>not going:</h5>
+    <ul>
+      <% @invited_not_going.each do |event| %>
+        <li><%= event.title %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
 </div>
