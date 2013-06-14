@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :invitees
   has_many :events,  :through => :invitees
   has_many :created_events, :class_name => "Event", :foreign_key => :creator_id
+  mount_uploader :profile_pic, ProfilePicUploader
 
   validates :first_name, :length     => {:minimum => 2,
                          :too_short  => "must have at least %{count} letters"}
