@@ -1,8 +1,8 @@
 Planning::Application.routes.draw do
 
   resources :sessions, :only => [:create, :new]
-  resources :users, :only => [:create, :new]
   resources :events
+  resources :users
 
   root :to => 'home#index'
 

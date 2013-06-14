@@ -10,6 +10,21 @@ class UsersController < ApplicationController
   end
 
   def profile
+    @user = User.find_by_url(params[:slug])
+  end
+
+  def update
+    @user = User.find params[:id]
+
+    respond_to do |format|
+      if @user.update_attributes(params[:user])
+        format.html { redirect_to(profile_path(@user.url), :notice => 'User was successfully updated.') }
+        format.json { respond_with_bip(@user) }
+      else
+        format.html { render :action => "profile" }
+        format.json { respond_with_bip(@user) }
+      end
+    end
   end
 
   def new

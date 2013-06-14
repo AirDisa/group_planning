@@ -1,1 +1,8 @@
-<h1>User Profile Page Template</h1>
+<div class="wrapper">
+  <h2>your groupact profile</h2>
+  <ul id="profile">
+    <li>First name: <%= best_in_place_if current_user.id == @user.id, @user, :first_name, :type => :input %></li>
+    <li>Last name: <%= @user.last_name %></li>
+    <li>Email: <%= best_in_place_if current_user.id == @user.id, @user, :email, :type => :input %></li>
+  </ul>
+</div>

@@ -17,10 +17,10 @@ class User < ActiveRecord::Base
                          :too_short  => "must have at least %{count} letters"}
 
   validates :email,      :uniqueness => {:case_sensitive => false,
-                         :message    => "has already been taken"}, 
+                         :message    => "has already been taken"},
                          :format     => {:with => /\w{3,}@\w+\.\w{2,3}/,
                          :message    => "must be a valid format" }
-                         
+
   validate  :password_complexity
   validates :password,   :length     => {:minimum => 6,
                          :too_short  => "must have at least %{count} characters"}
