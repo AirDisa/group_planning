@@ -3,6 +3,7 @@ Planning::Application.routes.draw do
   resources :sessions, :only => [:create, :new]
   resources :events
   resources :users
+  resources :conditions
 
   root :to => 'home#index'
 
