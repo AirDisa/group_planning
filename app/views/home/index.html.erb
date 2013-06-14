@@ -1,32 +1,13 @@
-<p id="home_intro">Fingerstache retro fanny pack, cardigan kogi american apparel bespoke polaroid master cleanse. Hoodie squid bespoke chambray, Tonx church-key put a bird on it single-origin coffee umami fingerstache gluten-free.
-<p id="home_hover">Chillwave vinyl hella, McSweeney's single-origin coffee kale chips pug deep v skateboard. Fap biodiesel pug cornhole, cardigan disrupt chambray YOLO Pinterest. Bespoke narwhal before they sold out, Banksy readymade leggings trust fund +1 Etsy fixie beard banh mi salvia. Mixtape tote bag gentrify Terry Richardson PBR lo-fi umami. Lomo synth squid butcher, food truck quinoa hella raw denim thundercats Cosby sweater.</p>
+<%= render :partial => "home/home_tagline" %>
+
+<%= render :partial => "home/home_tag_hover" %>
 
 <% unless current_user %>
-  <h3 id="home_form_links"><%= link_to "log in", '#', :class => "home_login" %> / <%= link_to "join", '#', :class => "home_join" %></h3>
 
-  <div class="log_in_form">
-    <h4>log in</h4>
+  <%= render :partial => "home/home_form_links" %>
 
-    <%= form_tag sessions_path do %>
-      <%= email_field_tag :email, nil, :placeholder => "Email" %>
-      <%= password_field_tag :password, nil, :placeholder => "Password" %>
-      <%= button_tag "Sign In" %>
-    <% end %>
-    <%= link_to "close", '#', :class=> "home_form_close" %>
-  </div>
+  <%= render :partial => "home/home_login_form" %>
 
-  <div class="join_form">
-    <h4>join</h4>
+  <%= render :partial => "home/home_join_form" %>
 
-    <%= form_for @user do |u| %>
-      <%= u.text_field :first_name, :placeholder => "First name" %>
-      <%= u.text_field :last_name, :placeholder => "Last name" %>
-      <%= u.email_field :email, :placeholder => "Email" %>
-       <%= u.password_field :password, :placeholder => "Password" %>
-      <%= u.password_field :password_confirmation, :placeholder => "Confirm Password" %>
-      <%= u.button "Create Account" %>
-    <% end %>
-    <%= link_to "close", '#', :class=> "home_form_close" %>
-  </div>
 <% end %>
-

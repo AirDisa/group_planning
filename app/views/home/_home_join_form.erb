@@ -1,0 +1,13 @@
+<div class="join_form">
+  <h4>join</h4>
+
+  <%= form_for @user do |u| %>
+    <%= u.text_field :first_name, :placeholder => "First name" %>
+    <%= u.text_field :last_name, :placeholder => "Last name" %>
+    <%= u.email_field :email, :placeholder => "Email" %>
+     <%= u.password_field :password, :placeholder => "Password" %>
+    <%= u.password_field :password_confirmation, :placeholder => "Confirm Password" %>
+    <%= u.button "Create Account" %>
+  <% end %>
+  <%= link_to "close", '#', :class=> "home_form_close" %>
+</div>
