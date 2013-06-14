@@ -75,6 +75,24 @@ h1 a {
   width: 900px;
 }
 
+h3 {
+  color: $dark_red;
+  font-size: 34px;
+  margin: 0 0 30px;
+}
+
+h4 {
+  color: $dark_red;
+  font-size: 28px;
+  margin: 0 0 18px;
+}
+
+h5 {
+  color: $dark_red;
+  font-size: 22px;
+  margin: 0 0 12px;
+}
+
 /* Home Page Style */
 
 #home_intro,  #home_hover {
@@ -222,6 +240,7 @@ a.home_form_close {
 }
 
 .wrapper {
+  padding-bottom: 600px;
   h2 {
     color: white;
     display: block;
@@ -254,6 +273,42 @@ a.home_form_close {
   }
 }
 
+/* Profile Page */
+
+#profile {
+  padding: 30px 0;
+  li, li a {
+    color: white;
+    font-size: 48px;
+    font-weight: lighter;
+    span {
+      color: $dark_red;
+    }
+    a {
+      display: inline;
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.profile_column {
+  float: left;
+  padding: 0 2.5%;
+  width: 45%;
+  ul {
+    margin: 0 0 30px;
+    li {
+      a {
+        font-size: 18px;
+        font-weight: lighter;
+      }
+    }
+  }
+}
+
 /* Footer */
 
 footer {
@@ -262,11 +317,13 @@ footer {
   height: 40px;
   font-weight: normal;
   margin: 0 30% 0;
+  min-width: 650px;
   padding: 12px 14px 0;
   position: fixed;
     bottom: 0;
+    left: 50%;
+    margin-left: -325px;
   text-align: center;
-  min-width: 40%;
   a {
     color: $home_red;
     text-decoration: underline;

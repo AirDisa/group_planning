@@ -2,68 +2,74 @@
 
   <h2>your groupact profile:</h2>
   <ul id="profile">
-    <li>Name: <%= @user.first_name %> <%= @user.last_name %></li>
-    <li>Email: <%= @user.email %></li>
+    <li><span>Name:</span> <%= @user.first_name %> <%= @user.last_name %></li>
+    <li><span>Email:</span> <%= mail_to(@user.email) %></li>
   </ul>
 
   <h3>your groupact statuses:</h3>
 
-  <h4>created events</h4>
+  <div class="profile_column">
+    <h4>created events</h4>
 
-  <% if @created_pending.length > 0 %>
-    <h5>pending:</h5>
-    <ul>
-      <% @created_pending.each do |event| %>
-        <li><%= event.title %></li>
-      <% end %>
-    </ul>
-  <% end %>
+    <% if @created_pending.length > 0 %>
+      <h5>pending:</h5>
+      <ul>
+        <% @created_pending.each do |event| %>
+          <li><%= link_to event.title, event_path(event.url) %></li>
+        <% end %>
+      </ul>
+    <% end %>
 
-    <% if @created_going.length > 0 %>
-    <h5>going:</h5>
-    <ul>
-      <% @created_going.each do |event| %>
-        <li><%= event.title %></li>
-      <% end %>
-    </ul>
-  <% end %>
+      <% if @created_going.length > 0 %>
+      <h5>going:</h5>
+      <ul>
+        <% @created_going.each do |event| %>
+          <li><%= link_to event.title, event_path(event.url) %></li>
+        <% end %>
+      </ul>
+    <% end %>
 
-    <% if @created_not_going.length > 0 %>
-    <h5>not going:</h5>
-    <ul>
-      <% @created_not_going.each do |event| %>
-        <li><%= event.title %></li>
-      <% end %>
-    </ul>
-  <% end %>
+      <% if @created_not_going.length > 0 %>
+      <h5>not going:</h5>
+      <ul>
+        <% @created_not_going.each do |event| %>
+          <li><%= link_to event.title, event_path(event.url) %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
 
-  <h4>invited events</h4>
+  <div class="profile_column">
+    <h4>invited events</h4>
 
-  <% if @invited_pending.length > 0 %>
-    <h5>pending:</h5>
-    <ul>
-      <% @invited_pending.each do |event| %>
-        <li><%= event.title %></li>
-      <% end %>
-    </ul>
-  <% end %>
+    <% if @invited_pending.length > 0 %>
+      <h5>pending:</h5>
+      <ul>
+        <% @invited_pending.each do |event| %>
+          <li><%= link_to event.title, event_path(event.url) %></li>
+        <% end %>
+      </ul>
+    <% end %>
 
-    <% if @invited_going.length > 0 %>
-    <h5>going:</h5>
-    <ul>
-      <% @invited_going.each do |event| %>
-        <li><%= event.title %></li>
-      <% end %>
-    </ul>
-  <% end %>
+      <% if @invited_going.length > 0 %>
+      <h5>going:</h5>
+      <ul>
+        <% @invited_going.each do |event| %>
+          <li><%= link_to event.title, event_path(event.url) %></li>
+        <% end %>
+      </ul>
+    <% end %>
 
-    <% if @invited_not_going.length > 0 %>
-    <h5>not going:</h5>
-    <ul>
-      <% @invited_not_going.each do |event| %>
-        <li><%= event.title %></li>
-      <% end %>
-    </ul>
-  <% end %>
+      <% if @invited_not_going.length > 0 %>
+      <h5>not going:</h5>
+      <ul>
+        <% @invited_not_going.each do |event| %>
+          <li><%= link_to event.title, event_path(event.url) %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <div style="clear: all"></div>
 
 </div>
