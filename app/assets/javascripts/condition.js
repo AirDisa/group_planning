@@ -1,4 +1,7 @@
 $(document).ready(function() {
+
+//describes the conditions and makes them draggable.
+
   $('.draggable-options li').draggable({
     helper: "clone",
     appendTo: "body",
@@ -27,11 +30,14 @@ $(document).ready(function() {
       $('.droppable-options').remove();
     }
   }
+
+
+//Transition and posting between yes, yes-if, no.
   $('body').on('click', 'button', function(){
     var screen = $(this).attr('id')
-    
-    if (screen === 'yes') {
-      $.post('/invitees/'+id, function(){
+    var id = $(this).data('invitee_id');
+    if (screen === 'Yes') {
+      $.post('/invitees/update/'+id, {status: 'Yes'} , function(){
       $('.conditional').hide();
       $('.yes').animate({ width: 'show' }); 
       $('.yes').delay(2000).fadeOut();
@@ -39,10 +45,12 @@ $(document).ready(function() {
     } else if (screen ==='yes_if') {
       $('.conditional').hide();
       $('.yes_if').animate({ width: 'show' }); 
-    } else if (screen === 'no') {
+    } else if (screen === 'No') {
+      $.post('/invitees/update/'+id, {status: 'No'} , function(){
       $('.conditional').hide();
       $('.no').animate({ width: 'show' }); 
       $('.no').delay(2000).fadeOut();
+    });
     }
   });
 });

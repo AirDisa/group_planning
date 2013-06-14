@@ -4,12 +4,11 @@ Planning::Application.routes.draw do
   resources :events
   resources :users
   resources :conditions
-  resources :invitees
 
   root :to => 'home#index'
 
   get '/logout/' => "sessions#logout", :as => 'logout'
-
+  post '/invitees/update/:id' => "invitees#update", :as => 'update'
   get '/users/:slug/admin' => 'users#admin', :as => 'admin'
   get '/users/:slug/profile' => 'users#profile', :as => 'profile'
 
