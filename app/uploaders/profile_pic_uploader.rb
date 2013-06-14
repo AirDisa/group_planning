@@ -23,6 +23,6 @@ class ProfilePicUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    asset_path("fallback/profile_default.png")  
+    asset_path("fallback/profile_default.png")
   end
 end
