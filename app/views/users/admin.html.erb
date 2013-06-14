@@ -1,39 +1,49 @@
-<h1>Admin Portal: <%= @user.first_name %> <%= @user.last_name %></h1>
+<div id="admin_top" class="admin_block">
+  <div class="wrapper">
+    <h1>Admin Portal: <%= @user.first_name %> <%= @user.last_name %></h1>
+    <ul class="user_admin_nav">
+      <li><a href="#new">new</a></li>
+      <li><a href="#invited">invited</a></li>
+      <li><a href="#created">created</a></li>
+    </ul>
+  </div>
+</div>
 
-<ul id="user_admin_nav">
-  <li><a href="#new">new</a></li>
-  <li><a href="#invited">invited</a></li>
-  <li><a href="#created">created</a></li>
-</ul>
-
-<div id="create_event">
+<div id="create_event" class="admin_block">
 <a id="new"></a>
-
-  <h2>create a groupact:</h2>
-  <h3>PLACEHOLDER FOR EVENT CREATION FORM</h3>
-
+  <div class="wrapper">
+    <h2>create a groupact:</h2>
+    <h3>PLACEHOLDER FOR EVENT CREATION FORM</h3>
+    <p class="user_admin_nav"><a href="#top">top</a></p>
+  </div>
 </div>
 
-<div id="invited_events">
+<div id="invited_events" class="admin_block">
 <a id="invited"></a>
-
-  <h2>groupacts you're invited to:</h2>
-  <ul>
-    <% @user.events.each do |event| %>
-      <li><%= link_to event.title, event_path(event.url) %></li>
-    <% end %>
-  </ul>
-
+  <div class="wrapper">
+    <h2>groupacts you're invited to:</h2>
+    <div id="multiColumn">
+      <ul>
+        <% @user.events.each do |event| %>
+          <li><%= link_to event.title, event_path(event.url) %></li>
+        <% end %>
+      </ul>
+    </div>
+    <p class="user_admin_nav"><a href="#top">top</a></p>
+  </div>
 </div>
 
-<div id="created_events">
+<div id="created_events" class="admin_block">
 <a id="created"></a>
-
-  <h2>groupacts you've created:</h2>
-  <ul>
-    <% @user.created_events.each do |event| %>
-      <li><%= link_to event.title, event_path(event.url) %></li>
-    <% end %>
-  </ul>
-
+  <div class="wrapper">
+    <h2>groupacts you've created:</h2>
+    <div id="multiColumn">
+      <ul>
+        <% @user.created_events.each do |event| %>
+          <li><%= link_to event.title, event_path(event.url) %></li>
+        <% end %>
+      </ul>
+    </div>
+    <p class="user_admin_nav"><a href="#top">top</a></p>
+  </div>
 </div>
