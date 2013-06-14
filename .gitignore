@@ -7,3 +7,6 @@
 
 # Ignore DS_Store
 .DS_Store
+
+# Ignore Profile Images
+/public/uploads/
