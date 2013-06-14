@@ -10,3 +10,10 @@ before_script:
   - bundle exec rake db:migrate
   - bundle exec rake db:test:prepare
 bundler_args: --binstubs=./bundler_stubs
+notifications:
+  email:
+    recipients:
+      - mitchlee11@gmail.com
+      - ydawant@gmail.com
+      - andrewstamm@me.com
+    on_success: never
