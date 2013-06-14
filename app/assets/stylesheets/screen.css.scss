@@ -271,6 +271,7 @@ footer {
   font-size: 32px;
   font-weight: lighter;
   text-align: left;
+  margin: 20px;
 }
 
 #event_description {
@@ -278,11 +279,62 @@ footer {
   font-size: 24px;
   font-weight: lighter;
   text-align: left;
+  margin: 20px;
+}
+
+#creator {
+  color: white;
+  font-size: 24px;
+  font-weight: lighter;
+  text-align: left;
+  margin: 20px;
+}
+
+.invite {
+  color: white;
+  font-size: 24px;
+  font-weight: lighter;
+  text-align: center;
+  margin-top: 50px;
 }
 
 .vertical {
-border:5px solid black;
+position:fixed;
+border-right:10px solid white;
 width: 25%;
-height: 100%;
+height:100%;
+margin-top:-65px;
+background-color: #3232A6;
+}
+
+.invited {
+  a{
+  text-decoration:none;
+  }
+}
+
+.conditional {
+  position:fixed;
+  width:74%;
+  height: 25%;
+  bottom: 0;
+  right: 0;
+  border-top:10px solid white;
+  background: #29A329;
+}
+
+.conditional p {
+  color: white;
+  font-size: 24px;
+  font-weight: lighter;
+  text-align: left;
+  margin: 20px;
+}
+
+.event {
+  position:relative;
+  float:right;
+  width:50%;
+  height:50%;
 }
 
