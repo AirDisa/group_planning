@@ -263,7 +263,7 @@ a.home_form_close {
   }
   ul li a {
     color: white;
-    display: block;
+    display: inline-block;
     font-size: 24px;
     margin: 0 0 14px;
     text-decoration: none;
@@ -371,7 +371,7 @@ border-right:10px solid white;
 width: 25%;
 height:100%;
 margin-top:-65px;
-background-color: #3232A6;
+background-color: $home_blue;
 }
 
 .invited {
@@ -387,7 +387,7 @@ background-color: #3232A6;
   bottom: 0;
   right: 0;
   border-top:10px solid white;
-  background: #29A329;
+  background: $home_green;
 }
 
 .conditional p {
