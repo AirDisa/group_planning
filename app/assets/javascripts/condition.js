@@ -27,4 +27,22 @@ $(document).ready(function() {
       $('.droppable-options').remove();
     }
   }
+  $('body').on('click', 'button', function(){
+    var screen = $(this).attr('id')
+    
+    if (screen === 'yes') {
+      $.post('/invitees/'+id, function(){
+      $('.conditional').hide();
+      $('.yes').animate({ width: 'show' }); 
+      $('.yes').delay(2000).fadeOut();
+      });
+    } else if (screen ==='yes_if') {
+      $('.conditional').hide();
+      $('.yes_if').animate({ width: 'show' }); 
+    } else if (screen === 'no') {
+      $('.conditional').hide();
+      $('.no').animate({ width: 'show' }); 
+      $('.no').delay(2000).fadeOut();
+    }
+  });
 });

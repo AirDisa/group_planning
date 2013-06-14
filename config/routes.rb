@@ -4,6 +4,7 @@ Planning::Application.routes.draw do
   resources :events
   resources :users
   resources :conditions
+  resources :invitees
 
   root :to => 'home#index'
 
