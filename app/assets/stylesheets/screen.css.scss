@@ -6,10 +6,12 @@
  @import "compass/reset";
 
  $home_red:   #ED3419;
- $dark_red: #A01C08;
+ $dark_red: darken( $home_red, 30% ) ;
  $home_green: #00A055;
  $home_blue: #2222ED;
+ $dark_blue: darken( $home_blue, 30% ) ;
  $home_orange: #FF4E34;
+ $dark_orange: darken( $home_orange, 30% );
 
  body:before, body:after {
   content: "";
@@ -287,6 +289,32 @@ a.home_form_close {
     text-decoration: none;
     &:hover {
       text-decoration: underline;
+    }
+  }
+}
+
+.admin-event-list {
+  li {
+    display: inline-block;
+    position: relative;
+    a img {
+      border: solid 2px white;
+      margin: 0 3.1px;
+    }
+  }
+  .event_image_title a {
+    background: rgba(255,255,255,.75);
+    color: black;
+    display: block;
+    font-size: .8em;
+    margin: 0 3.1px;
+    padding: 8px 6px;
+    position: absolute;
+      top: 0;
+    width: 279px;
+    z-index: 90;
+    &:hover {
+      text-decoration: none;
     }
   }
 }
