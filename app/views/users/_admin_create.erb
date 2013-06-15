@@ -1,16 +1,26 @@
 <div id="create_event" class="admin_block">
-<a id="new"></a>
-  <div class="wrapper">
-    <h2>create a groupact:</h2>
+    <a id="new"></a>
+    <div class="wrapper event-creation">
+        <h2>create a groupact:</h2>
 
-    <%= form_for @event do |e| %>
-    <%= e.text_field :title, :placeholder => "Event Title" %>
-    <%= e.text_area :description, :placeholder => "Event Description" %>
-    <%= e.text_field :commit_date, :placeholder => "Commit Date", :class=>'datepicker' %>
-    <%= hidden_field_tag('event[creator_id]', current_user.id) %><br>
-    <%= e.button "Create" %>
-    <% end %>
+        <%= form_for @event do |e| %>
+        <%= e.text_field :title, :placeholder => "Event Title" %>
+        <%= e.text_area :description, :placeholder => "Event Description" %>
+        <%= e.text_field :commit_date, :placeholder => "Commit Date", :class=>'datepicker' %>
+        <%= hidden_field_tag('event[creator_id]', current_user.id) %><br>
+        <%= button_tag "Next", :type => "button", :id => "next" %>
+        <p class="user_admin_nav"><a href="#top">top</a></p>
+    </div>
 
-    <p class="user_admin_nav"><a href="#top">top</a></p>
-  </div>
+    <div class="wrapper event-creation" id="emails" style="display: none;">
+        <%= e.fields_for :emails do |email| %>
+        <%= email.text_field 0, :placeholder => "Invitee's email" %>
+        <%= email.text_field 1, :placeholder => "Invitee's email" %>
+        <%= email.text_field 2, :placeholder => "Invitee's email" %> <br>
+        <%= button_tag "Add Invitee", :type => "button", :id => "add" %>
+        <%= e.button "Create Event" %>
+        <% end %>
+        <% end %>
+        <p class="user_admin_nav"><a href="#top">top</a></p>
+    </div>
 </div>

@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
 
   acts_as_url :title, :sync_url => true
-  attr_accessible :commit_date, :creator_id, :description, :title, :image
+  attr_accessible :commit_date, :creator_id, :description, :title, :image, :emails
   has_many :invitees
   belongs_to :creator, :class_name => "User"
   has_many :users, :through => :invitees
