@@ -1,4 +1,4 @@
-<%= image_tag @event.image %>
+<%= image_tag @event.image, :class => "event_page_image" %>
 
 <h2>
   <%= best_in_place_if current_user.id == @event.creator_id, @event, :title, :type => :input%>

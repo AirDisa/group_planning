@@ -361,8 +361,8 @@ footer {
 
 .event_info {
   float: right;
-  padding: 0 0 0 5%;
-  width: 65%;
+  padding: 0 0 0 3.3%;
+  width: 66.7%;
   h2 {
     color: $dark_red;
     margin: 0px;
@@ -373,6 +373,10 @@ footer {
     font-weight: lighter;
     line-height: 1.4em;
     margin: 12px 0 30px;
+  }
+  img.event_page_image {
+    border: solid 4px white;
+    margin: 0 0 12px;
   }
 }
 
