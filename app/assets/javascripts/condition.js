@@ -52,7 +52,7 @@ $(document).ready(function() {
   });
 
 // Handling the commit on yes-if.
-  $('body').on('click', '#condition_button', function(e){
+  $('body').on('submit', '#condition_button', function(e){
   e.preventDefault();
   var data = $('form').serialize();
   $.post('/conditions', data, function(){
