@@ -52,10 +52,11 @@ $(document).ready(function() {
   });
 
 // Handling the commit on yes-if.
-  $('body').on('submit', '#condition_button', function(e){
+  $('body').on('click', '#condition_button', function(e){
   e.preventDefault();
   var data = $('form').serialize();
   $.post('/conditions', data, function(){
+    debugger;
     $('.yes_if').hide();
      $('.thanks').animate({ width: 'show' });
     });
