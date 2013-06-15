@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130615170434) do
+ActiveRecord::Schema.define(:version => 20130615203319) do
 
   create_table "conditions", :force => true do |t|
     t.string   "method",     :null => false
@@ -32,16 +32,17 @@ ActiveRecord::Schema.define(:version => 20130615170434) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "url"
+    t.text     "emails"
   end
 
   add_index "events", ["url"], :name => "index_events_on_url", :unique => true
 
   create_table "invitees", :force => true do |t|
-    t.integer  "user_id",    :null => false
-    t.integer  "event_id",   :null => false
-    t.string   "status",     :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "user_id",                           :null => false
+    t.integer  "event_id",                          :null => false
+    t.string   "status",     :default => "Pending", :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   add_index "invitees", ["event_id"], :name => "index_invitees_on_event_id"
