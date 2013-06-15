@@ -8,4 +8,6 @@ $(function() {
 
     event.preventDefault();
   });
+
+  $('.datepicker').pickadate();
 });
