@@ -75,6 +75,11 @@ h1 a {
   width: 900px;
 }
 
+.clear {
+  clear: both;
+  height: 40px;
+}
+
 h3 {
   color: $dark_red;
   font-size: 34px;
@@ -177,13 +182,13 @@ button {
   color: $home_red;
   font-size: 18px;
   font-weight: bolder;
+  margin: 0 14px 0 0;
   padding: 12px;
-}
-
-button:hover {
-  background: $home_red;
-  color: white;
-  cursor: pointer;
+  &:hover {
+    background: $home_red;
+    color: white;
+    cursor: pointer;
+  }
 }
 
 a.home_form_close {
@@ -354,155 +359,125 @@ footer {
 
 /* Event Page */
 
-#event_header {
- color: white;
- font-size: 32px;
- font-weight: lighter;
- text-align: left;
- margin: 20px;
-}
-
-#event_description {
-  color: white;
-  font-size: 24px;
-  font-weight: lighter;
-  text-align: left;
-  margin: 20px;
-}
-
-#creator {
-  color: white;
-  font-size: 24px;
-  font-weight: lighter;
-  text-align: left;
-  margin: 20px;
-}
-
-.invite {
-  color: white;
-  font-size: 24px;
-  font-weight: lighter;
-  text-align: center;
-  margin-top: 50px;
+.event_info {
+  float: right;
+  padding: 0 0 0 5%;
+  width: 65%;
+  h2 {
+    color: $dark_red;
+    margin: 0px;
+  }
+  h3 {
+    color: white;
+    font-size: 22px;
+    font-weight: lighter;
+    line-height: 1.4em;
+    margin: 12px 0 30px;
+  }
 }
 
 .vertical {
-  position:fixed;
-  border-right:10px solid white;
+  float: left;
+  padding: 0 5% 0 0;
   width: 25%;
-  height:100%;
-  margin-top:-65px;
-  background-color: $home_blue;
-}
-
-
-
-
-.invited {
-  a{
-    text-decoration:none;
+  p {
+    color: white;
+    margin: 0 0 8px;
+  }
+  h2 {
+    clear: both;
+    font-size: 32px;
+    padding: 8px 0 0;
+    a {
+      color: white;
+      &:hover {
+        color: $dark_red;
+      }
+    }
+  }
+  h3 {
+    color: $dark_red;
+    font-size: 18px;
+    font-weight: lighter;
+    margin: 25px 0 12px;
+  }
+  .invited {
+    list-style: none;
+    a {
+      color: white;
+      font-size: 16px;
+      line-height: 26px;
+      &:hover {
+        color: $dark_red;
+      }
+    }
   }
 }
 
 .conditional {
-  position:fixed;
-  width:73.1%;
-  height: 40%;
-  bottom: 0;
-  right: 0;
-  border-top:10px solid white;
-  border-right:10px solid white;
-  background: $home_green;
-  .cond_buttons{
-    text-align: center;
-    margin-top: 8%
+  border-top: solid 10px white;
+  h2 {
+    color: white;
+    font-size: 32px;
+    margin: 18px 0 24px;
+    p {
+      color: white;
+      font-size: 24px;
+      font-weight: lighter;
+      text-align: left;
+      margin: 20px;
+    }
   }
 }
 
-.cond_buttons button {
-  font-size: 30px;
-  margin-right: 80px;
-  background: $home_green;
-  color: white;
-  border: 1px solid white;
-  padding: 3px;
-  padding-right: 40px;
-  padding-left: 40px;
-}
-
-.cond_buttons button:hover {
-  background: white ;
-  color: $home_green;
-}
-
-
-.conditional p {
-  color: white;
-  font-size: 24px;
-  font-weight: lighter;
-  text-align: left;
-  margin: 20px;
-}
-
-.yes {
-  display: none;
-  position:fixed;
-  width:73.1%;
-  height: 40%;
-  bottom: 0;
-  right: 0;
-  border-top:10px solid white;
-  border-right: 10px solid white;
-  background: $home_green;
-  p {
-    color:white;
-    font-size:60px;
-    text-align:center;
-    margin-top:5%;
+.cond_buttons button, #close_window {
+  background: white;
+  border: none;
+  color: $home_red;
+  font-size: 18px;
+  font-weight: bolder;
+  padding: 12px;
+  &:hover {
+    background: $home_red;
+    color: white;
   }
 }
 
-#close_window {
-  position:relative;
-  font-size: 24px;
-  margin-right: 80px;
+.yes_if, .yes, .thanks, .no {
   background: $home_green;
-  color: white;
-  padding: 3px;
-  padding-right: 40px;
-  padding-left: 40px;
-  float:top;
-  margin-top:20px;
-}
-
-#close_window:hover {
-  background: white ;
-  color: $home_green;
-}
-
-.yes_if {
-  display: none;
-  position:fixed;
-  width:73.1%;
-  height: 40%;
-  bottom: 0;
-  right: 0;
-  border-top:10px solid white;
+  border-left: 10px solid white;
   border-right: 10px solid white;
-  background: $home_green;
+  border-top:10px solid white;
+  display: none;
+  height: 50%;
+  padding: 30px;
+  position:fixed;
+    bottom: 0;
+    right: 0;
+  width:75%;
+  #close_window, #condition_button {
+    color: $home_green;
+    &:hover {
+      background: $home_green;
+      color: white;
+    }
+  }
   p {
     color:white;
-    font-size:24px;
+    font-size: 48px;
+    font-weight: lighter;
+    margin: 12px 0;
     text-align:left;
-    margin-top:20px;
-    margin-left:20px;
+  }
+  #sentence {
+    color: white;
+    font-size: 20px;
   }
   .draggable-options {
     float:right;
-    margin-top:-15%;
     font-size: 24px;
     color: white;
-    margin-right:20px
+    margin: -40px 20px 0 0;
   }
   #conditions_header{
     text-align:center;
@@ -515,67 +490,19 @@ footer {
       text-align: center;
     }
   }
-  #condition_button {
-    font-size: 30px;
-    margin-right: 80px;
-    margin-top: 20px;
-    background: $home_green;
-    color: white;
-    border: 1px solid white;
-    padding: 3px;
-    padding-right: 40px;
-    padding-left: 40px;
-  }
-
-  #condition_button:hover {
-    background: white;
-    color: $home_green;
-  }
-  .red {
-    color:red;
-    font-size:20px;
+  .bolder {
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
   }
 }
+
 .ui-draggable {
   list-style: none;
   color: white;
   font-size: 24px;
   margin-top: 20px;
   text-align: center;
-}
-.no {
-  display: none;
-  position:fixed;
-  width:73.1%;
-  height: 40%;
-  bottom: 0;
-  right: 0;
-  border-top:10px solid white;
-  border-right: 10px solid white;
-  background: $home_green;
-  p {
-    color:white;
-    font-size:60px;
-    text-align:center;
-    margin-top:5%;
-  }
-}
-.thanks {
-  display: none;
-  position:fixed;
-  width:73.1%;
-  height: 40%;
-  bottom: 0;
-  right: 0;
-  border-top:10px solid white;
-  border-right: 10px solid white;
-  background: $home_green;
-  p {
-    color:white;
-    font-size:60px;
-    text-align:center;
-    margin-top:5%;
-  }
 }
 
 .event {

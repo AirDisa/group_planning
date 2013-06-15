@@ -1,0 +1,30 @@
+<p>Event created by:</p>
+<%= image_tag User.find(@event.creator_id).profile_pic.thumb, :class => "profile_pic", :size => "120x120" %>
+<h2><%= link_to User.find(@event.creator_id).full_name, profile_path(User.find(@event.creator_id).url) %></h2>
+
+<% if event.waffling.count > 0 %>
+  <h3>Waffling:</h3>
+  <% event.waffling.each do |invitee| %>
+    <li class='invited'>
+      <%=link_to(User.find(invitee.user_id).full_name, profile_path(User.find(invitee.user_id).url)) %>
+    </li>
+    <% end %>
+<% end %>
+
+<% if event.going.count > 0 %>
+  <h3>Down to have fun:</h3>
+  <% event.going.each do |invitee| %>
+    <li class='invited'>
+      <%=link_to(User.find(invitee.user_id).full_name, profile_path(User.find(invitee.user_id).url)) %>
+    </li>
+    <% end %>
+<% end %>
+
+<% if event.not_going.count > 0 %>
+  <h3>Missing out:</h3>
+  <% event.not_going.each do |invitee| %>
+    <li class='invited'>
+      <%=link_to(User.find(invitee.user_id).full_name, profile_path(User.find(invitee.user_id).url)) %>
+    </li>
+    <% end %>
+<% end %>
