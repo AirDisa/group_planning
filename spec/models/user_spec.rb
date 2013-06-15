@@ -15,7 +15,7 @@ describe User do
     user = User.new(:first_name => 'A', :last_name => 'B', :email => 'C')
     user.password_digest = 'D'
     user.save!(:validate => false)
-    
+
     should validate_uniqueness_of(:email).case_insensitive
   end
 
