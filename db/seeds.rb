@@ -1,4 +1,9 @@
 # encoding: utf-8
+User.destroy_all
+Event.destroy_all
+Invitee.destroy_all
+Condition.destroy_all
+
 FULL_NAMES = [["Yannick", "Dawant"],
               ["Mitch", "Lee"],
               ["Andrew", "Stamm"],
@@ -264,6 +269,7 @@ EVENT_IMAGES = [ "events/default.jpg",
 STATUS = ['No', 'Pending', 'Yes']
 WEIGHT = [0, 1, 1, 1, 1, 2, 2]
 
+
 ###
 # Create Users
 ###
@@ -304,7 +310,7 @@ Event.all.each do |event|
                    event_id: event.id,
                    status:   STATUS[WEIGHT.sample])
            .conditions << Condition.create(method: "required_count", 
-                                           value: 1 + rand(5))
+                                           value: 1 + rand(12))
   end
   event.save
 end
