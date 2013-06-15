@@ -29,6 +29,11 @@ class Event < ActiveRecord::Base
     invitees.select { |invitee| invitee.status == "No" }
   end
 
+  def update_invitees_statuses(going)
+    invitees.each { |invitee| invitee.update_attribute("status", "Pending") if invitee.status == "Yes" }
+    going.each    { |invitee| invitee.update_attribute("status", "Yes") }
+  end
+
   # def to_param
   #   url
   # end

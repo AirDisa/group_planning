@@ -1,10 +1,15 @@
 class InviteesController < ApplicationController
 
   def update
-    @invitee = Invitee.find(params[:id])
+    invitee = Invitee.find(params[:id])
+    @event  = Event.find(invitee.event_id)
+    
     respond_to do |format|
-      if @invitee.update_attribute("status", params[:status])
-        format.html { redirect_to event_path(Event.find(@invitee.event_id).url) }
+      if invitee.update_attribute("status", params[:status])
+        going = Group.new(@event.invitees).solve
+        @event.update_invitees_statuses(going)
+
+        format.html { redirect_to event_path(@event.url) }
         format.json { respond_with_bip(@event) }
       else
         format.html { render :action => "edit" }
