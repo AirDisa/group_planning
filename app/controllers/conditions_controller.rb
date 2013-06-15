@@ -12,10 +12,12 @@ class ConditionsController < ApplicationController
                         :invitee_id => params[:invitee_id])
     end
 
-    params[:event][:users].each do |user_id|
-      Condition.create(:method     => "specific_person",
-                       :value      => user_id,
-                       :invitee_id => params[:invitee_id])
+    if params[:event][:users]
+      params[:event][:users].each do |user_id|
+        Condition.create(:method     => "specific_person",
+                         :value      => user_id,
+                         :invitee_id => params[:invitee_id])
+      end
     end
 
     going = Group.new(@event.invitees).solve

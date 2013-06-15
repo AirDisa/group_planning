@@ -2,6 +2,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by_url(params[:id])
+    @invitee = Invitee.find_by_event_id_and_user_id(@event.id, current_user.id)
   end
 
   def create
