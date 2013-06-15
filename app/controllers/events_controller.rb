@@ -9,6 +9,7 @@ class EventsController < ApplicationController
     if @event.save
       Invitee.create(:user_id => params[:event][:creator_id], :event_id => @event.id, :status => "Pending")
       flash[:success] = "You have created a new event!"
+      CreatorMailer.event_creation(current_user, @event).deliver
       redirect_to event_path(@event.url)
     else
       flash[:error] = "Please try again"
