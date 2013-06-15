@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-gem 'pg'
 gem 'stringex'
 
 group :assets do
@@ -27,3 +26,4 @@ gem 'mini_magick'
 gem 'jquery-rails'
 gem 'best_in_place'
 gem 'jquery-ui-rails'
+gem 'pg'
