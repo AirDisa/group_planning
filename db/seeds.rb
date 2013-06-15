@@ -280,7 +280,7 @@ users = User.all
 EVENTS.each do |event|
   Event.create(title: event.first,
                description: event.last,
-               commit_date: Time.at(Time.now + Random.rand(86400..604800)),
+               commit_date: Time.at(Time.now + 86400 + rand(518400)),
                creator_id: users.sample.id)
 end
 
@@ -290,7 +290,7 @@ end
 ###
 
 Event.all.each do |event|
-  users.sample(Random.rand(3..20)).each do |user|
+  users.sample(3 + rand(17)).each do |user|
     Invitee.create(user_id: user.id,
                    event_id: event.id,
                    status: STATUS[WEIGHT.sample])
