@@ -6,8 +6,8 @@
     <%= form_for @event do |e| %>
     <%= e.text_field :title, :placeholder => "Event Title" %>
     <%= e.text_area :description, :placeholder => "Event Description" %>
-    <%= e.datetime_select :commit_date %>
-    <%= hidden_field_tag('event[creator_id]', current_user.id) %>
+    <%= e.text_field :commit_date, :placeholder => "Commit Date", :class=>'datepicker' %>
+    <%= hidden_field_tag('event[creator_id]', current_user.id) %><br>
     <%= e.button "Create" %>
     <% end %>
 

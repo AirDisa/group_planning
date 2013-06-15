@@ -1,4 +1,6 @@
 /*
  *= require_self
+ *= require pickadate/default
+ *= require pickadate/default.date
  *= require_tree .
  */
