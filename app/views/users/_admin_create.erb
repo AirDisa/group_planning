@@ -6,6 +6,12 @@
         <%= form_for @event do |e| %>
         <%= e.text_field :title, :placeholder => "Event Title" %>
         <%= e.text_area :description, :placeholder => "Event Description" %>
+        <%= e.select(:image,[ ['Default',   "events/default.jpg"   ],
+                              ['Sporting',  "events/sports.jpg"    ],
+                              ['Music',     "events/music.jpg"     ],
+                              ['Nightlife', "events/nightlife.jpg" ],
+                              ['Theater',   "events/theater.jpg"   ],
+                              ['Travel',    "events/theater.jpg"   ] ]) %>
         <%= e.text_field :commit_date, :placeholder => "Commit Date", :class=>'datepicker' %>
         <%= hidden_field_tag('event[creator_id]', current_user.id) %><br>
         <%= button_tag "Next", :type => "button", :id => "next" %>
@@ -23,4 +29,5 @@
         <% end %>
         <p class="user_admin_nav"><a href="#top">top</a></p>
     </div>
+
 </div>

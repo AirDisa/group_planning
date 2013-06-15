@@ -5,7 +5,7 @@ class Event < ActiveRecord::Base
   has_many :invitees
   belongs_to :creator, :class_name => "User"
   has_many :users, :through => :invitees
-  mount_uploader :image, ImageUploader
+  # mount_uploader :image, ImageUploader
 
   validates :title,       :length => {:minimum => 4,
                           :too_short => "must have at least %{count} letters"}
