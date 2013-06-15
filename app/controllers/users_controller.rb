@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def admin
     @user = User.find_by_url(params[:slug])
+    @event = Event.new
     if @user != current_user
       redirect_to root_path
     end

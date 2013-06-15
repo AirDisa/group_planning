@@ -2,7 +2,15 @@
 <a id="new"></a>
   <div class="wrapper">
     <h2>create a groupact:</h2>
-    <h3>PLACEHOLDER FOR EVENT CREATION FORM</h3>
+
+    <%= form_for @event do |e| %>
+    <%= e.text_field :title, :placeholder => "Event Title" %>
+    <%= e.text_area :description, :placeholder => "Event Description" %>
+    <%= e.datetime_select :commit_date %>
+    <%= hidden_field_tag('event[creator_id]', current_user.id) %>
+    <%= e.button "Create" %>
+    <% end %>
+
     <p class="user_admin_nav"><a href="#top">top</a></p>
   </div>
 </div>
