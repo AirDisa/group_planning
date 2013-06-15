@@ -18,8 +18,8 @@ describe UserMailer do
       mail.from.should == ['notifications@groupact.it']
     end
 
-    it 'should have access to @name in the body' do
-      mail.body.encoded.should match(user.name)
+    it "should have access to user's name in the body" do
+      mail.body.encoded.should match(user.first_name)
     end
 
   end
