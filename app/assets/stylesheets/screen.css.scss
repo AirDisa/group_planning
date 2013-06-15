@@ -557,12 +557,19 @@ footer {
 .thanks {
   display: none;
   position:fixed;
-  width:74%;
+  width:73.1%;
   height: 40%;
   bottom: 0;
   right: 0;
   border-top:10px solid white;
-  background: #29A329;
+  border-right: 10px solid white;
+  background: $home_green;
+  p {
+    color:white;
+    font-size:60px;
+    text-align:center;
+    margin-top:5%;
+  }
 }
 
 .event {
