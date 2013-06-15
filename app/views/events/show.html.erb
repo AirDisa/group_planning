@@ -3,7 +3,7 @@
   <div class="event_info"> <!-- Main Column -->
     <%= render :partial => "event_info", :locals => { :event => @event } %>
     <% unless @invitee.responded %>
-      <%= render :partial => "event_conditions", :locals => { :event => @event } %>
+      <%= render :partial => "event_conditions", :locals => { :event => @event, :invitee => @invitee } %>
     <% end %>
   </div>
 
