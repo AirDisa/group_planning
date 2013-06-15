@@ -4,21 +4,23 @@ class ConditionsController < ApplicationController
   end
 
   def create
-    if params[:event][:invitees] != nil
-      Condition.create(:text => "min_num",
-      :method => "method",
-      :value => params[:event][:invitees],
-      :invitee_id => params[:invitee_id])
+    @event = Event.find(params[:event_id])
+
+    if params[:event][:invitees]
+      Condition.create( :method     => "required_count",
+                        :value      => params[:event][:invitees],
+                        :invitee_id => params[:invitee_id])
     end
 
-    if params[:event][:users] != nil
-      params[:event][:users].each do |user|
-        Condition.create(:text => "person", 
-         :method => "method",
-         :value => user,
-         :invitee_id => params[:invitee_id])
-      end           
+    params[:event][:users].each do |user_id|
+      Condition.create(:method     => "specific_person",
+                       :value      => user_id,
+                       :invitee_id => params[:invitee_id])
     end
-    redirect_to event_path(Event.find(Invitee.find(params[:invitee_id]).event_id).url)
+
+    going = Group.new(@event.invitees).solve
+    @event.update_invitees_statuses(going)
+    
+    redirect_to event_path(@event.url)
   end
 end
