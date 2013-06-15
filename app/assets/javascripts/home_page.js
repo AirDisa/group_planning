@@ -8,23 +8,19 @@ $(document).ready(function(){
   $('#home_hover').hide();
 
   // Show entire intro paragraph on hover
-  $('#home_intro').mouseover(function(){
-    $('#home_hover').delay(200).fadeToggle();
-  });
-
-  $('#home_intro').mouseout(function(){
-    $('#home_hover').toggle();
-  });
+  introHover();
 
   // Toggle login form on click
   $('a.home_login').click(function(){
     $('.log_in_form').delay(500).fadeToggle();
+    $("#home_intro").unbind("mouseover mouseout");
     toggleLinks();
   });
 
   // Toggle join form on click
   $('a.home_join').click(function(){
     $('.join_form').delay(500).fadeToggle();
+    $("#home_intro").unbind("mouseover mouseout");
     toggleLinks();
   });
 
@@ -32,6 +28,7 @@ $(document).ready(function(){
   $('.home_form_close').click(function(event){
     scrollTop();
     $(this).parent().delay(500).fadeToggle();
+    introHover();
     toggleLinks();
     event.preventDefault();
   });
@@ -46,4 +43,14 @@ var scrollTop = function() {
   $('body,html').animate({
     scrollTop: 0
   }, 500);
+};
+
+var introHover = function() {
+  $('#home_intro').mouseover(function(){
+    $('#home_hover').delay(200).fadeToggle();
+  });
+
+  $('#home_intro').mouseout(function(){
+    $('#home_hover').toggle();
+  });
 }

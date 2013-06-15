@@ -97,20 +97,26 @@ h5 {
 
 #home_intro,  #home_hover {
   color: white;
-  font-size: 32px;
+  font-size: 22px;
   font-weight: lighter;
-  line-height: 44px;
+  line-height: 32px;
   margin: 70px  auto 0;
-  text-align: center;
-  width: 80%;
+  text-align: justify;
+  width: 800px;
   strong {
-    margin: 0px auto;
-    font-size: 48px;
-    font-style: italic;
+    font-size: 52px;
+    font-weight: 100;
   }
 }
+
 #home_hover {
-  margin: 16px auto;
+  margin: 8px auto;
+}
+
+#home_intro {
+  cursor: pointer;
+  padding: 0 0 20px;
+  text-align: center;
 }
 
 #home_form_links {
