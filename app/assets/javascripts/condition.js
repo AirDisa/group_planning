@@ -56,7 +56,6 @@ $(document).ready(function() {
   e.preventDefault();
   var data = $('form').serialize();
   $.post('/conditions', data, function(){
-    debugger;
     $('.yes_if').hide();
      $('.thanks').animate({ width: 'show' });
     });
