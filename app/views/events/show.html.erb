@@ -2,7 +2,7 @@
 
   <div class="event_info"> <!-- Main Column -->
     <%= render :partial => "event_info", :locals => { :event => @event } %>
-    <% if @invitee.created_at == @invitee.updated_at %>
+    <% unless @invitee.responded %>
       <%= render :partial => "event_conditions", :locals => { :event => @event } %>
     <% end %>
   </div>

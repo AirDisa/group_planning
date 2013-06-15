@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130615203319) do
+ActiveRecord::Schema.define(:version => 20130615215922) do
 
   create_table "conditions", :force => true do |t|
     t.string   "method",     :null => false
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20130615203319) do
     t.string   "status",     :default => "Pending", :null => false
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
+    t.boolean  "responded",  :default => false
   end
 
   add_index "invitees", ["event_id"], :name => "index_invitees_on_event_id"
