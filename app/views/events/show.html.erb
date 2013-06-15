@@ -2,7 +2,9 @@
 
   <div class="event_info"> <!-- Main Column -->
     <%= render :partial => "event_info", :locals => { :event => @event } %>
-    <%= render :partial => "event_conditions", :locals => { :event => @event } %>
+    <% if @invitee.created_at == @invitee.updated_at %>
+      <%= render :partial => "event_conditions", :locals => { :event => @event } %>
+    <% end %>
   </div>
 
   <div class ='vertical'> <!-- Left Column -->
