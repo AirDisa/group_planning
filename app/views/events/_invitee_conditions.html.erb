@@ -1,15 +1,17 @@
 <div class="condition-builder">
   <%= form_tag({:controller => 'conditions', :action=>'create'}, :method => 'post') do %>
-  <div id="sentence">I will attend this event if <span class="droppable-options" id="1">(drag condition here...)</span></div> <br>
+  <div id="sentence">I will attend this event <span class='red'>IF</span> <span class="droppable-options" id="1">___________________</span></div> <br>
   <%= hidden_field_tag 'invitee_id', Invitee.find_by_event_id(event.id).id%>
   <%= button_tag("Commit", :id => "condition_button")%><br>
   <% end %>
 
-  Conditions: <br>
-  <ul class='draggable-options'>
+<div class ='draggable-options'>
+  <p id="conditions_header">Conditions:</p>
+  <ul>
     <li id="min_num"> at least (number of) people go</li>
     <li id="person">(this specific person) goes</li>
   </ul>
+</div>
   
 </div>
 

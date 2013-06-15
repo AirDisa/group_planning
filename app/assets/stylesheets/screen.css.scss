@@ -3,15 +3,15 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
-@import "compass/reset";
+ @import "compass/reset";
 
-$home_red:   #ff2929;
-$dark_red: darken( $home_red, 30% );
-$home_green: #29FF29;
-$home_blue: #2929FF;
-$home_orange: #ff632f;
+ $home_red:   #ff2929;
+ $dark_red: darken( $home_red, 30% );
+ $home_green: #29FF29;
+ $home_blue: #2929FF;
+ $home_orange: #ff632f;
 
-body:before, body:after {
+ body:before, body:after {
   content: "";
   position: fixed;
   background: white;
@@ -62,9 +62,9 @@ h1 a {
   height: auto;
   padding: 20px;
   position: absolute;
-    top: 100px;
-    left: 50%;
-    margin-left: -200px;
+  top: 100px;
+  left: 50%;
+  margin-left: -200px;
   text-align: center;
   width: 350px;
 }
@@ -111,7 +111,7 @@ h5 {
   font-weight: bolder;
   margin: 0 25% 0;
   position: absolute;
-    bottom: 50px;
+  bottom: 50px;
   text-align: center;
   width: 50%;
   a {
@@ -139,22 +139,22 @@ h5 {
 }
 
 input, textarea {
-    border: 5px solid white;
-    color: gray;
-    font-size: 2em;
-    -webkit-box-shadow:
-      inset 0 0 8px  rgba(0,0,0,0.1),
-            0 0 16px rgba(0,0,0,0.1);
-    -moz-box-shadow:
-      inset 0 0 8px  rgba(0,0,0,0.1),
-            0 0 16px rgba(0,0,0,0.1);
-    box-shadow:
-      inset 0 0 8px  rgba(0,0,0,0.1),
-            0 0 16px rgba(0,0,0,0.1);
-    padding: 15px;
-    background: rgba(255,255,255,0.75);
-    margin: 0 0 10px 0;
-    width: 660px;
+  border: 5px solid white;
+  color: gray;
+  font-size: 2em;
+  -webkit-box-shadow:
+  inset 0 0 8px  rgba(0,0,0,0.1),
+  0 0 16px rgba(0,0,0,0.1);
+  -moz-box-shadow:
+  inset 0 0 8px  rgba(0,0,0,0.1),
+  0 0 16px rgba(0,0,0,0.1);
+  box-shadow:
+  inset 0 0 8px  rgba(0,0,0,0.1),
+  0 0 16px rgba(0,0,0,0.1);
+  padding: 15px;
+  background: rgba(255,255,255,0.75);
+  margin: 0 0 10px 0;
+  width: 660px;
 }
 
 button {
@@ -326,9 +326,9 @@ footer {
   min-width: 650px;
   padding: 12px 14px 0;
   position: fixed;
-    bottom: 0;
-    left: 50%;
-    margin-left: -325px;
+  bottom: 0;
+  left: 50%;
+  margin-left: -325px;
   text-align: center;
   a {
     color: gray;
@@ -343,10 +343,10 @@ footer {
 
 #event_header {
  color: white;
-  font-size: 32px;
-  font-weight: lighter;
-  text-align: left;
-  margin: 20px;
+ font-size: 32px;
+ font-weight: lighter;
+ text-align: left;
+ margin: 20px;
 }
 
 #event_description {
@@ -374,12 +374,12 @@ footer {
 }
 
 .vertical {
-position:fixed;
-border-right:10px solid white;
-width: 25%;
-height:100%;
-margin-top:-65px;
-background-color: $home_blue;
+  position:fixed;
+  border-right:10px solid white;
+  width: 25%;
+  height:100%;
+  margin-top:-65px;
+  background-color: $home_blue;
 }
 
 
@@ -387,49 +387,165 @@ background-color: $home_blue;
 
 .invited {
   a{
-  text-decoration:none;
+    text-decoration:none;
   }
 }
 
 .conditional {
   position:fixed;
-  width:74%;
+  width:73.1%;
   height: 40%;
   bottom: 0;
   right: 0;
   border-top:10px solid white;
+  border-right:10px solid white;
   background: $home_green;
+  .cond_buttons{
+    text-align: center;
+    margin-top: 8%
+  }
+}
+
+.cond_buttons button {
+  font-size: 30px;
+  margin-right: 80px;
+  background: $home_green;
+  color: white;
+  border: 1px solid white;
+  padding: 3px;
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+.cond_buttons button:hover {
+  background: white ;
+  color: $home_green;
+}
+
+
+.conditional p {
+  color: white;
+  font-size: 24px;
+  font-weight: lighter;
+  text-align: left;
+  margin: 20px;
 }
 
 .yes {
   display: none;
   position:fixed;
-  width:74%;
+  width:73.1%;
   height: 40%;
   bottom: 0;
   right: 0;
   border-top:10px solid white;
-  background: white;
+  border-right: 10px solid white;
+  background: $home_green;
+  p {
+    color:white;
+    font-size:60px;
+    text-align:center;
+    margin-top:5%;
+  }
 }
+
+#close_window {
+  position:relative;
+  font-size: 24px;
+  margin-right: 80px;
+  background: $home_green;
+  color: white;
+  padding: 3px;
+  padding-right: 40px;
+  padding-left: 40px;
+  float:top;
+  margin-top:20px;
+}
+
+#close_window:hover {
+  background: white ;
+  color: $home_green;
+}
+
 .yes_if {
   display: none;
   position:fixed;
-  width:74%;
+  width:73.1%;
   height: 40%;
   bottom: 0;
   right: 0;
   border-top:10px solid white;
-  background: #29A329;
+  border-right: 10px solid white;
+  background: $home_green;
+  p {
+    color:white;
+    font-size:24px;
+    text-align:left;
+    margin-top:20px;
+    margin-left:20px;
+  }
+  .draggable-options {
+    float:right;
+    margin-top:-15%;
+    font-size: 24px;
+    color: white;
+    margin-right:20px
+  }
+  #conditions_header{
+    text-align:center;
+    border-bottom: 5px solid white;
+  }
+  ul {
+    margin-top: 20px;
+    li {
+      margin-top: 20px;
+      text-align: center;
+    }
+  }
+  #condition_button {
+    font-size: 30px;
+    margin-right: 80px;
+    margin-top: 20px;
+    background: $home_green;
+    color: white;
+    border: 1px solid white;
+    padding: 3px;
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+
+  #condition_button:hover {
+    background: white;
+    color: $home_green;
+  }
+  .red {
+    color:red;
+    font-size:20px;
+  }
+}
+.ui-draggable {
+  list-style: none;
+  color: white;
+  font-size: 24px;
+  margin-top: 20px;
+  text-align: center;
 }
 .no {
   display: none;
   position:fixed;
-  width:74%;
+  width:73.1%;
   height: 40%;
   bottom: 0;
   right: 0;
   border-top:10px solid white;
-  background: #29A329;
+  border-right: 10px solid white;
+  background: $home_green;
+  p {
+    color:white;
+    font-size:60px;
+    text-align:center;
+    margin-top:5%;
+  }
 }
 .thanks {
   display: none;
@@ -440,14 +556,6 @@ background-color: $home_blue;
   right: 0;
   border-top:10px solid white;
   background: #29A329;
-}
-
-.conditional p {
-  color: white;
-  font-size: 24px;
-  font-weight: lighter;
-  text-align: left;
-  margin: 20px;
 }
 
 .event {

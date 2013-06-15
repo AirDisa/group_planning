@@ -4,8 +4,7 @@ $(document).ready(function() {
 
   $('.draggable-options li').draggable({
     helper: "clone",
-    appendTo: "body",
-    addClasses: false
+    appendTo: "body"
   });
 
   $('.droppable-options').droppable({
@@ -23,7 +22,7 @@ $(document).ready(function() {
 
   addPunctuation = function(input){
     var sentence_length = $('#sentence').children("span").length;
-    if (sentence_length <= 3) {
+    if (sentence_length <= 4) {
       $(input).after(', and if');
     } else {
       $('#sentence').append('.');
@@ -40,8 +39,6 @@ $(document).ready(function() {
       $.post('/invitees/update/'+id, {status: 'Yes'} , function(){
       $('.conditional').hide();
       $('.yes').animate({ width: 'show' });
-      $('.yes').delay(2000).fadeOut();
-      $('.yes').show();
       });
     } else if (screen ==='yes_if') {
       $('.conditional').hide();
@@ -50,7 +47,6 @@ $(document).ready(function() {
       $.post('/invitees/update/'+id, {status: 'No'} , function(){
       $('.conditional').hide();
       $('.no').animate({ width: 'show' });
-      $('.no').delay(2000).fadeOut();
     });
     }
   });
@@ -62,7 +58,11 @@ $(document).ready(function() {
   $.post('/conditions', data, function(){
     $('.yes_if').hide();
      $('.thanks').animate({ width: 'show' });
-      $('.thanks').delay(2000).fadeOut();
     });
+  });
+
+//closes message window
+  $('body').on('click', '#close_window', function(){
+    $(this).parent().fadeOut();
   });
 });
