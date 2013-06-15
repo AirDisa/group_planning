@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Hey <%= @creator.first_name %>,</h1>
+    <p>
+      This is just to confirm that you successfully created the event <%= @event.title %>.
+    </p>
+    <p>
+      Per your request, invitees will be given until <%= @event.commit_date.strftime("%A, %b %e") %> to respond before the final group is determined.
+    </p>
+    <p>
+      You can check back at any time to see the current status of the event. Happy planning!
+    </p>
+  </body>
+</html>
