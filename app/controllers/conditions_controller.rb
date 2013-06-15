@@ -20,9 +20,7 @@ class ConditionsController < ApplicationController
       end
     end
 
-    @invitee = Invitee.find(params[:invitee_id]).update_attributes(responded: true)
-    puts "\n\n\n\n"
-    p @invitee.responded
+    Invitee.find(params[:invitee_id]).update_attributes(responded: true)
     going = Group.new(@event.invitees).solve
     @event.update_invitees_statuses(going)
     
