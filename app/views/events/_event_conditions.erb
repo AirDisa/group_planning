@@ -1,0 +1,28 @@
+<div class='conditional'>
+  <h2> Will you attend? </h2>
+  <div class ='cond_buttons'>
+    <button id='Yes' data-invitee_id='<%=Invitee.find_by_event_id(@event.id).id%>'>yes</button>
+    <button id='yes_if' data-invitee_id='<%=Invitee.find_by_event_id(@event.id).id%>'>yes, IF</button>
+    <button id='No' data-invitee_id='<%=Invitee.find_by_event_id(@event.id).id%>'>no</button>
+  </div>
+</div>
+
+<div class="yes">
+  <button id='close_window'> Close Window </button>
+  <p>See you there!</p>
+</div>
+
+<div class='yes_if'>
+  <p>What would it take to convince you to go?</p>
+  <%= render :partial => "invitee_conditions", :locals => { :event => @event } %>
+</div>
+
+<div class='thanks'>
+  <button id='close_window'> Close Window </button>
+  <p>We'll keep you posted!</p>
+</div>
+
+<div class ='no'>
+  <button id='close_window'> Close Window </button>
+  <p>Party Pooper.</p>
+</div>

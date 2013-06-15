@@ -1,48 +1,14 @@
-<div class ='vertical'>
+<div class="wrapper">
 
-  <h1 id='event_header'><%= best_in_place_if current_user.id == @event.creator_id, @event, :title, :type => :input%></h1>
-  <h3 id='event_description'><%=  best_in_place_if current_user.id == @event.creator_id, @event, :description, :type => :input %></h3>
-  <span id='creator'><%= User.find(@event.creator_id).full_name %></span>
+  <div class="event_info"> <!-- Main Column -->
+    <%= render :partial => "event_info", :locals => { :event => @event } %>
+    <%= render :partial => "event_conditions", :locals => { :event => @event } %>
+  </div>
 
-  <%= render :partial => "invited_user", :locals => { :event => @event } %>
+  <div class ='vertical'> <!-- Left Column -->
+    <%= render :partial => "event_sidebar", :locals => { :event => @event } %>
+  </div>
+
+  <div class="clear"></div>
 
 </div>
-<% if @invitee.created_at == @invitee.updated_at %>
-  <div class='conditional'>
-    <p> Will you attend? </p>
-    <div class ='cond_buttons'>
-      <button id='Yes' data-invitee_id='<%=Invitee.find_by_event_id(@event.id).id%>'>yes</button><button id='yes_if' data-invitee_id='<%=Invitee.find_by_event_id(@event.id).id%>'>yes, IF</button><button id='No' data-invitee_id='<%=Invitee.find_by_event_id(@event.id).id%>'>no</button>
-    </div>
-  </div>
-
-  <div class="yes">
-    <button id='close_window'> Close Window </button>
-
-    <p>See you there!</p><br><br>
-
-
-  </div>
-
-  <div class='yes_if'>
-    <p>What would it take to convince you to go?</p><br><br>
-
-    <%= render :partial => "invitee_conditions", :locals => { :event => @event } %>
-
-  </div>
-
-  <div class='thanks'>
-    <button id='close_window'> Close Window </button>
-
-    <p>We'll keep you posted!</p><br><br>
-
-  </div>
-
-
-  <div class ='no'>
-    <button id='close_window'> Close Window </button>
-
-    <p>Party Pooper.</p><br><br>
-
-
-  </div>
-<% end %>
