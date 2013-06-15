@@ -33,6 +33,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:current_user_id] = @user.id
       flash[:success] = "You have signed up successfully!"
+      UserMailer.welcome_email(@user).deliver
       redirect_to admin_path(@user.url)
     else
       flash[:error] = @user.errors.full_messages.first
