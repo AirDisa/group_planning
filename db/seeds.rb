@@ -1,4 +1,9 @@
 # encoding: utf-8
+User.destroy_all
+Event.destroy_all
+Invitee.destroy_all
+Condition.destroy_all
+
 FULL_NAMES = [["Yannick", "Dawant"],
               ["Mitch", "Lee"],
               ["Andrew", "Stamm"],
@@ -254,9 +259,16 @@ EVENT_DESCRIPTIONS = [
           "Lifeline Theatre concludes its 2012-13 season with an adaptation of The Three Musketeers by Alexandre Dumas. Pursuing his dream to join the Musketeers, young d'Artagnan travels to Paris, where he befriends the legendary Three Inseparables: Athos, Porthos, and Aramis. Journey from Paris to London, from countryside taverns to glittering palaces, from a humble Gascon farm to the siege of La Rochelle, in an epic tale of passion, intrigue, and adventure.",
           "Adler Planetarium's newest exhibition teaches you all about the Universe. Featuring various multi-media interactive stations, The Universe: A Walk through Space and Time is a mix of fun and education."]
 EVENTS = EVENT_NAMES.zip(EVENT_DESCRIPTIONS).shuffle
+EVENT_IMAGES = [ "events/default.jpg",
+                 "events/sports.jpg",
+                 "events/music.jpg",
+                 "events/nightlife.jpg",
+                 "events/theater.jpg",
+                 "events/theater.jpg" ]
 
 STATUS = ['No', 'Pending', 'Yes']
 WEIGHT = [0, 1, 1, 1, 1, 2, 2]
+
 
 ###
 # Create Users
@@ -278,10 +290,12 @@ end
 users = User.all
 
 EVENTS.each do |event|
-  Event.create(title: event.first,
+  Event.create(title:       event.first,
                description: event.last,
                commit_date: Time.at(Time.now + 86400 + rand(518400)),
-               creator_id: users.sample.id)
+               creator_id:  users.sample.id,
+               image:       EVENT_IMAGES.sample,
+               emails:      "")
 end
 
 
@@ -291,8 +305,21 @@ end
 
 Event.all.each do |event|
   users.sample(3 + rand(17)).each do |user|
-    Invitee.create(user_id: user.id,
+    event.emails += user.email
+    Invitee.create(user_id:  user.id,
                    event_id: event.id,
-                   status: STATUS[WEIGHT.sample])
+                   status:   STATUS[WEIGHT.sample])
+           .conditions << Condition.create(method: "required_count", 
+                                           value: 1 + rand(12))
   end
+  event.save
+end
+
+
+###
+# Run Group Algorithm
+###
+
+Event.all.each do |event|
+  event.update_invitees_statuses(Group.new(event.invitees).solve)
 end

@@ -18,7 +18,7 @@
 
 <div class="hide">
   <div id="minNumSelection">
-    <span id='min_people'>at least <%= select(:event, :invitees, (2..event.users.count)) %> people go</span>
+    <span id='min_people'>at least <%= select(:event, :invitees, (2..event.emails.split(',').count)) %> people go</span>
   </div>
 
   <div id="personSelection">

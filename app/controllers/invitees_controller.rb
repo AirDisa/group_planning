@@ -5,7 +5,7 @@ class InviteesController < ApplicationController
     @event  = Event.find(invitee.event_id)
     
     respond_to do |format|
-      if invitee.update_attribute("status", params[:status])
+      if invitee.update_attributes(status: params[:status], responded: true)
         going = Group.new(@event.invitees).solve
         @event.update_invitees_statuses(going)
 
