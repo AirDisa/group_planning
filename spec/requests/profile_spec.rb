@@ -19,7 +19,7 @@ describe 'Profile Page' do
       @user  = FactoryGirl.create(:user)
       @event = FactoryGirl.create(:event)
       Invitee.create(:user_id => @user.id, :event_id => @event.id)
-      
+
       user_login(@user)
       visit profile_path(@user.url)
     end
@@ -40,7 +40,10 @@ describe 'Profile Page' do
       page.should have_content(@event.title)
     end
 
-    it "should display the user's invited events"
+    it "should display the user's invited events" do
+      @event2 = Event.create(:creator_id => 2, :Title => "Invited Event")
+      Invitee.create(:user_id => @user.id, :event_id => @event2.id)
+    end
 
     context "that has created events" do
       it "should display pending events"
