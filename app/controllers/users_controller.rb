@@ -36,7 +36,7 @@ class UsersController < ApplicationController
       UserMailer.welcome_email(@user).deliver
       redirect_to admin_path(@user.url)
     else
-      flash[:error] = @user.errors.full_messages.first
+      flash[:error] = @user.errors.full_messages.last
       redirect_to :back
     end
   end
