@@ -578,40 +578,6 @@ footer {
   display: none;
 }
 
-ul, li {
-    margin:0; 
-    padding:0; 
-    list-style:none;
-}
-
-.menu_class {
-    border:1px solid #1c1c1c;
-}
-
-.file_menu {
-    display:none;
-    width:300px;
-}
-
-.file_menu li {
-    background-color: $home_green;
-}
-
-.file_menu li a {
-    color:#FFFFFF; 
-    text-decoration:none; 
-    padding:10px; 
-    display:block;
-}
-
-.file_menu li a:hover {
-    padding:10px;
-    font-weight:bold;
-    color: #F00880;
-}
-
-#hover-trigger {
-  float:top;
 .comments_table, td {
   border-collapse: collapse;
   background:white;
@@ -645,5 +611,24 @@ ul, li {
  font-size: 12px;
  float: right;
  margin-top: -5px; 
+}
 
+.list_of_possible_conditions {
+  float:right;
+  margin-top: 6px;
+}
+
+#condition_list {
+  display:none;
+  width:400px;
+  li {
+  text-align:left;
+  font-size:12px;
+  }
+}
+
+#number_of_people, #certain_person_goes {
+  font-size:16px;
+  margin:0px;
+  padding: 0px;
 }

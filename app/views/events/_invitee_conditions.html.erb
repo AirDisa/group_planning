@@ -1,7 +1,7 @@
 <div class="condition-builder">
   <%= form_tag({:controller => 'conditions', :action=>'create'}, :method => 'post') do %>
-  <div id="sentence">I will attend this event <span class='bolder'>IF</span><%=render :partial => "event_list"%></div> <br>
-  <%= hidden_field_tag 'invitee_id', Invitee.find_by_event_id(event.id).id%>
+  <div id="sentence">I will attend this event <span class='bolder'>IF</span></div><%=render :partial => "event_list"%><br>
+  <%= hidden_field_tag 'invitee_id', invitee.id%>
   <%= hidden_field_tag 'event_id', event.id %>
   <%= button_tag("Commit", :id => "condition_button")%><br>
   <% end %>

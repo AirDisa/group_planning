@@ -1,9 +1,5 @@
-<ul class="hover">
-  <li class="hoverli">
-    <span id='hover-trigger'>List</span>
-    <ul class="file_menu">
-      <li>If a certain number of people go</li>
-      <li>If a certain person goes</li>
-    </ul>
-  <li>
+<%= link_to('Choose Your Conditions...', '#', :id=>'condition_link') %>
+<ul id="condition_list">
+  <li><%= link_to('a certain number of people go', '#', :id =>'number_of_people')%></li>
+  <li><%= link_to('a certain person goes', '#', :id => 'certain_person_goes') %></li>
 </ul>

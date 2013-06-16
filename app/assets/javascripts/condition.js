@@ -4,20 +4,10 @@ addPunctuation = function(input){
     $(input).after(', and if');
   } else {
     $('#sentence').append('.');
-    $('.droppable-options').remove();
   }
 };
 
 $(document).ready(function() {
-
-  $(".hoverli").hover(
-    function () {
-     $('ul.file_menu').slideDown('medium');
-   }, 
-   function () {
-     $('ul.file_menu').slideUp('medium');
-   }
-   );
 
   //Transition and posting between yes, yes-if, no.
   $('body').on('click', '.cond_buttons button', function(){
@@ -52,5 +42,25 @@ $(document).ready(function() {
   //closes message window
   $('body').on('click', '#close_window', function(){
     $(this).parent().fadeOut();
+  });
+
+  // Drop down for conditions
+  $('body').on('click', '#condition_link', function(e){
+    e.preventDefault();
+    $('#condition_list').slideDown('fast');
+  });
+
+  $('body').on('click', '#number_of_people', function(e){
+    e.preventDefault();
+    $('#sentence').append($('#minNumSelection'));
+    $('#number_of_people').hide();
+    $('#condition_list').hide();
+  });
+
+  $('body').on('click', '#certain_person_goes', function(e){
+    e.preventDefault();
+    var person = $('#personSelection').clone();
+    $('#sentence').append(person);
+    $('#condition_list').hide();
   });
 });
