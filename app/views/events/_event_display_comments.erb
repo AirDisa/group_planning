@@ -1,0 +1,7 @@
+ <% all_comments.each do |comment| %>
+  <div class='full_comment'>
+    <div class='comment_image'><%= image_tag User.find(comment.user_id).profile_pic, {:size => '50x50'}%></div>
+    <div class='comment_body'><%= comment.comment%></div>
+    <div class='comment_posted_at'>Posted <%= comment.time %> hours ago. </div>
+  </div><br>
+<% end %>
