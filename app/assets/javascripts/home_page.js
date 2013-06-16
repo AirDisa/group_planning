@@ -4,12 +4,6 @@ $(document).ready(function(){
   $('.log_in_form').hide();
   $('.join_form').hide();
 
-  // // Truncate intro paragraph on Page Load
-  // $('#home_hover').hide();
-
-  // // Show entire intro paragraph on hover
-  // introHover();
-
   // Toggle login form on click
   $('a.home_login').click(function(event){
     $('.log_in_form').delay(500).fadeToggle();
