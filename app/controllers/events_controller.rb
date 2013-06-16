@@ -12,9 +12,11 @@ class EventsController < ApplicationController
   end
 
   def create
-    params[:event][:emails] = params[:event][:emails].map(&:last).join(', ')
+    emails = params[:event][:emails]
+    params[:event][:emails] = emails.map(&:last).join(', ')
     @event = Event.new(params[:event])
     if @event.save
+      emails.each {|email| UserMailer.event_invitee(email, current_user, @event).deliver }
       CreatorMailer.event_creation(current_user, @event).deliver
       flash[:success] = "Your new event was created successfully!"
       redirect_to event_path(@event.url)
