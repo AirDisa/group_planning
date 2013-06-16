@@ -14,23 +14,22 @@ describe 'Profile Page' do
 
   context "with a user logged in" do
     include LoginHelpers
-    let(:user)  { FactoryGirl.create(:user) }
-    @event = Event.create(  :creator_id   => 1,
-                            :title        => 'Test Title',
-                            :description  => 'Test Description',
-                            :emails       => 'test@test.com')
 
-    before(:each) do
-      user_login(user)
-      visit profile_path(user.url)
+    before do
+      @user  = FactoryGirl.create(:user)
+      @event = FactoryGirl.create(:event)
+      Invitee.create(:user_id => @user.id, :event_id => @event.id)
+      
+      user_login(@user)
+      visit profile_path(@user.url)
     end
 
     it "should display the user's full name" do
-      page.should have_content(user.full_name)
+      page.should have_content(@user.full_name)
     end
 
     it "should display the user's email" do
-      page.should have_content(user.email)
+      page.should have_content(@user.email)
     end
 
     it "should display the user's profile pic" do
@@ -38,7 +37,6 @@ describe 'Profile Page' do
     end
 
     it "should display the user's created events" do
-      puts page.body
       page.should have_content(@event.title)
     end
 
