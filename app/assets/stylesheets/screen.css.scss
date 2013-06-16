@@ -497,7 +497,17 @@ footer {
       margin: 20px;
     }
   }
+  .countdown {
+    color: $dark_orange;
+    font-size: 18px;
+    margin: -16px 0 12px;
+    #timeToCommit {
+      color: $dark_red;
+      font-variant:small-caps;
+    }
+  }
 }
+
 
 .cond_buttons button, #close_window {
   background: white;

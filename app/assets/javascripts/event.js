@@ -12,4 +12,9 @@ $(document).ready(function(){
     var index = $('#emails input').length;
     $('#emails input').last().after(inviteeEmail(index));
   });
+
+  var commitTime = $('#timeToCommit').data('commitdate');
+  var timeToCommit = countdown( new Date(commitTime*1000), function(ts) {
+      document.getElementById('timeToCommit').innerHTML = ts.toHTML("strong");
+    }, countdown.WEEKS|countdown.DAYS|countdown.HOURS|countdown.MINUTES);
 });
