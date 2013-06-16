@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   end
 
   def edit_profile
+    @user = User.find_by_url(params[:slug])
   end
 
   def new
