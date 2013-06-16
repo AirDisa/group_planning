@@ -189,6 +189,18 @@ input, textarea {
   width: 660px;
 }
 
+#user_profile_pic {
+  background: none;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  height: 50px;
+  padding: 0px;
+}
+
 button {
   background: white;
   border: none;
@@ -640,7 +652,7 @@ footer {
  font-size: 12px;
  float: right;
  margin-top: -15px;
- margin-right: 5px; 
+ margin-right: 5px;
 }
 
 .list_of_possible_conditions {
