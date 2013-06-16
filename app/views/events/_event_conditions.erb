@@ -1,5 +1,9 @@
 <div class='conditional'>
+
   <h2> Will you attend? </h2>
+  <div class="countdown">You have 
+  <span id="timeToCommit" data-commitDate="<%= @event.commit_date.to_i %>"></span> 
+  left to make up your mind.</div>
   <div class ='cond_buttons'>
     <button id='Yes', data-invitee_id=<%=invitee.id%>>yes</button>
     <button id='yes_if' data-invitee_id=<%=invitee.id%>>yes, IF</button>
