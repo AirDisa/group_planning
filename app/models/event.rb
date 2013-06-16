@@ -10,6 +10,8 @@ class Event < ActiveRecord::Base
   validates :title,       :length => {:minimum => 4,
                           :too_short => "must have at least %{count} letters"}
   validates :creator_id,  :presence => true
+  validates :emails,      :length => {:minimum => 6,
+                          :too_short => "must include at least one invitee"}
   validates :commit_date, :presence => true
   validate  :commit_date_is_in_the_future
 
