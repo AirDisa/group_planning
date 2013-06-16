@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
-
-  acts_as_url :title, :sync_url => true
   attr_accessible :commit_date, :creator_id, :description, :title, :image, :emails
+  acts_as_url :title, :sync_url => true
+
   has_many :invitees
   belongs_to :creator, :class_name => "User"
   has_many :users, :through => :invitees
@@ -36,10 +36,6 @@ class Event < ActiveRecord::Base
     going.each    { |invitee| invitee.update_attribute("status", "Yes") }
   end
 
-  # def to_param
-  #   url
-  # end
-
   private
 
   def commit_date_is_in_the_future
@@ -47,5 +43,6 @@ class Event < ActiveRecord::Base
       errors.add(:commit_date, "must be in the future")
     end
   end
+
 end
 

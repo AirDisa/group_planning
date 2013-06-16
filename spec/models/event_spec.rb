@@ -6,7 +6,7 @@ describe Event do
 
   it { should ensure_length_of(:title).is_at_least(4).
               with_message(/must have at least 4 letters/)}
-  
+
   it { should allow_value("event description").for(:description) }
 
   it { should ensure_length_of(:emails).is_at_least(6).

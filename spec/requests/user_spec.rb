@@ -8,7 +8,7 @@ describe 'User' do
       visit root_path
       click_link "join"
     end
-    
+
     it "should log in user upon successful signup" do
       user = FactoryGirl.build(:user)
       expect {
@@ -22,7 +22,7 @@ describe 'User' do
 
       page.should have_content "Admin Portal"
     end
-    
+
     it "should display errors on unsuccessful signup" do
       click_button "Create Account"
 

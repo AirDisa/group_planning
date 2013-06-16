@@ -1,4 +1,4 @@
-<% if @invited_pending.length > 0 %>
+<% unless @invited_pending.empty? %>
   <h5>pending:</h5>
   <ul>
     <% @invited_pending.each do |event| %>
