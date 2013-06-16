@@ -23,6 +23,9 @@ class UsersController < ApplicationController
   def update
   end
 
+  def edit_profile
+  end
+
   def new
     @user = User.new
   end
