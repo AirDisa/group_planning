@@ -601,39 +601,46 @@ footer {
   display: none;
 }
 
-.comments_table, td {
-  border-collapse: collapse;
-  background:white;
-  border: 1px black;
-  margin-top: .5em;
-  margin-bottom: .5em;
-}
-
 #comment {
-  width: 425px;
+  width: 560px;
+  padding:0 20px;
+  border: none;
+  font-size:16px;
+  margin-bottom:5px;
+  height:38px;
 }
 
-.full_comment {
+#comment_button {
+  float:right;
+}
+
+.full_comment, #comment {
   display: block;
-  background: white;
-  padding:10px;
-  border-radius:10px;
+  background: rgba(0,0,0,0.3);
+  color:white;
+  padding-top:2px;
+  border-radius:5px;
+  margin-top: -13px;
+  a {
+    color: white;
+  }
 }
 .comment_body {
   float:left;
-  margin-left: 70px;
-  margin-top :-34px;
+  margin-left: 40px;
+  margin-top :-26px;
 }
 
 .comment_image {
-  width:50px;
+  width:30px;
   padding:0px;
 }
 
 .comment_posted_at {
  font-size: 12px;
  float: right;
- margin-top: -5px;
+ margin-top: -15px;
+ margin-right: 5px; 
 }
 
 .list_of_possible_conditions {
