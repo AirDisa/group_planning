@@ -18,7 +18,16 @@ describe 'Profile Page' do
     before do
       @user  = FactoryGirl.create(:user)
       @event = FactoryGirl.create(:event)
-      Invitee.create(:user_id => @user.id, :event_id => @event.id)
+      @invite1 = Invitee.create(:user_id => @user.id, :event_id => @event.id)
+
+      @event2 = FactoryGirl.create(:event, :title => "New Event Title")
+      @invite2 = Invitee.create(:user_id => @user.id, :event_id => @event2.id)
+
+      @event3 = FactoryGirl.create(:event, :title => "New Event Title")
+      @invite3 = Invitee.create(:user_id => @user.id, :event_id => @event3.id, :status => 'Yes')
+
+      @event4 = FactoryGirl.create(:event, :title => "New Event Title")
+      @invite4 = Invitee.create(:user_id => @user.id, :event_id => @event4.id, :status => 'No')
 
       user_login(@user)
       visit profile_path(@user.url)
@@ -41,24 +50,19 @@ describe 'Profile Page' do
     end
 
     it "should display the user's invited events" do
-      @event2 = Event.create(:creator_id => 2, :Title => "Invited Event")
-      Invitee.create(:user_id => @user.id, :event_id => @event2.id)
+      page.should have_content(@event2.title)
     end
 
-    context "that has created events" do
-      it "should display pending events"
-
-      it "should display commited events"
-
-      it "should display denied events"
+    it "should display pending events" do
+      page.should have_content("pending:")
     end
 
-    context "that has invited events" do
-      it "should display pending events"
+    it "should display commited events" do
+      page.should have_content("going:")
+    end
 
-      it "should display commited events"
-
-      it "should display denied events"
+    it "should display denied events" do
+      page.should have_content("not going:")
     end
 
   end
