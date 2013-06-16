@@ -2,6 +2,22 @@
 
 <%= render :partial => "home/home_tag_hover" %>
 
+<div class="splash">
+  <a href="/auth/twitter" class="auth_provider">
+    <%= image_tag "omniauth/twitter_128.png", :alt => "Twitter" %>
+  </a>
+
+  <a href="/auth/facebook" class="auth_provider">
+    <%= image_tag "omniauth/facebook_128.png", :alt => "Facebook" %>
+  </a>
+
+  <a href="/auth/google_oauth2" class="auth_provider">
+    <%= image_tag "omniauth/google_oauth2_128.png", :alt => "Google" %>
+  </a>
+
+</div>
+
+
 <% unless current_user %>
 
   <%= render :partial => "home/home_form_links" %>

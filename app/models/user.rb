@@ -34,8 +34,35 @@ class User < ActiveRecord::Base
     end
   end
 
+  def apply_omniauth(omniauth)
+    authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
+  end
+
   def full_name
     "#{self.first_name} #{self.last_name}"
   end
 
 end
+
+# Facebook:
+#<OmniAuth::AuthHash::InfoHash
+#email="mitchlee11@gmail.com"
+#first_name="Mitchell"
+#image="http://graph.facebook.com/579357203/picture?type=square"
+#last_name="Lee"
+#location="Phoenix, Arizona"
+#name="Mitchell Lee"
+
+# Google:
+#<OmniAuth::AuthHash::InfoHash
+#email="mitchlee11@gmail.com"
+#first_name="Mitchell"
+#image="https://lh3.googleusercontent.com/-ls6n5G9c-1U/AAAAAAAAAAI/AAAAAAAACyM/ccY0XRMPttQ/photo.jpg" 
+#last_name="Lee"
+#name="Mitchell Lee"
+
+# Twitter:
+#image="http://a0.twimg.com/profile_images/2274847204/8579ctyhgerbi6ftdoj5_normal.jpeg"
+#location="Phoenix, AZ"
+#name="Mitchell Lee"
+#nickname="dontmitch"

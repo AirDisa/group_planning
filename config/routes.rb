@@ -1,6 +1,7 @@
 Planning::Application.routes.draw do
 
   resources :sessions, :only => [:create, :new]
+  resources :authentications, :only => [:index, :create, :destroy]
   resources :events
   resources :users
   resources :conditions
@@ -11,5 +12,6 @@ Planning::Application.routes.draw do
   post '/invitees/:id' => "invitees#update", :as => 'update'
   get  '/users/:slug/admin' => 'users#admin', :as => 'admin'
   get  '/users/:slug/profile' => 'users#profile', :as => 'profile'
+  match '/auth/:provider/callback' => 'authentications#create'
 
 end
