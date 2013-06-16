@@ -10,3 +10,5 @@
 
 # Ignore Profile Images
 /public/uploads/
+# Ignore application configuration
+/config/application.yml
