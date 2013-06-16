@@ -2,9 +2,17 @@
 
   <div class="event_info"> <!-- Main Column -->
     <%= render :partial => "event_info", :locals => { :event => @event } %>
+
+    <% if @all_comments %>
+      <%= render :partial => "event_display_comments", :locals => { :all_comments => @all_comments } %>
+    <% end %>
+
+    <%= render :partial => "event_new_comment", :locals => { :event => @event } %>
+
     <% unless @invitee.responded %>
       <%= render :partial => "event_conditions", :locals => { :event => @event, :invitee => @invitee } %>
     <% end %>
+
   </div>
 
   <div class ='vertical'> <!-- Left Column -->
