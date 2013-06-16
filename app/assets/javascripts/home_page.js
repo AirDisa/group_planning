@@ -4,31 +4,27 @@ $(document).ready(function(){
   $('.log_in_form').hide();
   $('.join_form').hide();
 
-  // Truncate intro paragraph on Page Load
-  $('#home_hover').hide();
-
-  // Show entire intro paragraph on hover
-  introHover();
-
   // Toggle login form on click
-  $('a.home_login').click(function(){
+  $('a.home_login').click(function(event){
     $('.log_in_form').delay(500).fadeToggle();
-    $("#home_intro").unbind("mouseover mouseout");
+    $('#home_hover').delay(100).fadeToggle();
     toggleLinks();
+    event.preventDefault();
   });
 
   // Toggle join form on click
-  $('a.home_join').click(function(){
+  $('a.home_join').click(function(event){
     $('.join_form').delay(500).fadeToggle();
-    $("#home_intro").unbind("mouseover mouseout");
+    $('#home_hover').delay(100).fadeToggle();
     toggleLinks();
+    event.preventDefault();
   });
 
   // Close forms with link
   $('.home_form_close').click(function(event){
     scrollTop();
-    $(this).parent().delay(500).fadeToggle();
-    introHover();
+    $(this).parent().delay(100).fadeToggle();
+    $('#home_hover').delay(500).fadeToggle();
     toggleLinks();
     event.preventDefault();
   });
@@ -44,13 +40,3 @@ var scrollTop = function() {
     scrollTop: 0
   }, 500);
 };
-
-var introHover = function() {
-  $('#home_intro').mouseover(function(){
-    $('#home_hover').delay(200).fadeToggle();
-  });
-
-  $('#home_intro').mouseout(function(){
-    $('#home_hover').toggle();
-  });
-}
