@@ -1,0 +1,5 @@
+ <%= form_tag({:controller => 'comments', :action=>'create'}, :method => 'post') do %>
+  <%= text_field_tag "comment", nil, :placeholder=> "Leave a Comment" %>
+  <%= hidden_field_tag 'event_id', event.id%>
+  <%= button_tag("Comment", :id => "comment_button")%>
+<% end %>

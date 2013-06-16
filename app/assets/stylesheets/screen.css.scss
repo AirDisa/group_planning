@@ -612,4 +612,38 @@ ul, li {
 
 #hover-trigger {
   float:top;
+.comments_table, td {
+  border-collapse: collapse;
+  background:white;
+  border: 1px black;
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+
+#comment {
+  width: 425px;
+}
+
+.full_comment {
+  display: block;
+  background: white;
+  padding:10px;
+  border-radius:10px;
+}
+.comment_body {
+  float:left;
+  margin-left: 70px;
+  margin-top :-34px;
+}
+
+.comment_image {
+  width:50px;
+  padding:0px;
+}
+
+.comment_posted_at {
+ font-size: 12px;
+ float: right;
+ margin-top: -5px; 
+
 }

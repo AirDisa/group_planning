@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe CreatorMailer do
-  
+
   describe 'welcome email' do
     let(:user)  { FactoryGirl.build(:user) }
     let(:event) { FactoryGirl.build(:event) }
@@ -16,7 +16,7 @@ describe CreatorMailer do
     end
 
     it 'should render the correct sender email' do
-      mail.from.should == ['notifications@groupact.it']
+      mail.from.should == ['grouppact@gmail.com']
     end
 
     it "should have access to the user's name in the body" do

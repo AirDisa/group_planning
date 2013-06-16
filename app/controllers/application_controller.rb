@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
 
   protect_from_forgery
+
   before_filter :require_login
 
   private
@@ -17,5 +18,4 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !!current_user
   end
-
 end

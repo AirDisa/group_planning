@@ -22,6 +22,7 @@ end
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'acts_as_commentable', '3.0.1'
 
 gem 'jquery-rails'
 gem 'best_in_place'

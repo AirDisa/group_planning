@@ -2,7 +2,7 @@ require 'carrierwave/test/matchers'
 
 describe ImageUploader do
   include CarrierWave::Test::Matchers
-  
+
   before do
     ImageUploader.enable_processing = true
     @event     = FactoryGirl.create(:event)

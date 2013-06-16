@@ -295,7 +295,7 @@ EVENTS.each do |event|
                commit_date: Time.at(Time.now + 86400 + rand(518400)),
                creator_id:  users.sample.id,
                image:       EVENT_IMAGES.sample,
-               emails:      "")
+               emails:      "placeholder@placeholder.com")
 end
 
 
