@@ -374,6 +374,7 @@ img.profile_pic {
 
 #profile {
   padding: 30px 0;
+  position: relative;
   li, li a {
     color: white;
     font-size: 48px;
@@ -388,6 +389,11 @@ img.profile_pic {
         text-decoration: none;
       }
     }
+  }
+  li.edit a {
+    font-size: 18px;
+    position: absolute;
+      top: 0;
   }
 }
 
@@ -627,7 +633,7 @@ footer {
 .comment_posted_at {
  font-size: 12px;
  float: right;
- margin-top: -5px; 
+ margin-top: -5px;
 }
 
 .list_of_possible_conditions {
