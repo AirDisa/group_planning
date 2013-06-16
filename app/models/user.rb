@@ -25,6 +25,8 @@ class User < ActiveRecord::Base
                          :too_short  => "must have at least %{count} characters"}
   validates_confirmation_of :password
 
+  before_save { |user| user.email = user.email.downcase }
+
   mount_uploader :profile_pic, ProfilePicUploader
 
   def password_complexity

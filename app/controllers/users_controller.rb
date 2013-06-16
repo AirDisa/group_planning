@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  skip_before_filter :require_login, :only => [:new, :create]
+  skip_before_filter :require_login, :only => [:new, :create, :validate_email]
 
   def admin
     @user = User.find_by_url(params[:slug])
@@ -38,5 +38,10 @@ class UsersController < ApplicationController
       flash[:error] = @user.errors.full_messages.last
       redirect_to :back
     end
+  end
+
+  def validate_email
+    email = params[:user][:email].downcase
+    render :text => (User.find_by_email(email) ? "invalid" : "valid")
   end
 end
