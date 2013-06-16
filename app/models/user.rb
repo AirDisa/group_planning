@@ -1,10 +1,9 @@
-
 class User < ActiveRecord::Base
+  attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :url, :profile_pic
   has_secure_password
 
   acts_as_url :full_name, :sync_url => true
 
-  attr_accessible :email, :first_name, :last_name, :password, :password_confirmation, :url, :profile_pic
   has_many :invitees
   has_many :events,  :through => :invitees
   has_many :created_events, :class_name => "Event", :foreign_key => :creator_id
@@ -33,10 +32,6 @@ class User < ActiveRecord::Base
                                one uppercase letter, and one digit"
     end
   end
-
-  # def to_param
-  #   url
-  # end
 
   def full_name
     "#{self.first_name} #{self.last_name}"

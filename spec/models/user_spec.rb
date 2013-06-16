@@ -28,7 +28,7 @@ describe User do
   it { should have_many(:invitees) }
   it { should have_many(:events) }
   it { should have_many(:created_events) }
-  
+
   it { should allow_value("user-slug").for(:url) }
 
   it { should allow_value("/assets/images/test.png").for(:profile_pic) }

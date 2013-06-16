@@ -3,7 +3,7 @@ class InviteesController < ApplicationController
   def update
     invitee = Invitee.find(params[:id])
     @event  = Event.find(invitee.event_id)
-    
+
     respond_to do |format|
       if invitee.update_attributes(status: params[:status], responded: true)
         going = Group.new(@event.invitees).solve

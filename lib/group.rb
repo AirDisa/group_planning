@@ -9,7 +9,7 @@ class Group
     get_rid_of_party_poopers
 
     "run" while filter_by_person_condition || filter_by_count_condition
-    
+
     going
   end
 

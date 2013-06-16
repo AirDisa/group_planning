@@ -1,5 +1,4 @@
 # encoding: utf-8
-
 class ProfilePicUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   include Sprockets::Helpers::RailsHelper

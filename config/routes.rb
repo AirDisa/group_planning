@@ -7,9 +7,9 @@ Planning::Application.routes.draw do
 
   root :to => 'home#index'
 
-  get '/logout/' => "sessions#logout", :as => 'logout'
+  get  '/logout/' => "sessions#logout", :as => 'logout'
   post '/invitees/:id' => "invitees#update", :as => 'update'
-  get '/users/:slug/admin' => 'users#admin', :as => 'admin'
-  get '/users/:slug/profile' => 'users#profile', :as => 'profile'
+  get  '/users/:slug/admin' => 'users#admin', :as => 'admin'
+  get  '/users/:slug/profile' => 'users#profile', :as => 'profile'
 
 end
