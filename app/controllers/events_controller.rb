@@ -2,6 +2,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by_url(params[:id])
+    @all_comments = @event.comments
     if @event.emails.match(current_user.email) || current_user.id == @event.creator_id
       @invitee = Invitee.find_or_create_by_user_id_and_event_id(current_user.id, @event.id)
     else

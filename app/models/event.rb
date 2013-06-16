@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
   attr_accessible :commit_date, :creator_id, :description, :title, :image, :emails
   acts_as_url :title, :sync_url => true
+  acts_as_commentable
 
   has_many :invitees
   belongs_to :creator, :class_name => "User"
