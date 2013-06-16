@@ -1,4 +1,4 @@
-<% if @created_going.length > 0 %>
+<% unless @created_going.empty? %>
 <h5>going:</h5>
   <ul>
     <% @created_going.each do |event| %>
