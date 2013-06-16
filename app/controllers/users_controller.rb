@@ -20,11 +20,22 @@ class UsersController < ApplicationController
     @invited_not_going = Invitee.not_going(@user.events)
   end
 
-  def update
+  def edit
+    @user = User.find(params[:id])
+    if @user.id != current_user.id
+      flash[:error] = "You can only edit your own profile"
+      redirect_to root_path
+    end
   end
 
-  def edit_profile
-    @user = User.find_by_url(params[:slug])
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(params[:user])
+      redirect_to profile_path(@user.url)
+    else
+      flash[:error] = @user.errors.full_messages.last
+      redirect_to :back
+    end
   end
 
   def new

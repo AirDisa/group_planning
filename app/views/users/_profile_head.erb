@@ -2,7 +2,7 @@
 <%= image_tag user.profile_pic.thumb, :class => "profile_pic", :size => "120x120" %>
 <ul id="profile">
   <% if user.id == current_user.id %>
-    <li class="edit"><%= link_to 'Edit', edit_profile_path(user.url) %></li>
+    <li class="edit"><%= link_to 'Edit', edit_user_path(user.id) %></li>
   <% end %>
   <li><span>Name:</span> <%= user.full_name %></li>
   <li><span>Email:</span> <%= mail_to(user.email) %></li>

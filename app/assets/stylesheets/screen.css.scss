@@ -55,7 +55,7 @@ h1 a {
 
 .alert {
   background: #8f0000;
-  border-radius: 20px;
+  border-radius: 4px;
   box-shadow: 0 0 15px black;
   color: white;
   display: block;
@@ -158,7 +158,7 @@ ul#errors li {
 /* Login Forms */
 
 .log_in_form,
-.join_form {
+.join_form, .edit_form {
   margin: 0 auto;
   padding: 30px 0 60px;
   width: 700px;

@@ -12,7 +12,6 @@ Planning::Application.routes.draw do
   post '/invitees/:id' => "invitees#update", :as => 'update'
   get  '/users/:slug/admin' => 'users#admin', :as => 'admin'
   get  '/users/:slug/profile' => 'users#profile', :as => 'profile'
-  get '/users/:slug/edit_profile' => 'users#edit_profile', :as => 'edit_profile'
   post 'validate/email' => 'users#validate_email'
 
 end
