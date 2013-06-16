@@ -15,7 +15,7 @@ describe UserMailer do
     end
 
     it 'should render the correct sender email' do
-      mail.from.should == ['notifications@groupact.it']
+      mail.from.should == ['grouppact@gmail.com']
     end
 
     it "should have access to user's name in the body" do
