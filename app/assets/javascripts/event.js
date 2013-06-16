@@ -1,6 +1,6 @@
-var inviteeEmail = function(index) { 
+var inviteeEmail = function(index) {
   return "<input id='event_emails"+index+"' name='event[emails]["+index+"]'\
-  placeholder='Invitee&#x27;s email' size='30' type='text' />";
+  placeholder='Invitee&#x27;s email' size='30' type='text' class='friend-email' />";
 };
 
 $(document).ready(function(){
