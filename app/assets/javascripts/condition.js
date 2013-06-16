@@ -10,23 +10,14 @@ addPunctuation = function(input){
 
 $(document).ready(function() {
 
-  $('.draggable-options li').draggable({
-    helper: "clone",
-    appendTo: "body"
-  });
-
-  $('.droppable-options').droppable({
-    drop: function(event, ui) {
-      if (ui.draggable.attr('id') === 'min_num') {
-        $(this).before( $('#minNumSelection').html() );
-        $('#min_num').remove();
-        addPunctuation($('#min_people'));
-      } else if (ui.draggable.attr('id') === 'person') {
-        $(this).before( $('#personSelection').html() );
-        addPunctuation($('#person_selector'));
-      };
-    }
-  });
+  $(".hoverli").hover(
+    function () {
+     $('ul.file_menu').slideDown('medium');
+   }, 
+   function () {
+     $('ul.file_menu').slideUp('medium');
+   }
+   );
 
   //Transition and posting between yes, yes-if, no.
   $('body').on('click', '.cond_buttons button', function(){

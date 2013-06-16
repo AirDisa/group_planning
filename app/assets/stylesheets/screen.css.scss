@@ -514,16 +514,9 @@ footer {
 
 .yes_if, .yes, .thanks, .no {
   background: $home_green;
-  border-left: 10px solid white;
-  border-right: 10px solid white;
-  border-top:10px solid white;
+  border: 10px solid white;
   display: none;
-  height: 50%;
   padding: 30px;
-  position:fixed;
-    bottom: 0;
-    right: 0;
-  width:75%;
   #close_window, #condition_button {
     color: $home_green;
     &:hover {
@@ -583,4 +576,40 @@ footer {
 
 .hide {
   display: none;
+}
+
+ul, li {
+    margin:0; 
+    padding:0; 
+    list-style:none;
+}
+
+.menu_class {
+    border:1px solid #1c1c1c;
+}
+
+.file_menu {
+    display:none;
+    width:300px;
+}
+
+.file_menu li {
+    background-color: $home_green;
+}
+
+.file_menu li a {
+    color:#FFFFFF; 
+    text-decoration:none; 
+    padding:10px; 
+    display:block;
+}
+
+.file_menu li a:hover {
+    padding:10px;
+    font-weight:bold;
+    color: #F00880;
+}
+
+#hover-trigger {
+  float:top;
 }
