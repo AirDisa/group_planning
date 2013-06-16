@@ -5,24 +5,28 @@
   <h3>your groupact statuses:</h3>
 
   <div class="profile_column">
-    <h4>created events</h4>
+    <% unless @user.created_events.empty? %>
+      <h4>created events</h4>
 
-    <%= render :partial => "users/profile_created_pending", :locals => { :created_pending => @created_pending } %>
+      <%= render :partial => "users/profile_created_pending", :locals => { :created_pending => @created_pending } %>
 
-    <%= render :partial => "users/profile_created_going", :locals => { :created_going => @created_going } %>
+      <%= render :partial => "users/profile_created_going", :locals => { :created_going => @created_going } %>
 
-    <%= render :partial => "users/profile_created_not_going", :locals => { :created_not_going => @created_not_going } %>
+      <%= render :partial => "users/profile_created_not_going", :locals => { :created_not_going => @created_not_going } %>
+    <% end %>
 
   </div>
 
   <div class="profile_column">
-    <h4>invited events</h4>
+    <% unless @user.events.empty? %>
+      <h4>invited events</h4>
 
-    <%= render :partial => "users/profile_invited_pending", :locals => { :invited_pending => @invited_pending } %>
+      <%= render :partial => "users/profile_invited_pending", :locals => { :invited_pending => @invited_pending } %>
 
-    <%= render :partial => "users/profile_invited_going", :locals => { :invited_going => @invited_going } %>
+      <%= render :partial => "users/profile_invited_going", :locals => { :invited_going => @invited_going } %>
 
-    <%= render :partial => "users/profile_invited_not_going", :locals => { :invited_not_going => @invited_not_going } %>
+      <%= render :partial => "users/profile_invited_not_going", :locals => { :invited_not_going => @invited_not_going } %>
+    <% end %>
   </div>
 
   <div class="clear"></div>
