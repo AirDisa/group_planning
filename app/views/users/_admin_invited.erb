@@ -1,14 +1,17 @@
 <div id="invited_events" class="admin_block">
 <a id="invited"></a>
-  <div class="wrapper">
+  <div class="wrapper admin-event-list admin-invited">
     <h2>groupacts you're invited to:</h2>
-    <div id="multiColumn">
       <ul>
         <% user.events.each do |event| %>
-          <li><%= link_to event.title, event_path(event.url) %></li>
+          <li>
+            <%= link_to (image_tag event.image, :size => "287x137"), event_path(event.url) %>
+            <span class="event_image_title">
+              <%= link_to event.title, event_path(event.url) %>
+            </span>
+          </li>
         <% end %>
       </ul>
-    </div>
     <p class="user_admin_nav"><a href="#top">top</a></p>
   </div>
 </div>
