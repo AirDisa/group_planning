@@ -323,6 +323,39 @@ a.home_form_close {
   }
 }
 
+#event_title, #event_description, .friend-email {
+  width: 860px;
+}
+
+#event_description {
+  height: 300px;
+}
+
+#event_image {
+  background: url(new_arrow.png) no-repeat right #ddd;
+  border: 1px solid #ccc;
+  float: left;
+  font-size: 28px;
+  height: 78px;
+  overflow: hidden;
+  width: 46%;
+ }
+
+ #event_commit_date {
+  float: right;
+  width: 46%;
+ }
+
+ .event-creation #next, .email-button {
+  color: $home_green;
+  clear: both;
+  margin: 20px 0 0;
+  &:hover {
+    background: $home_green;
+    color: white;
+  }
+ }
+
 /* Profile Page */
 
 img.profile_pic {
