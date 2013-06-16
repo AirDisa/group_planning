@@ -295,7 +295,7 @@ EVENTS.each do |event|
                commit_date: Time.at(Time.now + 86400 + rand(518400)),
                creator_id:  users.sample.id,
                image:       EVENT_IMAGES.sample,
-               emails:      "")
+               emails:      "placeholder@placeholder.com")
 end
 
 
@@ -309,7 +309,7 @@ Event.all.each do |event|
     Invitee.create(user_id:  user.id,
                    event_id: event.id,
                    status:   STATUS[WEIGHT.sample])
-           .conditions << Condition.create(method: "required_count", 
+           .conditions << Condition.create(method: "required_count",
                                            value: 1 + rand(12))
   end
   event.save
