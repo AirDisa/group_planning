@@ -8,7 +8,6 @@
     <% end %>
 
     <%= render :partial => "event_new_comment", :locals => { :event => @event } %>
-
     <% unless @invitee.responded %>
       <%= render :partial => "event_conditions", :locals => { :event => @event, :invitee => @invitee } %>
     <% end %>

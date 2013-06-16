@@ -514,16 +514,9 @@ footer {
 
 .yes_if, .yes, .thanks, .no {
   background: $home_green;
-  border-left: 10px solid white;
-  border-right: 10px solid white;
-  border-top:10px solid white;
+  border: 10px solid white;
   display: none;
-  height: 50%;
   padding: 30px;
-  position:fixed;
-    bottom: 0;
-    right: 0;
-  width:75%;
   #close_window, #condition_button {
     color: $home_green;
     &:hover {
@@ -618,4 +611,24 @@ footer {
  font-size: 12px;
  float: right;
  margin-top: -5px; 
+}
+
+.list_of_possible_conditions {
+  float:right;
+  margin-top: 6px;
+}
+
+#condition_list {
+  display:none;
+  width:400px;
+  li {
+  text-align:left;
+  font-size:12px;
+  }
+}
+
+#number_of_people, #certain_person_goes {
+  font-size:16px;
+  margin:0px;
+  padding: 0px;
 }
