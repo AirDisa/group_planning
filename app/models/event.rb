@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  attr_accessible :commit_date, :creator_id, :description, :title, :image, :emails
+  attr_accessible :commit_date, :creator_id, :description, :title, :image, :emails, :down_payment
   acts_as_url :title
   acts_as_commentable
 
@@ -15,6 +15,7 @@ class Event < ActiveRecord::Base
                           :too_short => "must include at least one invitee"}
   validates :commit_date, :presence => true
   validate  :commit_date_is_in_the_future
+  validates :down_payment, :format => {:with => /^\d{1,}$/}, :allow_nil => true
 
   def waffling
     invitees.select { |invitee| invitee.status == "Pending" }
