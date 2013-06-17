@@ -19,4 +19,20 @@ $(document).ready(function(){
       document.getElementById('timeToCommit').innerHTML = ts.toHTML("strong");
     }, countdown.WEEKS|countdown.DAYS|countdown.HOURS|countdown.MINUTES);
   }
+
+  $('.event_info').on('submit', '.post_a_comment', function(e){
+    e.preventDefault();
+    data = $(this).serialize();
+    $.post('/comments', data, function(event){
+      if ($('.full_comment').length === 0) {
+        var new_comment = $(event).find('.full_comment').last().css({'margin-bottom' : '3px'});
+        $('.description').after(new_comment); 
+      } else {
+        var last_comment = $('.full_comment').last();
+        var new_comment = $(event).find('.full_comment').last().css({'margin-top': '3px', 'margin-bottom' : '2px'});
+        last_comment.after(new_comment)
+      }
+      $('form')[0].reset();
+    });    
+  });
 });
