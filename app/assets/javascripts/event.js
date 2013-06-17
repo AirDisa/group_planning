@@ -5,7 +5,10 @@ var inviteeEmail = function(index) {
 
 $(document).ready(function(){
   $('#create_event #next').click(function(){
-    $('.wrapper.event-creation').toggle("slide");
+    $('ul#errors').html('');
+    if ( ($('#event_title').val() != '') && ($('#event_commit_date').val() != '')) {
+    $('.wrapper.event-creation').toggle("slide") 
+  } else { $('ul#errors').append('<li class="email">You Must Have an Event Title and Commit Date</li>').hide().slideDown(100)}
   });
 
   $('#create_event #add').click(function(){
@@ -36,3 +39,4 @@ $(document).ready(function(){
     });    
   });
 });
+
