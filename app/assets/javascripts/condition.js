@@ -33,7 +33,6 @@ $(document).ready(function() {
   $('.wrapper').on('click', '#condition_button', function(e){
     e.preventDefault();
     var data = $('form').serialize();
-    debugger;
     $.post('/conditions', data, function(){
       $('.yes_if').hide();
       $('.thanks').animate({ width: 'show' });
