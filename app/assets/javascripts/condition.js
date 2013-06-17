@@ -9,6 +9,8 @@ addPunctuation = function(input){
 
 $(document).ready(function() {
 
+  // in general, youre performing event delegation by listening for events on body -- you can optimize your javascript a bit by listening on an element narrower in scope than body
+
   //Transition and posting between yes, yes-if, no.
   $('body').on('click', '.cond_buttons button', function(){
     var screen = $(this).attr('id')

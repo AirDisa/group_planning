@@ -7,6 +7,7 @@
 //= require pickadate/picker.date
 //= require_tree .
 
+// i would recommend moving this out of your manifest file
 $(document).ready(function() {
   /* Activating Best In Place */
   jQuery(".best_in_place").best_in_place();

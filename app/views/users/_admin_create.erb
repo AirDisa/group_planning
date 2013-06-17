@@ -6,6 +6,7 @@
         <%= form_for @event do |e| %>
         <%= e.text_field :title, :placeholder => "Event Title" %>
         <%= e.text_area :description, :placeholder => "Event Description" %>
+        <!-- move image options array to a helper method -->
         <%= e.select(:image,[ ['Choose Theme',  "events/default.jpg"   ],
                               ['Sporting',      "events/sports.jpg"    ],
                               ['Music',         "events/music.jpg"     ],
@@ -13,6 +14,7 @@
                               ['Theater',       "events/theater.jpg"   ],
                               ['Travel',        "events/theater.jpg"   ] ]) %>
         <%= e.text_field :commit_date, :placeholder => "Commit Date", :class=>'datepicker' %>
+        <!-- is this a security vulnerability? -->
         <%= hidden_field_tag('event[creator_id]', current_user.id) %><br>
         <%= button_tag "Next", :type => "button", :id => "next" %>
         <p class="user_admin_nav"><a href="#top">top</a></p>

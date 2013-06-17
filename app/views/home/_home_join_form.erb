@@ -7,6 +7,7 @@
     <%= u.email_field    :email,      :placeholder => "Email" %>
     <%= u.password_field :password,   :placeholder => "Password" %>
     <%= u.password_field :password_confirmation, :placeholder => "Confirm Password" %>
+    <!-- does this file upload work? need to set form multipart to true -->
     <%= u.file_field     :profile_pic %>
     <ul id="errors"></ul>
     <%= u.button "Create Account" %>

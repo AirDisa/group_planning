@@ -1,5 +1,7 @@
+<!-- why arent you using form_for? -->
  <%= form_tag({:controller => 'comments', :action=>'create'}, :method => 'post', :class=>'post_a_comment') do %>
   <%= text_field_tag "comment", nil, :placeholder=> "Leave a Comment"%>
+  <!-- is this a security vulnerability? could a user set event id to something they shouldnt have access to? -->
   <%= hidden_field_tag 'event_id', event.id%>
   <%= button_tag("Comment", :id => "comment_button", :style => "display:none")%>
 <% end %>

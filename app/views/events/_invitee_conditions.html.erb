@@ -1,7 +1,10 @@
 <div class="condition-builder">
+  <!-- why arent you using form_for ? -->
   <%= form_tag({:controller => 'conditions', :action=>'create'}, :method => 'post') do %>
   <div id="sentence">I will attend this event <span class='bolder'>IF</span></div><%=render :partial => "event_list"%><br>
+  <!-- is this a security vulnerability? could a user set invitee id to something it shouldnt be? -->
   <%= hidden_field_tag 'invitee_id', invitee.id%>
+  <!-- is this a security vulnerability? could a user set event id to something they shouldnt have access to? -->
   <%= hidden_field_tag 'event_id', event.id %>
   <%= button_tag("Commit", :id => "condition_button")%><br>
   <% end %>
@@ -13,6 +16,7 @@
   </div>
 
   <div id="personSelection">
+    <!-- move the sql query to the controller -->
     <span id='person_selector'><%= collection_select(:event, :users, event.users.where("status != 'No'"), :id, :full_name, {}, {:id => "event", :name => "event[users][]"}) %> goes</span>
   </div>
 </div>
