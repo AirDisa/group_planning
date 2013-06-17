@@ -629,9 +629,13 @@ footer {
   display: block;
   background: rgba(0,0,0,0.3);
   color:white;
-  padding-top:2px;
   border-radius:5px;
+  line-height: 1.4em;
   margin-top: -13px;
+  margin-bottom: 12px;
+  overflow-y: auto;
+  padding: 4px;
+  width: 590px;
   a {
     color: white;
   }
@@ -643,15 +647,15 @@ footer {
 }
 
 .comment_image {
+  position: relative;
+    top: 14px;
   width:30px;
-  padding:0px;
 }
 
 .comment_posted_at {
- font-size: 12px;
- float: right;
- margin-top: -15px;
- margin-right: 5px;
+  display: inline-block;
+  font-size: 12px;
+  padding: 8px 0 8px 40px;
 }
 
 .list_of_possible_conditions {
