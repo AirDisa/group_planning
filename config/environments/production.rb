@@ -54,7 +54,7 @@ Planning::Application.configure do
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
-    :domain               => 'groupact.it',
+    :domain               => 'groupact.me',
     :user_name            => 'grouppact',
     :password             => 'SuperSecure',
     :authentication       => 'plain',

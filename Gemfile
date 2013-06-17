@@ -19,12 +19,14 @@ group :test, :development do
   gem 'faker'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
+  gem 'mail_view', :git => 'https://github.com/37signals/mail_view.git'
 end
 
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'acts_as_commentable', '3.0.1'
+gem 'icalendar'
 
 gem 'jquery-rails'
 gem 'best_in_place'

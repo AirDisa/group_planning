@@ -38,6 +38,19 @@ class Event < ActiveRecord::Base
     going.each    { |invitee| invitee.update_attribute("status", "Yes") }
   end
 
+  def to_ics
+    cal = Icalendar::Event.new
+    cal.start = DateTime.now.strftime("%Y%m%dT%H%M%S")
+    cal.end = (DateTime.now+1.day).strftime("%Y%m%dT%H%M%S")
+    cal.summary = self.title
+    cal.description = self.description
+    cal.klass = "PUBLIC"
+    cal.created = self.created_at
+    cal.last_modified = self.updated_at
+    cal.uid = cal.url = "http://groupact.me/events/#{self.url}"
+    cal
+  end
+
   private
 
   def commit_date_is_in_the_future

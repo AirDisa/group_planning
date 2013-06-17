@@ -12,8 +12,24 @@ class UserMailer < ActionMailer::Base
     @user  = User.where(:email => email).first
     @event = event
     @creator = creator
-    mail( :to => email, 
+    mail( :to => email,
           :subject => "#{@creator.first_name} invited you to a grouPACT event!")
+  end
+
+  # Needs to be tested!
+  def confirm_event(user, event)
+    @user  = user
+    @event = event
+    mail( :to => @user.email,
+          :subject => "You are now confirmed for #{@event.title}!") do |format|
+       format.ics {
+       ical = Icalendar::Calendar.new
+       ical.add_event(@event.to_ics)
+       ical.publish
+       ical.to_ical
+       render :text => ical, :layout => false
+      }
+    end
   end
 
 end
