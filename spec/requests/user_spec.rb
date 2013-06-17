@@ -25,8 +25,7 @@ describe 'User' do
 
     it "should display errors on unsuccessful signup" do
       click_button "Create Account"
-
-      page.should have_content "Password must have at least 6 characters"
+      page.should have_content "Password can't be blank"
     end
   end
 
