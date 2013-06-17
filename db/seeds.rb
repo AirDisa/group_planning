@@ -304,13 +304,13 @@ end
 ###
 
 Event.all.each do |event|
-  users.sample(3 + rand(17)).each do |user|
+  users.sample(3 + rand(7)).each do |user|
     event.emails += user.email
     Invitee.create(user_id:  user.id,
                    event_id: event.id,
                    status:   STATUS[WEIGHT.sample])
            .conditions << Condition.create(method: "required_count",
-                                           value: 1 + rand(12))
+                                           value: 1 + rand(9))
   end
   event.save
 end
