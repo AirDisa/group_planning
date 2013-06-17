@@ -12,8 +12,8 @@ class EventsController < ApplicationController
   end
 
   def create
-    emails = params[:event][:emails].delete_if {|_,v| v.empty?}
-    params[:event][:emails] = emails.map(&:last).join(', ')
+    emails = params[:event][:emails].values.delete_if {|v| v.empty?}
+    params[:event][:emails] = emails.values.join(', ')
     @event = Event.new(params[:event])
     if @event.save
       emails.each {|email| UserMailer.event_invitee(email, current_user, @event).deliver }
