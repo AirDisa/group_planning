@@ -15,7 +15,7 @@ class EventsController < ApplicationController
     emails = params[:event][:emails].values.delete_if {|v| v.empty?}
     params[:event][:emails] = emails.join(', ')
     @event = Event.new(params[:event])
-    if @event.save
+    if @event.save!
       emails.each {|email| UserMailer.event_invitee(email, current_user, @event).deliver }
       CreatorMailer.event_creation(current_user, @event).deliver
       flash[:success] = "Your new event was created successfully!"

@@ -40,7 +40,7 @@ class Event < ActiveRecord::Base
   private
 
   def commit_date_is_in_the_future
-    if commit_date && commit_date < DateTime.now
+    if commit_date && !commit_date.future?
       errors.add(:commit_date, "must be in the future")
     end
   end
