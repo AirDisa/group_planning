@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+     <% if @user %>
+    <h1>Hey <% @user.first_name %>,</h1>
+    <% else %>
+    <h1>Hey there,</h1>
+    <% end %>
+    <p>
+      <%= @creator.full_name %> just invited you to the event <%= @event.title %>!
+    </p>
+    <p>
+      If this is your first time participating in a grouPACT, here's how it works:
+      <ol>
+        <li>Click this link to visit the event page: http://groupact.heroku.com/<%= @event.url %></li>
+        <li>Respond to the event invite with yes, no, or yes IF.</li>
+        <li>Once everyone has responded or the event deadline (<%= @event.commit_date.strftime("%A, %b %e") %>) rolls around, you'll get an email letting you know if your conditions were met.</li>
+      </ol>
+    </p>
+    <p>
+      And that's all there is to it! Pretty easy, right?
+    </p>
+    <p>
+      Happy planning!
+    </p>
+  </body>
+</html>
