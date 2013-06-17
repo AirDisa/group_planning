@@ -508,7 +508,12 @@ footer {
 }
 
 .conditional {
-  border-top: solid 10px white;
+  background: rgba(20, 20, 20, .9);
+  border: solid 4px white;
+  padding: 20px;
+  position: absolute;
+    top: 140px;
+  width: 545px;
   h2 {
     color: white;
     font-size: 32px;
@@ -522,11 +527,11 @@ footer {
     }
   }
   .countdown {
-    color: $dark_orange;
+    color: white;
     font-size: 18px;
     margin: -16px 0 12px;
     #timeToCommit {
-      color: $dark_red;
+      color: $home_red;
       font-variant:small-caps;
     }
   }
@@ -547,10 +552,13 @@ footer {
 }
 
 .yes_if, .yes, .thanks, .no {
-  background: $home_green;
-  border: 10px solid white;
+  background: rgba(20, 20, 20, .9);
+  border: solid 4px white;
+  padding: 20px;
+  position: absolute;
+    top: 140px;
+  width: 545px;
   display: none;
-  padding: 30px;
   #close_window, #condition_button {
     color: $home_green;
     &:hover {
