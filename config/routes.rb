@@ -5,6 +5,7 @@ Planning::Application.routes.draw do
   resources :users
   resources :conditions
   resources :comments
+  resources :charges
 
   root :to => 'home#index'
 
