@@ -1,9 +1,39 @@
 <div class="condition-builder">
-  <%= form_tag({:controller => 'conditions', :action=>'create'}, :method => 'post') do %>
+  <%= form_tag({:controller => 'conditions', :action=>'create'}, :method => 'post', :class => "stripeYesIF") do %>
   <div id="sentence">I will attend this event <span class='bolder'>IF</span></div><%=render :partial => "event_list"%><br>
   <%= hidden_field_tag 'invitee_id', invitee.id%>
   <%= hidden_field_tag 'event_id', event.id %>
-  <%= button_tag("Commit", :id => "condition_button")%><br>
+  <% if event.down_payment %>
+      <button id="yesIF_with_payment" class="stripeButton", data-invitee_id=<%=invitee.id%>>Commit</button>
+
+      <%= form_tag charges_path, :class => "stripe_payment" do  %>
+      <%= hidden_field_tag 'event_id', event.id %>
+      <%= hidden_field_tag 'status', 'Pending' %>
+        <script>
+        $('.stripeButton').click(function(){
+          var token = function(res){
+            var $input = $('<input type=hidden name=stripeToken />').val(res.id);
+            $("form.stripe_payment").append($input).submit();
+          };
+
+          StripeCheckout.open({
+            key:         "<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>",
+            address:     false,
+            amount:      "<%= event.down_payment %>",
+            currency:    'usd',
+            name:        'grouPACT',
+            description: "<%= event.title %>",
+            panelLabel:  'Commit to grouPACT',
+            token:       token
+          });
+
+          return false;
+        });
+        </script>
+      <% end %>
+    <% else %>
+      <%= button_tag("Commit", :id => "condition_button")%><br>
+    <% end %>
   <% end %>
 </div>
 
