@@ -21,9 +21,7 @@ describe User do
 
   it { should validate_confirmation_of(:password) }
   it { should allow_value("Password1", "passW0rd").for(:password) }
-  it { should_not allow_value("password", "Password", "passw0rd").for(:password) }
-  it { should ensure_length_of(:password).is_at_least(6).
-              with_message(/must have at least 6 characters/) }
+  it { should_not allow_value("password", "Password", "passw0rd", "Pa1").for(:password) }
 
   it { should have_many(:invitees) }
   it { should have_many(:events) }
