@@ -11,17 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130616142028) do
-
-  create_table "authentications", :force => true do |t|
-    t.integer  "user_id",    :null => false
-    t.string   "provider",   :null => false
-    t.string   "uid",        :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "authentications", ["user_id"], :name => "index_authentications_on_user_id"
+ActiveRecord::Schema.define(:version => 20130617221813) do
 
   create_table "comments", :force => true do |t|
     t.text     "comment"
@@ -47,15 +37,16 @@ ActiveRecord::Schema.define(:version => 20130616142028) do
   add_index "conditions", ["invitee_id"], :name => "index_conditions_on_invitee_id"
 
   create_table "events", :force => true do |t|
-    t.string   "title",       :null => false
+    t.string   "title",        :null => false
     t.text     "description"
     t.string   "image"
     t.datetime "commit_date"
-    t.integer  "creator_id",  :null => false
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "creator_id",   :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.string   "url"
     t.text     "emails"
+    t.integer  "down_payment"
   end
 
   add_index "events", ["url"], :name => "index_events_on_url", :unique => true
@@ -67,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20130616142028) do
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
     t.boolean  "responded",  :default => false
+    t.string   "stripe_id"
   end
 
   add_index "invitees", ["event_id"], :name => "index_invitees_on_event_id"
