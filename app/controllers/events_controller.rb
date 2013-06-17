@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    emails = params[:event][:emails]
+    emails = params[:event][:emails].delete_if {|_,v| v.empty?}
     params[:event][:emails] = emails.map(&:last).join(', ')
     @event = Event.new(params[:event])
     if @event.save
