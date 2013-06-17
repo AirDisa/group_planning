@@ -17,6 +17,8 @@ group :test, :development do
   gem 'better_errors'
   gem 'shoulda-matchers'
   gem 'faker'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
 
 gem 'bcrypt-ruby', '~> 3.0.0'
