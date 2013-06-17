@@ -4,9 +4,7 @@
   <%= form_for @user do |u| %>
     <%= u.text_field      :first_name, :placeholder => "First name", :autofocus => true %>
     <%= u.text_field      :last_name,  :placeholder => "Last name" %>
-    <%= u.email_field     :email,      :placeholder => "Email" %>
     <%= u.password_field  :password,   :placeholder => "New Password" %>
-    <%= u.password_field  :password_confirmation, :placeholder => "Confirm New Password" %>
     <%= u.file_field      :profile_pic, :value => "New Profile Picture" %>
     <ul id="errors"></ul>
     <%= u.button "Update Profile" %>

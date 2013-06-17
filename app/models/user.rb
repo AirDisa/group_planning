@@ -21,8 +21,7 @@ class User < ActiveRecord::Base
                          :message    => "must be a valid format" }
 
   validate  :password_complexity
-  validates :password,   :length     => {:minimum => 6,
-                         :too_short  => "must have at least %{count} characters"}
+  validates :password,   :presence => true, :on => :create
   validates_confirmation_of :password
 
   before_save { |user| user.email = user.email.downcase }
@@ -30,7 +29,7 @@ class User < ActiveRecord::Base
   mount_uploader :profile_pic, ProfilePicUploader
 
   def password_complexity
-    if password.present? && !password.match(/\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+\z/)
+    if password.present? && !password.match(/\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}\z/)
         errors.add :password, "must include at least one lowercase letter, \
                                one uppercase letter, and one digit"
     end
