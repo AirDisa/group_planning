@@ -1,11 +1,43 @@
 <div class='conditional'>
 
   <h2> Will you attend? </h2>
-  <div class="countdown">You have 
-  <span id="timeToCommit" data-commitDate="<%= @event.commit_date.to_i %>"></span> 
+  <div class="countdown">You have
+  <span id="timeToCommit" data-commitDate="<%= @event.commit_date.to_i %>"></span>
   left to make up your mind.</div>
   <div class ='cond_buttons'>
-    <button id='Yes', data-invitee_id=<%=invitee.id%>>yes</button>
+    <% if @event.down_payment %>
+      <button id="yes_with_payment" class="stripeButton", data-invitee_id=<%=invitee.id%>>yes</button>
+
+      <%= form_tag charges_path, :class => "stripe_payment" do  %>
+      <%= hidden_field_tag 'event_id', @event.id %>
+      <%= hidden_field_tag 'status', 'Yes' %>
+        <script>
+        $('.stripeButton').click(function(){
+          var token = function(res){
+            var $input = $('<input type=hidden name=stripeToken />').val(res.id);
+            $("form.stripe_payment").append($input).submit();
+          };
+
+          StripeCheckout.open({
+            key:         "<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>",
+            address:     false,
+            amount:      "<%= event.down_payment %>",
+            currency:    'usd',
+            name:        'grouPACT',
+            description: "<%= event.title %>",
+            panelLabel:  'Commit to grouPACT',
+            token:       token
+          });
+
+          return false;
+        });
+        </script>
+      <% end %>
+
+
+    <% else %>
+      <button id='Yes', data-invitee_id=<%=invitee.id%>>yes</button>
+    <% end %>
     <button id='yes_if' data-invitee_id=<%=invitee.id%>>yes, IF</button>
     <button id='No' data-invitee_id=<%=invitee.id%>>no</button>
   </div>
