@@ -54,7 +54,7 @@ class Event < ActiveRecord::Base
   private
 
   def commit_date_is_in_the_future
-    if commit_date && !commit_date.future?
+    if commit_date && (commit_date.in_time_zone("UTC")+(3600*36)) < Time.now.in_time_zone("UTC")
       errors.add(:commit_date, "must be in the future")
     end
   end
