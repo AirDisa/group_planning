@@ -17,7 +17,7 @@
           };
 
           StripeCheckout.open({
-            key:         "<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>",
+            key:         "<%= event.creator_api %>",
             address:     false,
             amount:      "<%= event.down_payment %>",
             currency:    'usd',

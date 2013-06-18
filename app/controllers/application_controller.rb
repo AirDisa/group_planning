@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
 
   include ApplicationHelper
+  include StripeHelper
 
   protect_from_forgery
 
