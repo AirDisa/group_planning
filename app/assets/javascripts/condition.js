@@ -15,16 +15,16 @@ $(document).ready(function() {
     var id = $(this).data('invitee_id');
     if (screen === 'Yes') {
       $.post('/invitees/'+id, {status: 'Yes'} , function(){
-        $('.conditional').hide();
-        $('.yes').animate({ width: 'show' });
+        $('.conditional').fadeOut();
+        $('.yes').fadeIn();
       });
     } else if (screen ==='yes_if') {
-      $('.conditional').hide();
-      $('.yes_if').animate({ width: 'show' });
+      $('.conditional').fadeOut();
+      $('.yes_if').fadeIn();
     } else if (screen === 'No') {
       $.post('/invitees/'+id, {status: 'No'} , function(){
-        $('.conditional').hide();
-        $('.no').animate({ width: 'show' });
+        $('.conditional').fadeOut();
+        $('.no').fadeIn();
       });
     }
   });
@@ -34,8 +34,8 @@ $(document).ready(function() {
     e.preventDefault();
     var data = $('form').serialize();
     $.post('/conditions', data, function(){
-      $('.yes_if').hide();
-      $('.thanks').animate({ width: 'show' });
+      $('.yes_if').fadeOut();
+      $('.thanks').fadeIn();
     });
   });
 
@@ -47,12 +47,12 @@ $(document).ready(function() {
   // Drop down for conditions
   $('.wrapper').on('click', '#condition_link', function(e){
     e.preventDefault();
-    $('#condition_list').slideDown('fast');
+    $('#condition_list').slideToggle();
   });
 
   $('.wrapper').on('click', '#number_of_people', function(e){
     e.preventDefault();
-    $('#sentence').append($('#minNumSelection'));
+    $('span.condition-dropdown').before($('#minNumSelection')).before('and if');
     $('#number_of_people').hide();
     $('#condition_list').hide();
   });
@@ -60,7 +60,7 @@ $(document).ready(function() {
   $('.wrapper').on('click', '#certain_person_goes', function(e){
     e.preventDefault();
     var person = $('#personSelection').clone();
-    $('#sentence').append(person);
+    $('span.condition-dropdown').before(person).before('and if');
     $('#condition_list').hide();
   });
 });
