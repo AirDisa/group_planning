@@ -51,6 +51,11 @@ class Event < ActiveRecord::Base
     cal
   end
 
+  def commit_date=(date)
+    date = Time.parse(date)
+    write_attribute :commit_date, Time.new(date.year, date.month, date.day, 23, 59, 59, "-05:00")
+  end
+
   def self.update_all_statuses
     puts "...update events..."
     self.all.each do |event|
@@ -72,7 +77,7 @@ class Event < ActiveRecord::Base
   end
 
   def closed?
-    commit_date.in_time_zone("UTC") + 3600 * 36 < Time.now.in_time_zone("UTC")
+    commit_date < Time.now
   end
 
   private
