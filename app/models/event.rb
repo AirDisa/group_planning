@@ -65,12 +65,17 @@ end
         if event.down_payment
           event.invitees.each do |invitee|
             invitee.charge
+            EventMailer.charge_email(invitee.user, event).deliver
           end
         end
         puts "...send email with results..."
-        puts "...mark account as settled..."
+        event.settle_event
       end
     end
+  end
+
+  def settle_event
+    self.update_attributes(:settled => true)
   end
 
   def closed?
