@@ -51,10 +51,12 @@ class Event < ActiveRecord::Base
     cal
   end
 
-  def commit_date=(date)
+def commit_date=(date)
+  if date
     date = Time.parse(date)
     write_attribute :commit_date, Time.new(date.year, date.month, date.day, 23, 59, 59, "-05:00")
   end
+end
 
   def self.update_all_statuses
     puts "...update events..."

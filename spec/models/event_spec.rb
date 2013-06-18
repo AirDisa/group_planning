@@ -16,8 +16,8 @@ describe Event do
   it { should validate_presence_of(:creator_id) }
 
   it { should validate_presence_of(:commit_date) }
-  it { should allow_value(DateTime.new(2020,1,1)).for(:commit_date) }
-  it { should_not allow_value(DateTime.new(2000,1,1)).for(:commit_date) }
+  it { should allow_value("Wed, 1 Jan 2020").for(:commit_date) }
+  it { should_not allow_value("Sat, 1 Jan 2000").for(:commit_date) }
 
   it { should allow_value("/assets/images/test.png").for(:image) }
 
