@@ -16,7 +16,7 @@ describe CreatorMailer do
     end
 
     it 'should render the correct sender email' do
-      mail.from.should == ['grouppact@gmail.com']
+      mail.from.should == [DEFAULT_FROM]
     end
 
     it "should have access to the user's name in the body" do
