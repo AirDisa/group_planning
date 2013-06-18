@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "grouppact@gmail.com"
+  default from: DEFAULT_FROM
 
   def welcome_email(user)
     @user = user

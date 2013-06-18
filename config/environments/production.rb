@@ -51,14 +51,13 @@ Planning::Application.configure do
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :address              => "smtp.gmail.com",
-    :port                 => 587,
-    :domain               => 'groupact.me',
-    :user_name            => 'grouppact',
-    :password             => 'SuperSecure',
-    :authentication       => 'plain',
-    :enable_starttls_auto => true  }
+
+  config.middleware.use ExceptionNotifier,
+    :email => {
+      :email_prefix => "[grouPACT] ",
+      :sender_address => %{"notifier" <notifier@groupact.me>},
+      :exception_recipients => %w{mitchlee11@gmail.com}
+    }
 
   # Enable threaded mode
   # config.threadsafe!
