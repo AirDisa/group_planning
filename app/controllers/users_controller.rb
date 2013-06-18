@@ -61,4 +61,9 @@ class UsersController < ApplicationController
     email = params[:user][:email].downcase
     render :text => (User.find_by_email(email) ? "invalid" : "valid")
   end
+
+  def stripe
+    current_user.update_attributes(:stripe_token => params[:code])
+    redirect_to profile_path(current_user.url)
+  end
 end
