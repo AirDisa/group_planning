@@ -67,22 +67,7 @@ class UsersController < ApplicationController
   def stripe
     current_user.update_attributes(:stripe_token => params[:code])
     event = Event.find(session[:event_id])
-
-    stripe_params = { 'client_secret' => ENV['STRIPE_SECRET_KEY'],
-                      'code' => params[:code],
-                      'scope' => 'read_write',
-                      'grant_type' => 'authorization_code'}
-
-    uri = URI.parse('https://connect.stripe.com/oauth/token')
-    https = Net::HTTP.new(uri.host,uri.port)
-    https.use_ssl = true
-    req = Net::HTTP::Post.new(uri.path)
-    req.set_form_data(stripe_params)
-    res = https.request(req)
-    puts res.body
-
-  event.update_attributes(:creator_api => JSON.parse(res.body)['stripe_publishable_key'])
-
+    set_creator_api(params[:code], event)
     redirect_to event_path(event.url)
   end
 end
