@@ -11,7 +11,9 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:current_user_id] = user.id
       flash[:success] = "You successfully logged in!"
-      redirect_to admin_path(user.url)
+      url = session[:return_to] || admin_path(user.url)
+      session[:return_to] = nil
+      redirect_to(url)
     else
       flash[:error] = "Unsuccessful login. Please try again."
       redirect_to root_path
