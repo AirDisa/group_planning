@@ -50,7 +50,9 @@ class UsersController < ApplicationController
       session[:current_user_id] = @user.id
       flash[:success] = "You have signed up successfully!"
       UserMailer.welcome_email(@user).deliver
-      redirect_to admin_path(@user.url)
+      url = session[:return_to] || admin_path(@user.url)
+      session[:return_to] = nil
+      redirect_to(url)
     else
       flash[:error] = @user.errors.full_messages.last
       redirect_to :back
