@@ -520,8 +520,8 @@ footer {
   width: 545px;
   h2 {
     color: white;
-    font-size: 32px;
-    margin: 18px 0 24px;
+    font-size: 42px;
+    margin: 12px 0 24px;
     p {
       color: white;
       font-size: 24px;
@@ -532,7 +532,7 @@ footer {
   }
   .countdown {
     color: white;
-    font-size: 18px;
+    font-size: 20px;
     margin: -16px 0 12px;
     #timeToCommit {
       color: $home_red;
@@ -541,14 +541,19 @@ footer {
   }
 }
 
+.cond_buttons {
+  text-align: center;
+  margin-top: 48px;
+}
 
 .cond_buttons button, #close_window {
   background: white;
   border: none;
   color: $home_red;
-  font-size: 18px;
+  font-size: 28px;
   font-weight: bolder;
   padding: 12px;
+  margin: 0px 16px;
   &:hover {
     background: $home_red;
     color: white;
@@ -560,11 +565,15 @@ footer {
   border: solid 4px white;
   padding: 20px;
   position: absolute;
-    top: 140px;
+  top: 105px;
   width: 545px;
+  height:240px;
   display: none;
   #close_window, #condition_button {
     color: $home_green;
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
     &:hover {
       background: $home_green;
       color: white;
@@ -572,14 +581,15 @@ footer {
   }
   p {
     color:white;
-    font-size: 48px;
+    font-size: 38px;
     font-weight: lighter;
     margin: 12px 0;
     text-align:left;
   }
   #sentence {
     color: white;
-    font-size: 20px;
+    font-size: 28px;
+    margin-bottom: 12px;
   }
   .draggable-options {
     float:right;
@@ -592,16 +602,39 @@ footer {
     border-bottom: 5px solid white;
   }
   ul {
-    margin-top: 20px;
+    margin-top: 0px;
+    position: absolute;
     li {
-      margin-top: 20px;
+      margin-top: 0px;
       text-align: center;
     }
   }
   .bolder {
-    color: black;
+    color: $home_green;
     font-size: 28px;
     font-weight: bold;
+  }
+  a {
+    text-decoration: none;
+    color: $home_green;
+    font-size: 24px;
+  }
+  select {
+    font-size: 20px;
+  }
+  span {
+    position: relative;
+    a:hover{
+      text-decoration: underline;
+    }
+  }
+}
+
+#condition_list {
+  display:none;
+  width:400px;
+  li {
+  text-align:left;
   }
 }
 
@@ -675,21 +708,11 @@ footer {
   margin-top: 6px;
 }
 
-#condition_list {
-  display:none;
-  width:400px;
-  li {
-  text-align:left;
-  font-size:12px;
-  }
-}
-
 #number_of_people, #certain_person_goes {
-  font-size:16px;
+  font-size:22px;
   margin:0px;
   padding: 0px;
 }
-
 
 #stripe_link {
   background: rgba(255,255,255, .98);
@@ -708,13 +731,4 @@ footer {
     margin-bottom: 12px;
   }
 }
-
-
-
-
-
-
-
-
-
 
