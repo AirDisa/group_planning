@@ -51,14 +51,14 @@ class Event < ActiveRecord::Base
     cal
   end
 
-  def self.update_all_event_statuses
+  def self.update_all_statuses
     puts "...update events..."
     self.all.each do |event|
       event.update_invitees_statuses(Group.new(event.invitees).solve)
     end
   end
 
-  def self.closeout_all_expired_events
+  def self.closeout_all_events
     self.all.each do |event|
       if event.closed? # && !event.settled
         if event.down_payment
