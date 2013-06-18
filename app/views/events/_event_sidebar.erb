@@ -1,6 +1,7 @@
 <p>Event created by:</p>
 <%= image_tag User.find(@event.creator_id).profile_pic.thumb, :class => "profile_pic", :size => "120x120" %>
 <h2><%= link_to User.find(@event.creator_id).full_name, profile_path(User.find(@event.creator_id).url) %></h2>
+<h3 class="bolder"><%= pluralize(event.emails.split(',').count, "invitee") %></h3>
 
 <% if event.waffling.count > 0 %>
   <h3>Waffling:</h3>
