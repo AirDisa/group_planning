@@ -7,7 +7,6 @@
         <%= e.text_field :title, :placeholder => "Event Title" %>
         <%= e.text_area :description, :placeholder => "Event Description" %>
         <%= e.text_field :down_payment, :placeholder => "Down Payment Amount (Not Required)" %>
-        <%= link_to image_tag('/assets/stripe_light.png'), 'https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_22BvZXoycdQiGIYRgvFx3fMNHJzK8MaF' %>
         <%= e.select(:image,[ ['Choose Theme',  "events/default.jpg"   ],
                               ['Sporting',      "events/sports.jpg"    ],
                               ['Music',         "events/music.jpg"     ],

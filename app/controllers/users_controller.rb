@@ -64,6 +64,8 @@ class UsersController < ApplicationController
 
   def stripe
     current_user.update_attributes(:stripe_token => params[:code])
-    redirect_to profile_path(current_user.url)
+    event = Event.find(session[:event_id])
+    session[:event_id] = nil
+    redirect_to event_path(event.url)
   end
 end
