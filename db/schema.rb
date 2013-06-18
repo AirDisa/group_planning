@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130618010005) do
+ActiveRecord::Schema.define(:version => 20130618154858) do
 
   create_table "comments", :force => true do |t|
     t.text     "comment"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20130618010005) do
     t.string   "url"
     t.text     "emails"
     t.integer  "down_payment"
+    t.string   "creator_api"
   end
 
   add_index "events", ["url"], :name => "index_events_on_url", :unique => true
