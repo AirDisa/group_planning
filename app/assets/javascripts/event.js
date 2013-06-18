@@ -29,14 +29,6 @@ $(document).ready(function(){
     $.post('/comments', data, function(event){
       results = $(event).find('#comment_area').html();
       $('#comment_area').html(results);
-      // if ($('.full_comment').length === 0) {
-      //   var new_comment = $(event).find('.full_comment').last();
-      //   $('.description').after(new_comment);
-      // } else {
-      //   var last_comment = $('.full_comment').last();
-      //   var new_comment = $(event).find('.full_comment').last();
-      //   last_comment.after(new_comment)
-      // }
       $('form.post_a_comment')[0].reset();
     });
   });
