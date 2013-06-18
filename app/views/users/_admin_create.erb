@@ -7,12 +7,7 @@
         <%= e.text_field :title, :placeholder => "Event Title" %>
         <%= e.text_area :description, :placeholder => "Event Description" %>
         <%= e.text_field :down_payment, :placeholder => "Down Payment Amount (Not Required)" %>
-        <%= e.select(:image,[ ['Choose Theme',  "events/default.jpg"   ],
-                              ['Sporting',      "events/sports.jpg"    ],
-                              ['Music',         "events/music.jpg"     ],
-                              ['Nightlife',     "events/nightlife.jpg" ],
-                              ['Theater',       "events/theater.jpg"   ],
-                              ['Travel',        "events/travel.jpg"    ] ]) %>
+        <%= e.select(:image, image_options ) %>
         <%= e.text_field :commit_date, :placeholder => "Commit Date", :class=>'datepicker' %>
         <%= hidden_field_tag('event[creator_id]', current_user.id) %><br>
         <%= button_tag "Next", :type => "button", :id => "next"%>

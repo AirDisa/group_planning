@@ -3,6 +3,6 @@
   <div class='full_comment'>
     <div class='comment_image'><%= image_tag user.profile_pic, {:size => '35x35'}%></div>
     <div class='comment_body'><%= comment.comment%></div>
-    <div class='comment_posted_at'><%= link_to(user.first_name, profile_path(user.url)) %> - Posted <%= comment.time %> hours ago. </div>
+    <div class='comment_posted_at'><%= link_to user.first_name, profile_path(user.url) %> - Posted <%= comment.time %> hours ago. </div>
   </div><br>
 <% end %>
