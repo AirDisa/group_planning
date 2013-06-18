@@ -36,3 +36,4 @@ gem 'pg'
 
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'figaro'
+gem 'exception_notification'

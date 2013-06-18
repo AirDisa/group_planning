@@ -1,6 +1,6 @@
 class CreatorMailer < ActionMailer::Base
   default :to   => User,
-          :from => "grouppact@gmail.com"
+          :from => DEFAULT_FROM
 
   def event_creation(creator, event)
     @creator = creator
