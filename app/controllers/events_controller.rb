@@ -18,8 +18,8 @@ class EventsController < ApplicationController
     params[:event][:down_payment] = (params[:event][:down_payment].to_f * 100).to_i unless params[:event][:down_payment].blank?
     @event = Event.new(params[:event])
     if @event.save
-      # emails.each {|email| UserMailer.event_invitee(email, current_user, @event).deliver }
-      # CreatorMailer.event_creation(current_user, @event).deliver
+      emails.each {|email| UserMailer.event_invitee(email, current_user, @event).deliver }
+      CreatorMailer.event_creation(current_user, @event).deliver
       flash[:success] = "Your new event was created successfully!"
       redirect_to event_path(@event.url)
     else
