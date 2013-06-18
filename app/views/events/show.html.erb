@@ -1,3 +1,10 @@
+<% if !current_user.stripe_token && @event.creator == current_user && @event.down_payment %>
+  <div id="stripe_link">
+    <p>To collect downpayments, please...</p>
+    <%= link_to image_tag('/assets/stripe_light.png'), 'https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_22BvZXoycdQiGIYRgvFx3fMNHJzK8MaF' %>
+  </div>
+<% end %>
+
 <div class="wrapper">
 
   <div class="event_info"> <!-- Main Column -->

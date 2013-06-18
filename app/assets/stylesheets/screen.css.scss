@@ -689,3 +689,32 @@ footer {
   margin:0px;
   padding: 0px;
 }
+
+
+#stripe_link {
+  background: rgba(255,255,255, .98);
+  border: solid 2px $dark_blue;
+  border-radius: 4px;
+  box-shadow: 0 0 30px $dark_blue;
+  padding: 30px;
+  position: absolute;
+    top: 140px;
+    left: 50%;
+    margin-left: -500px;
+  text-align: center;
+  width: 1000px;
+  z-index: 98;
+  p {
+    margin-bottom: 12px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
