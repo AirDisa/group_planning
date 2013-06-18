@@ -1,3 +1,7 @@
+<% if !current_user.stripe_token && @event.creator == current_user && !@event.down_payment %>
+  <%= link_to image_tag('/assets/stripe_light.png'), 'https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_22BvZXoycdQiGIYRgvFx3fMNHJzK8MaF' %>
+<% end %>
+
 <%= image_tag @event.image, :class => "event_page_image" %>
 
 <h2>

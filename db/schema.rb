@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130617221813) do
+ActiveRecord::Schema.define(:version => 20130618010005) do
 
   create_table "comments", :force => true do |t|
     t.text     "comment"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20130617221813) do
     t.datetime "updated_at",      :null => false
     t.string   "url"
     t.string   "profile_pic"
+    t.string   "stripe_token"
   end
 
   add_index "users", ["url"], :name => "index_users_on_url", :unique => true

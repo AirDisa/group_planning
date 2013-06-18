@@ -63,4 +63,11 @@ class UsersController < ApplicationController
     email = params[:user][:email].downcase
     render :text => (User.find_by_email(email) ? "invalid" : "valid")
   end
+
+  def stripe
+    current_user.update_attributes(:stripe_token => params[:code])
+    event = Event.find(session[:event_id])
+    session[:event_id] = nil
+    redirect_to event_path(event.url)
+  end
 end
