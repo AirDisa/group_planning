@@ -1,3 +1,8 @@
+<% if event.closed? %>
+  <div class="closed">
+    <%= image_tag "events/expired.png", :height => "280" %>
+  </div>
+<% end %>
 <%= image_tag @event.image, :class => "event_page_image" %>
 
 <h2>
