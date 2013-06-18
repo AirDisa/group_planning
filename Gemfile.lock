@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/37signals/mail_view.git
+  revision: 2e2b00897cb79b1a6924240b43a7521915efe215
+  specs:
+    mail_view (1.0.1)
+      tilt
+
+GIT
   remote: https://github.com/stripe/stripe-ruby
   revision: 2dbc700fc35c9f6191e274febcd283223fce7d9a
   specs:
@@ -91,6 +98,7 @@ GEM
     fssm (0.2.10)
     hike (1.2.3)
     i18n (0.6.1)
+    icalendar (1.4.0)
     journey (1.0.4)
     jquery-rails (3.0.1)
       railties (>= 3.0, < 5.0)
@@ -200,8 +208,10 @@ DEPENDENCIES
   factory_girl_rails
   faker
   figaro
+  icalendar
   jquery-rails
   jquery-ui-rails
+  mail_view!
   mini_magick
   pg
   pickadate-rails
