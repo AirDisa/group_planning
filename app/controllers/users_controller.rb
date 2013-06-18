@@ -68,6 +68,11 @@ class UsersController < ApplicationController
     current_user.update_attributes(:stripe_token => params[:code])
     event = Event.find(session[:event_id])
     session[:event_id] = nil
-    redirect_to event_path(event.url)
+    params = {client_secret: ENV['STRIPE_SECRET_KEY'],
+              code: params[:code],
+              grant_type: authorization_code}
+    creator_api = Net::HTTP.post_form(URI.parse('https://connect.stripe.com/oauth/token'), params)
+    puts creator_api
+    # redirect_to event_path(event.url)
   end
 end
