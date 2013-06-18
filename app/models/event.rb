@@ -58,19 +58,14 @@ def commit_date=(date)
   end
 end
 
-  def self.update_all_statuses
-    puts "...update events..."
+  def self.closeout_all_expired
     self.all.each do |event|
-      event.update_invitees_statuses(Group.new(event.invitees).solve)
-    end
-  end
-
-  def self.closeout_all_events
-    self.all.each do |event|
-      if event.closed? # && !event.settled
+      if event.closed? && !event.settled
+        event.update_invitees_statuses(Group.new(event.invitees).solve)
         if event.down_payment
-          puts "...charge cards..."
-          puts "...issue payment..."
+          event.invitees.each do |invitee|
+            invitee.charge
+          end
         end
         puts "...send email with results..."
         puts "...mark account as settled..."
