@@ -15,7 +15,7 @@ class UserMailer < ActionMailer::Base
     mail( :to => email,
           :subject => "#{@creator.first_name} invited you to a grouPACT event!")
   end
-
+ 
   # Needs to be tested!
   def confirm_event(user, event)
     @user  = user

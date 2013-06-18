@@ -67,8 +67,10 @@ end
             invitee.charge
             EventMailer.charge_email(invitee.user, event).deliver
           end
-        else event.invittes.each do |invitee|
-          EventMailer.confirm_email(invitee.user, event).deliver
+        else
+          event.invittes.each do |invitee|
+            EventMailer.confirm_email(invitee.user, event).deliver
+          end
         end
         event.settle_event
       end
