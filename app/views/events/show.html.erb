@@ -9,7 +9,7 @@
 
   <div class="event_info"> <!-- Main Column -->
 
-    <% unless @invitee.responded %>
+    <% unless @invitee.responded || @event.closed? %>
       <%= render :partial => "event_conditions", :locals => { :event => @event, :invitee => @invitee } %>
     <% end %>
 

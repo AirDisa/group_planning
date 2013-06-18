@@ -468,6 +468,16 @@ footer {
     border: solid 4px white;
     margin: 0 0 12px;
   }
+  div.closed {
+    img{
+      margin: 4px 0 0 3px;
+    }
+    margin: 0 0 12px;
+    width: 592px;
+    height: 287px;
+    position: absolute;
+    background-color: rgba(0,0,0,0.7);
+  }
 }
 
 .vertical {
@@ -731,4 +741,3 @@ footer {
     margin-bottom: 12px;
   }
 }
-

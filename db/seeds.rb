@@ -292,7 +292,7 @@ users = User.all
 EVENTS.each do |event|
   Event.create(title:       event.first,
                description: event.last,
-               commit_date: Time.at(Time.now + 86400 + rand(518400)),
+               commit_date: Time.at(Time.now + 86400 + rand(518400)).to_s,
                creator_id:  users.sample.id,
                image:       EVENT_IMAGES.sample,
                emails:      "placeholder@placeholder.com")
