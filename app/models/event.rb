@@ -34,7 +34,9 @@ class Event < ActiveRecord::Base
   end
 
   def update_invitees_statuses(going)
+    self.invitees.each { |invitee| puts invitee }
     invitees.each { |invitee| invitee.update_attribute("status", "Pending") if invitee.status == "Yes" }
+    invitees.each { |invitee| puts invitee }
     going.each    { |invitee| invitee.update_attribute("status", "Yes") }
   end
 
