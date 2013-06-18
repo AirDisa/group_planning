@@ -51,10 +51,34 @@ class Event < ActiveRecord::Base
     cal
   end
 
+  def self.update_all_event_statuses
+    puts "...update events..."
+    self.all.each do |event|
+      event.update_invitees_statuses(Group.new(event.invitees).solve)
+    end
+  end
+
+  def self.closeout_all_expired_events
+    self.all.each do |event|
+      if event.closed? # && !event.settled
+        if event.down_payment
+          puts "...charge cards..."
+          puts "...issue payment..."
+        end
+        puts "...send email with results..."
+        puts "...mark account as settled..."
+      end
+    end
+  end
+
+  def closed?
+    commit_date.in_time_zone("UTC") + 3600 * 36 < Time.now.in_time_zone("UTC")
+  end
+
   private
 
   def commit_date_is_in_the_future
-    if commit_date && (commit_date.in_time_zone("UTC")+(3600*36)) < Time.now.in_time_zone("UTC")
+    if commit_date && closed?
       errors.add(:commit_date, "must be in the future")
     end
   end

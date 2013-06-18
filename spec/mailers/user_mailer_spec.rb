@@ -15,7 +15,7 @@ describe UserMailer do
     end
 
     it 'should render the correct sender email' do
-      mail.from.should == ['grouppact@gmail.com']
+      mail.from.should == [DEFAULT_FROM]
     end
 
     it "should have access to user's name in the body" do
@@ -38,7 +38,7 @@ describe UserMailer do
     end
 
     it 'should render the correct sender email' do
-      mail.from.should == ['grouppact@gmail.com']
+      mail.from.should == [DEFAULT_FROM]
     end
 
     it "should have access to creator's name in the body" do
