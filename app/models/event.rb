@@ -51,6 +51,14 @@ class Event < ActiveRecord::Base
     cal
   end
 
+  def self.update_all_event_statuses
+    puts "this should run..."
+  end
+
+  def self.closeout_all_expired_events
+    puts "and this should too..."
+  end
+
   private
 
   def commit_date_is_in_the_future
