@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  attr_accessible :commit_date, :creator_id, :description, :title, :image, :emails, :down_payment
+  attr_accessible :commit_date, :creator_id, :description, :title, :image, :emails, :down_payment, :creator_api
   acts_as_url :title
   acts_as_commentable
 

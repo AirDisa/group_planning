@@ -1,5 +1,6 @@
 require 'uri'
 require 'net/http'
+require 'net/https'
 
 Rails.configuration.stripe = {
   :publishable_key => ENV['STRIPE_PUBLISHABLE_KEY'],
