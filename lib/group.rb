@@ -2,7 +2,7 @@ class Group
   attr_accessor :going
 
   def initialize(array_of_invitees)
-    @going = array_of_invitees
+    @going = array_of_invitees.map{|i|i}
   end
 
   def solve
