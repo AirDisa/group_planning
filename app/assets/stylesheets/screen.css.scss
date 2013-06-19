@@ -806,9 +806,7 @@ footer {
     margin-bottom: 12px;
   }
 }
-<<<<<<< HEAD
 
-<<<<<<< HEAD
 .file-upload {
   position: relative;
   overflow: hidden;
@@ -830,6 +828,7 @@ footer {
     inset 0 0 8px  rgba(0,0,0,0.1),
     0 0 16px rgba(0,0,0,0.1);
 }
+
 .file-upload span {
   background-color: white;
   color: $home_red;
@@ -839,6 +838,7 @@ footer {
     cursor: pointer;
   }
 }
+
 .file-upload input {
   position: absolute;
   top: 0;
@@ -849,6 +849,7 @@ footer {
   cursor: pointer;
   opacity: 0;
   filter: alpha(opacity=0);
+}
 
 .best_in_place form {
   font-size: 20px;
@@ -880,6 +881,7 @@ h2 .best_in_place:hover {
 h3 .best_in_place:hover {
   padding-right: 0.9em;
   background: url("/assets/events/tiny_pen.png") no-repeat right;
+}
 
 .payment-required {
   font-style: italic;
