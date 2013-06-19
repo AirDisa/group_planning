@@ -327,15 +327,18 @@ a.home_form_close {
     }
   }
   .event_image_title a {
-    background: rgba(255,255,255,.75);
-    color: black;
+    background: rgba(20, 20, 20, .9);
+    border: 4px solid white;
+    color: $home_red;
     display: block;
-    font-size: .8em;
+    font-size: 40px;
     margin: 0 3.1px;
-    padding: 8px 6px;
+    padding: 45px 30px;
+    text-align: center;
     position: absolute;
       top: 0;
-    width: 279px;
+    width: 641px;
+    height: 244px;
     z-index: 90;
     &:hover {
       text-decoration: none;
@@ -344,9 +347,18 @@ a.home_form_close {
 }
 
 #event_title, #event_description, .friend-email {
-  width: 860px;
+#description {
+color: white;
+display: block;
+font-size: 22px;
+margin: 75px 8px;
+padding: 47px 70px;
+position: absolute;
+top: 0;
+height: 318px;
+z-index: 90;
 }
-
+}
 div.explain  {
   position: relative;
   #explain-down-payment {
@@ -887,4 +899,75 @@ h3 .best_in_place:hover {
   font-style: italic;
   text-align: center;
   margin-left: 40px;
+}
+
+#list {
+     height:400px;
+     width:982px;
+     margin:30px auto;
+}
+
+.slider {
+     float:left;
+     left: -5000px;
+     margin:15px;
+     position:relative;
+     visibility:hidden;
+}
+
+.slider ul {
+     height:100px;
+     width:600px;
+}
+
+.slider ul li {
+     padding:0px 20px;
+}
+
+.slider ul li img {
+     cursor:pointer;
+     height:336px;
+     padding-top:3px;
+     width:702px;
+}
+
+.prev {
+     cursor:pointer;
+     float:left;
+     padding-top:132px;
+
+}
+
+.next {
+     cursor:pointer;
+     float:right;
+     padding-top:132px;
+}
+
+.caption-top, .caption-bottom {
+     background: #000000;
+     color: #ffffff;
+     cursor:default;
+     padding:2px;
+     font-size:11px;
+     text-align:center;
+}
+
+.caption-top {
+     border-width:0px;
+}
+
+.caption-bottom {
+     border-width:0px;
+}
+
+.caption a, .caption a {
+     background:#000;
+     border:none;
+     text-decoration:none;
+     padding:2px;
+}
+
+.caption a:hover, .caption a:hover {
+     background:#202020;
 }

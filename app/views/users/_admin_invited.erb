@@ -2,16 +2,23 @@
 <a id="invited"></a>
   <div class="wrapper admin-event-list admin-invited">
     <h2>groupacts you're invited to:</h2>
+    <div id='list'>
+      <div class="prev"><%= image_tag 'prev.png', :size=> '100x100' %></div>
+      <div class='slider'>
       <ul>
         <% user.events.each do |event| %>
           <li>
-            <%= link_to (image_tag event.image, :size => "287x137"), event_path(event.url) %>
+            <%= link_to (image_tag event.image, :size => "702x336", :class=> 'captify'), event_path(event.url) %>
             <span class="event_image_title">
-              <%= link_to event.title, event_path(event.url) %>
+              <%= link_to truncate(event.title, :length=> 25, :seperator => ' '), event_path(event.url) %>
+              <span id='description'><%= truncate(event.description, :length => 450) %></span>
             </span>
           </li>
         <% end %>
       </ul>
+       </div>
+      <div class="next"><%= image_tag 'next.png', :size => '100x100' %></div>
+    </div>
     <p class="user_admin_nav"><a href="#top">top</a></p>
   </div>
 </div>
