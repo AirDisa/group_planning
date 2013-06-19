@@ -1,8 +1,9 @@
 # encoding: utf-8
-User.destroy_all
-Event.destroy_all
-Invitee.destroy_all
-Condition.destroy_all
+## Uncomment to do a database cleanup
+# User.destroy_all
+# Event.destroy_all
+# Invitee.destroy_all
+# Condition.destroy_all
 
 FULL_NAMES = [["Yannick", "Dawant"],
               ["Mitch", "Lee"],
