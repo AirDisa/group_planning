@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :first_name, :last_name, :password,
-                  :password_confirmation, :url, :profile_pic, :stripe_token
+                  :password_confirmation, :url, :profile_pic, :stripe_token,
+                  :web, :profile
   has_secure_password
 
   acts_as_url :full_name, :sync_url => true
