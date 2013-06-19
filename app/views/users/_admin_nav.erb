@@ -3,8 +3,8 @@
     <h1>your groupact portal: <span class="bolder"><%= user.first_name %> <%= user.last_name %></span></h1>
     <ul class="user_admin_nav">
       <li><a href="#new">new</a></li>
-      <li><a href="#invited">invited</a></li>
-      <li><a href="#created">created</a></li>
+      <li><a href="#events">events</a></li>
+      <li><%= link_to 'profile', profile_path(current_user.url)%></li>
     </ul>
   </div>
 </div>

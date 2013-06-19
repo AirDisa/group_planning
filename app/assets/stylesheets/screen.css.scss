@@ -342,21 +342,22 @@ a.home_form_close {
 }
 
 #description {
-color: white;
-display: block;
-font-size: 22px;
-margin: 75px 8px;
-padding: 47px 70px;
-position: absolute;
-top: 0;
-height: 318px;
-z-index: 90;
+  color: white;
+  display: block;
+  font-size: 22px;
+  margin: 75px 8px;
+  padding: 47px 70px;
+  position: absolute;
+  top: 0;
+  height: 318px;
+  z-index: 90;
 }
 
 
 #event_title, #event_description, .friend-email {
   width: 95.5%;
-}
+  }
+
 
 div.explain  {
   position: relative;
@@ -1015,4 +1016,8 @@ h3 .best_in_place:hover {
       color: white;
     }
   }
+}
+
+#sad_panda {
+  text-align:center;
 }
