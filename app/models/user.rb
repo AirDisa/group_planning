@@ -41,4 +41,8 @@ class User < ActiveRecord::Base
     "#{self.first_name} #{self.last_name}"
   end
 
+  def events_attended
+    Invitee.where(:user_id => self.id, :status => "Yes").select{ |i| i.event.closed? }.map { |i| i.event }
+  end
+
 end
