@@ -4,7 +4,7 @@ class UserMailer < ActionMailer::Base
   def welcome_email(user)
     @user = user
     email_with_name = "#{@user.full_name} <#{@user.email}>"
-    @url  = "www.groupact.com"
+    @url  = "www.groupact.me"
     mail(:to => email_with_name, :subject => "Welcome to grouPACT!")
   end
 
