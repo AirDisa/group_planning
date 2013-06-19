@@ -14,6 +14,7 @@ class EventsController < ApplicationController
   end
 
   def create
+    # seems like a lot of this processing might be a better fit for activerecord callback in the event model
     emails = params[:event][:emails].values.delete_if {|v| v.empty?}
     params[:event][:emails] = emails.join(', ')
     params[:event][:down_payment] = (params[:event][:down_payment].to_f * 100).to_i unless params[:event][:down_payment].blank?

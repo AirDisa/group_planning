@@ -12,6 +12,10 @@ class UsersController < ApplicationController
 
   def profile
     @user = User.find_by_url(params[:slug])
+
+    # have you checked the logs to see how many queries you are executing
+    # as a result of the next few lines of code? i imagine theres a more efficient
+    # way to do this...
     @created_pending = Invitee.pending(@user.created_events)
     @created_going = Invitee.going(@user.created_events)
     @created_not_going = Invitee.not_going(@user.created_events)
@@ -50,6 +54,7 @@ class UsersController < ApplicationController
       session[:current_user_id] = @user.id
       flash[:success] = "You have signed up successfully!"
       UserMailer.welcome_email(@user).deliver
+      # try reidrect_to session.delete(:return_to) || admin_path(@user.url)
       url = session[:return_to] || admin_path(@user.url)
       session[:return_to] = nil
       redirect_to(url)
@@ -65,6 +70,7 @@ class UsersController < ApplicationController
   end
 
   def stripe
+    # might be worth taking a gander at http://stackoverflow.com/questions/2778522/rails-update-attribute-vs-update-attributes
     current_user.update_attributes(:stripe_token => params[:code])
     event = Event.find(session[:event_id])
     set_creator_api(params[:code], event)

@@ -40,6 +40,7 @@ class Event < ActiveRecord::Base
 
   def to_ics
     cal = Icalendar::Event.new
+    # you probably need to take into consideration timezones
     cal.start = DateTime.now.strftime("%Y%m%dT%H%M%S")
     cal.end = (DateTime.now+1.day).strftime("%Y%m%dT%H%M%S")
     cal.summary = self.title
@@ -87,6 +88,7 @@ end
 
   private
 
+  # might be worth taking a gander at http://stackoverflow.com/questions/2778522/rails-update-attribute-vs-update-attributes
   def commit_date_is_in_the_future
     if commit_date && closed?
       errors.add(:commit_date, "must be in the future")

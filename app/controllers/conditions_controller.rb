@@ -22,6 +22,8 @@ class ConditionsController < ApplicationController
 
     Invitee.find(params[:invitee_id]).update_attributes(responded: true)
     going = Group.new(@event.invitees).solve
+    # consider @event.update_invitees_statuses(Group.new(@event.invitees).solve) since you
+    # did this in events_controller
     @event.update_invitees_statuses(going)
 
     redirect_to event_path(@event.url)

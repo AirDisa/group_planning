@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   validates :password,   :presence => true, :on => :create
   validates_confirmation_of :password
 
-  before_save { |user| user.email = user.email.downcase }
+  before_save { |user| user.email = user.email.downcase } # can you do user.email.downcase!
 
   mount_uploader :profile_pic, ProfilePicUploader
 
