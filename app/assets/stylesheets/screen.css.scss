@@ -50,13 +50,13 @@ h1 a {
 }
 
 .alert {
-  background: #8f0000;
+  background: rgba(255,255,255,.9);
   border-radius: 4px;
   box-shadow: 0 0 15px black;
-  color: white;
+  color: $dark_red;
   display: block;
   font-size: 18px;
-  font-weight: lighter;
+  font-weight: bold;
   height: auto;
   padding: 20px;
   position: absolute;
