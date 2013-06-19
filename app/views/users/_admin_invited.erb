@@ -1,12 +1,17 @@
 <div id="invited_events" class="admin_block">
+
 <a id="invited"></a>
   <div class="wrapper admin-event-list admin-invited">
-    <h2>groupacts you're invited to:</h2>
+
+  <h2>groupacts you're invited to:</h2>
+
+  <% unless user.events.empty?  %>
     <div id='list'>
       <div class="prev"><%= image_tag 'prev.png', :size=> '100x100' %></div>
+
       <div class='slider'>
-      <ul>
-        <% user.events.each do |event| %>
+        <ul>
+          <% user.events.reverse.each do |event| %>
           <li>
             <%= link_to (image_tag event.image, :size => "702x336", :class=> 'captify'), event_path(event.url) %>
             <span class="event_image_title">
@@ -14,11 +19,17 @@
               <span id='description'><%= truncate(event.description, :length => 450) %></span>
             </span>
           </li>
-        <% end %>
-      </ul>
-       </div>
+          <% end %>
+        </ul>
+      </div>
+
       <div class="next"><%= image_tag 'next.png', :size => '100x100' %></div>
     </div>
-    <p class="user_admin_nav"><a href="#top">top</a></p>
+  <% else %>
+    <span id="no_events">You have yet to be invited to any events...</span>
+    <div id='new_button_invited'><a href="#new">new</a></div>
+  <% end %>
+
+  <p class="user_admin_nav"><a href="#top">top</a></p>
   </div>
 </div>
