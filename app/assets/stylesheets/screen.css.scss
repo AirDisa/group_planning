@@ -846,11 +846,12 @@ footer {
   overflow: hidden;
   margin-bottom: 30px;
   padding: 12px;
-  width: 180px;
+  width: 200px;
   border: 1px solid white;
   border-radius: 5px;
   font-weight: bolder;
   font-size: 18px;
+  text-align: center;
   background: white;
   -webkit-box-shadow:
     inset 0 0 8px  rgba(0,0,0,0.1),
@@ -1041,5 +1042,6 @@ h3 .best_in_place:hover {
 }
 
 #sad_panda {
+  opacity: .3;
   text-align:center;
 }
