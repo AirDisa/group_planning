@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  attr_accessible :commit_date, :creator_id, :description, :title, :image, 
+  attr_accessible :commit_date, :creator_id, :description, :title, :image,
                   :emails, :down_payment, :creator_api, :start_time
   acts_as_url :title
   acts_as_commentable
@@ -16,6 +16,7 @@ class Event < ActiveRecord::Base
                           :too_short => "must include at least one invitee"}
   validates :commit_date, :presence => true
   validate  :commit_date_is_in_the_future
+  validate  :event_date_is_after_commit_date
   validates :down_payment, :format => {:with => /^\d{1,}$/}, :allow_nil => true
 
   def waffling
@@ -55,7 +56,7 @@ class Event < ActiveRecord::Base
   def start_time=(params)
     if params
       write_attribute :start_time, DateTime.parse(params['date'] + ' ' + params['time']) + 5.hours
-    end 
+    end
   end
 
   def commit_date=(date)
@@ -66,26 +67,36 @@ class Event < ActiveRecord::Base
   end
 
   def self.closeout_all_expired
-    self.all.each do |event|
-      if event.closed? && !event.settled
-        event.update_invitees_statuses(Group.new(event.invitees).solve)
-        if event.down_payment
-          event.invitees.each do |invitee|
-            invitee.charge unless invitee.id == event.creator_id
-            EventMailer.charge_email(invitee.user, event).deliver
-          end
-        else
-          event.invittes.each do |invitee|
-            EventMailer.confirm_email(invitee.user, event).deliver
-          end
-        end
-        event.settle_event
-      end
+    self.where('settled IS NULL AND commit_date < ?', Time.now).each do |event|
+      event.update_invitees_statuses(Group.new(event.invitees).solve)
+      event.settle_event
     end
   end
 
   def settle_event
-    self.update_attributes(:settled => true)
+    down_payment ? settle_with_payment : settle_without_payment
+    self.update_attribute("settled", true)
+  end
+
+  def settle_with_payment
+    invitees.each do |invitee|
+      if invitee.user_id == self.creator_id
+        # Email creator
+      else
+        invitee.charge_email
+        EventMailer.charge_email(invitee.user, event).deliver
+      end
+    end
+  end
+
+  def settle_without_payment
+    invitees.each do |invitee|
+      EventMailer.confirm_email(invitee.user, event).deliver
+    end
+  end
+
+  def settle_event
+    self.update_attribute("settled", true)
   end
 
   def closed?
@@ -100,5 +111,9 @@ class Event < ActiveRecord::Base
     end
   end
 
+  def event_date_is_after_commit_date
+    if start_time && start_time < commit_date
+      errors.add(:start_time, "must be after commit date")
+    end
+  end
 end
-
