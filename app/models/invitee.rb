@@ -22,14 +22,17 @@ class Invitee < ActiveRecord::Base
     self.status_return(events, "No")
   end
 
-  def self.charge_dat_shit(event)
-    charge_amount = event.down_payment
-    event.invitees.each do |invitee|
-      Stripe::Charge.create(
-        :amount   => charge_amount,
+  def charge
+    Stripe.api_key = ENV['STRIPE_SECRET_KEY']
+    event = Event.find(self.event_id)
+    begin
+      charge = Stripe::Charge.create(
+        :amount => event.down_payment,  
         :currency => "usd",
-        :customer => invitee.stripe_id
-      )
+        :customer => self.stripe_id,
+        :description => "Paying for #{event.title} | grouPACT")
+      rescue Stripe::CardError => e
+        "The card has been declined"
     end
   end
 

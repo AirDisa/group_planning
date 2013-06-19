@@ -12,7 +12,7 @@ class EventsController < ApplicationController
       redirect_to :root
     end
   end
-
+  
   def create
     emails = params[:event][:emails].values.delete_if {|v| v.empty?}
     params[:event][:emails] = emails.join(', ')
