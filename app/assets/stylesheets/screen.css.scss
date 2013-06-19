@@ -8,6 +8,7 @@
  $home_red:   #ED3419;
  $dark_red: darken( $home_red, 30% ) ;
  $home_green: #00A055;
+ $dark_green: darken( $home_green, 30% ) ;
  $home_blue: #2222ED;
  $dark_blue: darken( $home_blue, 30% ) ;
  $home_orange: #FF4E34;
@@ -342,8 +343,65 @@ a.home_form_close {
   }
 }
 
-#event_title, #event_description, .friend-email, #event_down_payment {
+#event_title, #event_description, .friend-email {
   width: 860px;
+}
+
+div.explain  {
+  position: relative;
+  #explain-down-payment {
+    position: absolute;
+    right: 475px;
+    top: 18px;
+    opacity: .7;
+  }
+  #explain-commit-date {
+    position: absolute;
+    padding-bottom: 30px;
+    right: 16px;
+    top: 18px;
+    opacity: .7;
+  }
+  #dollar {
+    position: absolute;
+    left:10px;
+    padding: 10px 0;
+    float: left;
+    opacity: .3;
+  }
+  span.info div {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 0 15px $dark_green;
+    border-radius: 4px;
+    opacity: .9;
+    width: 350px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 20px;
+  }
+  span.info:nth-of-type(1) div {
+    right: 125px;
+    top: 35px;
+  }
+  span.info:nth-of-type(2) div {
+    right: -330px;
+    top: 35px;
+  }
+}
+
+#event_down_payment {
+  text-indent: 44px;
+  float: left;
+}
+
+#event_commit_date {
+  float: right;
+  text-indent: 24px;
+}
+#event_down_payment, #event_commit_date {
+  width: 400px;
+  margin-bottom: 16px;
 }
 
 #event_description {
@@ -356,12 +414,9 @@ a.home_form_close {
   font-size: 28px;
   height: 78px;
   overflow: hidden;
-  width: 46%;
- }
-
- #event_commit_date {
-  float: right;
-  width: 46%;
+  width: 440px;
+  margin-right: 400px;
+  text-indent: 44px;
  }
 
  .event-creation #next, .email-button {
@@ -373,6 +428,10 @@ a.home_form_close {
     color: white;
   }
  }
+
+  #create_event_button {
+    float:right;
+  }
 
 /* Profile Page */
 
