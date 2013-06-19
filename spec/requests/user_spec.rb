@@ -20,7 +20,7 @@ describe 'User' do
         click_button "Create Account"
       }.to change(User, :count).by(1)
 
-      page.should have_content "Admin Portal"
+      page.should have_content "your groupact portal:"
     end
 
     it "should display errors on unsuccessful signup" do
@@ -42,7 +42,7 @@ describe 'User' do
       fill_in 'password', with: user.password
       click_button "Sign In"
 
-      page.should have_content 'Admin Portal'
+      page.should have_content 'your groupact portal:'
     end
 
     it "displays errors on unsuccessful login" do
