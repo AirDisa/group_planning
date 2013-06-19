@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Event Creation' do 
+describe 'Event Creation' do
 
   context "filling in event fields", :js => true do
     include LoginHelpers
@@ -18,7 +18,7 @@ describe 'Event Creation' do
       find(".picker__nav--next").click
       page.all(".picker__day.picker__day--infocus")[0].click
       click_on("next")
-      page.should have_content("You Must Have an Event Title and Commit Date")
+      page.should have_content("You must enter an event title and a commit date")
     end
 
     it "requires a commit date" do
@@ -26,7 +26,7 @@ describe 'Event Creation' do
       fill_in "event_description", with: "Event Description"
       select "Sporting", from: "event_image"
       click_on("next")
-      page.should have_content("You Must Have an Event Title and Commit Date")
+      page.should have_content("You must enter an event title and a commit date")
     end
 
     it "should have next button enabled when required fields are filled in" do
