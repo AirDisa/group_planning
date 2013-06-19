@@ -1,9 +1,9 @@
 <div id="created_events" class="admin_block">
 
-<a id="created"></a>
+<a id="events"></a>
   <div class="wrapper admin-event-list admin-created">
 
-  <h2>groupacts you've created:</h2>
+  <h2>your groupact events:</h2>
 
   <% unless user.created_events.empty?  %>
     <div id='list'>
@@ -11,7 +11,7 @@
 
       <div class='slider'>
         <ul>
-          <% user.created_events.reverse.each do |event| %>
+          <% user.events.reverse.each do |event| %>
           <li>
             <%= link_to (image_tag event.image, :size => "292.5x140", :class=>'captify'), event_path(event.url) %>
             <span class="event_image_title">
