@@ -13,6 +13,10 @@ $(document).ready(function(){
     }
   });
 
+  $('#event_back').click(function() {
+    $('.wrapper.event-creation').toggle("slide");
+  });
+
   $('#create_event #add').click(function(){
     var index = $('#emails input').length;
     $('#emails input').last().after(inviteeEmail(index));
