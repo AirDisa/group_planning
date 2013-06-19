@@ -53,11 +53,9 @@ Planning::Application.configure do
   config.action_mailer.delivery_method = :smtp
 
   config.middleware.use ExceptionNotifier,
-    :email => {
       :email_prefix => "[grouPACT] ",
       :sender_address => %{"notifier" <notifier@groupact.me>},
       :exception_recipients => %w{mitchlee11@gmail.com}
-    }
 
   # Enable threaded mode
   # config.threadsafe!

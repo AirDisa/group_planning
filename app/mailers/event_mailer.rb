@@ -1,5 +1,5 @@
 class EventMailer < ActionMailer::Base
-  default to: User,
+  default to:   User,
           from: DEFAULT_FROM
 
   def charge_email(user, event)
