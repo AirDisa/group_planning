@@ -7,7 +7,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
 
-  storage :file
+  storage :fog
 
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
