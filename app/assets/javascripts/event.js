@@ -7,8 +7,10 @@ $(document).ready(function(){
   $('#create_event #next').click(function(){
     $('ul#errors').html('');
     if ( ($('#event_title').val() != '') && ($('#event_commit_date').val() != '')) {
-    $('.wrapper.event-creation').toggle("slide");
-  } else { $('ul#errors').append('<li class="email">You Must Have an Event Title and Commit Date</li>').hide().slideDown(100)}
+      $('.wrapper.event-creation').toggle("slide");
+    } else {
+      $('ul#errors').append('<li class="email">You must enter an event title and a commit date</li>').hide().slideDown(100)
+    }
   });
 
   $('#create_event #add').click(function(){
@@ -31,6 +33,19 @@ $(document).ready(function(){
       $('#comment_area').html(results);
       $('form.post_a_comment')[0].reset();
     });
+  });
+
+  var timeoutID = null;
+  $('span.info').hover( function() {
+    var mySpan = $(this);
+    timeoutID = setTimeout( function() {
+      if (mySpan.is(":hover")) {
+        mySpan.find('div').fadeIn();
+      }
+    }, 500) },
+    function() {
+    clearInterval(timeoutID);
+    $(this).find('div').fadeOut();
   });
 });
 

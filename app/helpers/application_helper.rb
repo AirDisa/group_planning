@@ -13,11 +13,11 @@ module ApplicationHelper
   end
 
   def image_options
-    [ ['Choose Theme',  "events/default.jpg"   ],
-      ['Sporting',      "events/sports.jpg"    ],
-      ['Music',         "events/music.jpg"     ],
-      ['Nightlife',     "events/nightlife.jpg" ],
-      ['Theater',       "events/theater.jpg"   ],
-      ['Travel',        "events/travel.jpg"    ] ]
+    [ ['Choose Event Theme', "events/default.jpg"   ],
+      ['Sporting',           "events/sports.jpg"    ],
+      ['Music',              "events/music.jpg"     ],
+      ['Nightlife',          "events/nightlife.jpg" ],
+      ['Theater',            "events/theater.jpg"   ],
+      ['Travel',             "events/travel.jpg"    ] ]
   end
 end

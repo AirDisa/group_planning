@@ -6,9 +6,20 @@
         <%= form_for @event do |e| %>
         <%= e.text_field :title, :placeholder => "Event Title" %>
         <%= e.text_area :description, :placeholder => "Event Description" %>
-        <%= e.text_field :down_payment, :placeholder => "Down Payment Amount (Not Required)" %>
-        <%= e.select(:image, image_options ) %>
+        <div class="explain">
+        <%= image_tag "events/dollar.png", :height => "55", :id => "dollar" %>
+        <%= e.text_field :down_payment, :placeholder => "Cost (Not Required)" %>
+        <span class="info">
+          <%= image_tag "explain.png", :id => "explain-down-payment" %>
+          <div style="display: none">If you'd like, you can enter in a required payment for all attendees here. This is helpful if, for example, you want to make a group order for tickets. At the end of the commit date, all attendees whose conditions are met will be charged and the money will be transfered to your account.</div>
+        </span>
         <%= e.text_field :commit_date, :placeholder => "Commit Date", :class=>'datepicker' %>
+        <span class="info">
+          <%= image_tag "explain.png", :id => "explain-commit-date" %>
+          <div style="display: none">This is the final date that invitees can respond. After this date, the final attendees will be determined and the results will be emailed to the group. If a required payment was specified, all attendee credit cards will also be charged and the money will be transfered to your account.</div>
+        </span>
+        </div>
+        <%= e.select(:image, image_options ) %>
         <%= hidden_field_tag('event[creator_id]', current_user.id) %><br>
         <%= button_tag "Next", :type => "button", :id => "next"%>
         <ul id='errors'></ul>
@@ -18,11 +29,11 @@
       <div class="wrapper event-creation" id="emails" style="display: none;">
         <h2>invite your friends:</h2>
         <%= e.fields_for :emails do |email| %>
-          <%= email.text_field 0, :placeholder => "Invitee's email", :class => "friend-email" %>
-          <%= email.text_field 1, :placeholder => "Invitee's email", :class => "friend-email" %>
-          <%= email.text_field 2, :placeholder => "Invitee's email", :class => "friend-email" %>
-          <%= button_tag "Add Invitee", :type => "button", :id => "add", :class => "email-button" %>
-          <%= e.button "Create Event", :class => "email-button" %>
+          <%= email.text_field 0, :placeholder => "To invite a friend, enter their email", :class => "friend-email" %>
+          <%= email.text_field 1, :placeholder => "Add another friend", :class => "friend-email" %>
+          <%= email.text_field 2, :placeholder => "Add another friend", :class => "friend-email" %>
+          <%= button_tag "Invite More Friends", :type => "button", :id => "add", :class => "email-button" %>
+          <%= e.button "Create Event", :class => "email-button", :id => "create_event_button" %>
         <% end %>
 
       <% end %>
