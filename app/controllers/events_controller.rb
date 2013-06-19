@@ -2,6 +2,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by_url(params[:id])
+    # @event.update_invitees_statuses(Group.new(@event.invitees).solve)
     session[:event_id] = @event.id
     @all_comments = @event.comments
     if @event.emails.match(current_user.email) || current_user.id == @event.creator_id
