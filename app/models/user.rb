@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :first_name, :last_name, :password,
-                  :password_confirmation, :url, :profile_pic, :stripe_token
+                  :password_confirmation, :url, :profile_pic, :stripe_token,
+                  :web, :profile
   has_secure_password
 
   acts_as_url :full_name, :sync_url => true
@@ -38,6 +39,10 @@ class User < ActiveRecord::Base
 
   def full_name
     "#{self.first_name} #{self.last_name}"
+  end
+
+  def events_attended
+    Invitee.where(:user_id => self.id, :status => "Yes").select{ |i| i.event.closed? }.map { |i| i.event }
   end
 
 end

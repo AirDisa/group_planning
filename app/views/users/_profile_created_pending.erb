@@ -1,8 +1,0 @@
-<% unless @created_pending.empty? %>
-  <h5>pending:</h5>
-  <ul>
-    <% @created_pending.each do |event| %>
-      <li><%= link_to event.title, event_path(event.url) %></li>
-    <% end %>
-  </ul>
-<% end %>

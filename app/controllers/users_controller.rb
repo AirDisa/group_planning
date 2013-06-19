@@ -12,12 +12,6 @@ class UsersController < ApplicationController
 
   def profile
     @user = User.find_by_url(params[:slug])
-    @created_pending = Invitee.pending(@user.created_events)
-    @created_going = Invitee.going(@user.created_events)
-    @created_not_going = Invitee.not_going(@user.created_events)
-    @invited_pending = Invitee.pending(@user.events)
-    @invited_going = Invitee.going(@user.events)
-    @invited_not_going = Invitee.not_going(@user.events)
   end
 
   def edit
