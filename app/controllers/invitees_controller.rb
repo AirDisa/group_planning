@@ -18,4 +18,10 @@ class InviteesController < ApplicationController
     end
   end
 
+  def reset
+    invitee = Invitee.find(params[:id])
+    invitee.reset_conditions
+    redirect_to event_path(invitee.event.url)
+  end
+
 end

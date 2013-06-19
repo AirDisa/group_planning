@@ -4,6 +4,7 @@ class EventsController < ApplicationController
     @event = Event.find_by_url(params[:id])
     @event.update_invitees_statuses(Group.new(@event.invitees).solve)
     session[:event_id] = @event.id
+    @invitee = Invitee.find_by_user_id_and_event_id(current_user.id, @event.id)
     @all_comments = @event.comments
     if @event.emails.match(current_user.email) || current_user.id == @event.creator_id
       @invitee = Invitee.find_or_create_by_user_id_and_event_id(current_user.id, @event.id)

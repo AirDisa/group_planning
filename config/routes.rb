@@ -15,6 +15,7 @@ Planning::Application.routes.draw do
   get  '/users/:slug/profile' => 'users#profile', :as => 'profile'
   post 'validate/email' => 'users#validate_email'
   get '/stripe' => 'users#stripe'
+  post '/invitees/:id/conditions' => 'invitees#reset', :as => 'reset'
 
   if Rails.env.development?
     mount MailPreview => 'mail_view'

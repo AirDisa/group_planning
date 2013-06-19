@@ -12,7 +12,6 @@
     <% unless @invitee.responded || @event.closed? %>
       <%= render :partial => "event_conditions", :locals => { :event => @event, :invitee => @invitee } %>
     <% end %>
-
     <%= render :partial => "event_info", :locals => { :event => @event } %>
 
     <div id="comment_area">
@@ -25,7 +24,7 @@
   </div>
 
   <div class ='vertical'> <!-- Left Column -->
-    <%= render :partial => "event_sidebar", :locals => { :event => @event } %>
+    <%= render :partial => "event_sidebar", :locals => { :event => @event, :invitee => @invitee } %>
   </div>
 
   <div class="clear"></div>
