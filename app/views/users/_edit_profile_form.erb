@@ -2,9 +2,11 @@
   <h4>edit your info</h4>
 
   <%= form_for @user do |u| %>
-    <%= u.text_field      :first_name, :placeholder => "First name", :autofocus => true %>
-    <%= u.text_field      :last_name,  :placeholder => "Last name" %>
-    <%= u.password_field  :password,   :placeholder => "New Password" %>
+    <%= u.text_field      :first_name,  :placeholder => "First name", :autofocus => true %>
+    <%= u.text_field      :last_name,   :placeholder => "Last name" %>
+    <%= u.text_area       :profile,     :placeholder => "Tell us about yourself" %>
+    <%= u.text_field      :web,         :placeholder => "Your website" %>
+    <%= u.password_field  :password,    :placeholder => "New Password" %>
     <div class="file-upload">
     <span>upload new picture</span>
     <%= u.file_field      :profile_pic, :value => "New Profile Picture" %>
