@@ -64,7 +64,7 @@ end
         event.update_invitees_statuses(Group.new(event.invitees).solve)
         if event.down_payment
           event.invitees.each do |invitee|
-            invitee.charge
+            invitee.charge unless invitee.id == event.creator_id
             EventMailer.charge_email(invitee.user, event).deliver
           end
         else

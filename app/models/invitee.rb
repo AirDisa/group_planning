@@ -27,7 +27,7 @@ class Invitee < ActiveRecord::Base
     event = Event.find(self.event_id)
     begin
       charge = Stripe::Charge.create(
-        :amount => event.down_payment,  
+        :amount => event.down_payment,
         :currency => "usd",
         :customer => self.stripe_id,
         :description => "Paying for #{event.title} | grouPACT")
