@@ -67,21 +67,31 @@ class Event < ActiveRecord::Base
   end
 
   def self.closeout_all_expired
-    self.all.each do |event|
-      if event.closed? && !event.settled
-        event.update_invitees_statuses(Group.new(event.invitees).solve)
-        if event.down_payment
-          event.invitees.each do |invitee|
-            invitee.charge unless invitee.id == event.creator_id
-            EventMailer.charge_email(invitee.user, event).deliver
-          end
-        else
-          event.invittes.each do |invitee|
-            EventMailer.confirm_email(invitee.user, event).deliver
-          end
-        end
-        event.settle_event
+    self.where('settled IS NULL AND commit_date < ?', Time.now).each do |event|
+      event.update_invitees_statuses(Group.new(event.invitees).solve)
+      event.settle_event
+    end
+  end
+
+  def settle_event
+    down_payment ? settle_with_payment : settle_without_payment
+    self.update_attribute("settled", true)
+  end
+
+  def settle_with_payment
+    invitees.each do |invitee|
+      if invitee.user_id == self.creator_id
+        # Email creator
+      else
+        invitee.charge_email
+        EventMailer.charge_email(invitee.user, event).deliver
       end
+    end
+  end
+
+  def settle_without_payment
+    invitees.each do |invitee|
+      EventMailer.confirm_email(invitee.user, event).deliver
     end
   end
 
