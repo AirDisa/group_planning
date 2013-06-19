@@ -1,6 +1,6 @@
 <div class="condition-builder">
   <%= form_tag({:controller => 'conditions', :action=>'create'}, :method => 'post', :class => "stripeYesIF") do %>
-  <div id="sentence">I will attend this event <span class='bolder'>IF</span> <%=render :partial => "event_list"%></div><br>
+  <div id="sentence">I will attend this event <span class='bolder'>IF</span> <%=render :partial => "event_list", :locals => { :event => event }%></div><br>
   <%= hidden_field_tag 'invitee_id', invitee.id%>
   <%= hidden_field_tag 'event_id', event.id %>
   <% if event.down_payment && event.creator != current_user %>
