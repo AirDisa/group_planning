@@ -5,7 +5,10 @@
     <%= u.text_field      :first_name, :placeholder => "First name", :autofocus => true %>
     <%= u.text_field      :last_name,  :placeholder => "Last name" %>
     <%= u.password_field  :password,   :placeholder => "New Password" %>
+    <div class="file-upload">
+    <span>upload new picture</span>
     <%= u.file_field      :profile_pic, :value => "New Profile Picture" %>
+    </div>
     <ul id="errors"></ul>
     <%= u.button "Update Profile" %>
   <% end %>
