@@ -5,6 +5,7 @@
 //= require best_in_place
 //= require pickadate/picker
 //= require pickadate/picker.date
+//= require pickadate/picker.time
 //= require_tree .
 
 $(document).ready(function() {

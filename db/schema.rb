@@ -11,17 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130619142731) do
-
-  create_table "authentications", :force => true do |t|
-    t.integer  "user_id",    :null => false
-    t.string   "provider",   :null => false
-    t.string   "uid",        :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "authentications", ["user_id"], :name => "index_authentications_on_user_id"
+ActiveRecord::Schema.define(:version => 20130619170336) do
 
   create_table "comments", :force => true do |t|
     t.text     "comment"
@@ -59,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20130619142731) do
     t.integer  "down_payment"
     t.string   "creator_api"
     t.boolean  "settled"
+    t.datetime "start_time"
   end
 
   add_index "events", ["url"], :name => "index_events_on_url", :unique => true

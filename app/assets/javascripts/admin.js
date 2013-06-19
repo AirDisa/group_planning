@@ -10,6 +10,7 @@ $(function() {
   });
 
   $('.datepicker').pickadate();
+  $('.timepicker').pickatime();
 });
 
 $(document).ready(function(){
