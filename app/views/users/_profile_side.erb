@@ -1,7 +1,8 @@
 <div class="profile_side">
-  <h3>Events Attended: <%= user.events_attended.count %></h3>
-  <h3>Events Invited To: <%= user.events.count %></h3>
-
+  <h4>Events:</h4>
+  <h3>Attended: <%= user.events_attended.count %></h3>
+  <h3>Invited To: <%= user.events.count %></h3>
+  <div class="clear"></div>
   <% if user == current_user && user.events_attended.count > 0 %>
   <h4>Past Events:</h4>
   <ul>
