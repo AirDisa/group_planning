@@ -6,4 +6,9 @@
   <% end %>
   <li><span>Name:</span> <%= user.full_name %></li>
   <li><span>Email:</span> <%= mail_to(user.email) %></li>
+  <% if user.web %>
+    <li><span>URL:</span> <%= link_to user.web, 'http://' + user.web %></li>
+  <% end %>
 </ul>
+
+<div class="clear"></div>
