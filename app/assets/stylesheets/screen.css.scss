@@ -312,10 +312,6 @@ a.home_form_close {
   }
 }
 
-.wrapper.admin-event-list {
-  width: 956px;
-}
-
 .admin-event-list {
   li {
     display: inline-block;
@@ -720,6 +716,7 @@ footer {
     text-decoration: none;
     color: $home_green;
     font-size: 24px;
+    display: inline-block;
   }
   select {
     font-size: 20px;
