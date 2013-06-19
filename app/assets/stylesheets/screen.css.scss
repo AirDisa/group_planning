@@ -1,20 +1,15 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+@import "compass/reset";
 
- @import "compass/reset";
+$home_red:   #ED3419;
+$dark_red: darken( $home_red, 30% ) ;
+$home_green: #00A055;
+$dark_green: darken( $home_green, 30% ) ;
+$home_blue: #2222ED;
+$dark_blue: darken( $home_blue, 30% ) ;
+$home_orange: #FF4E34;
+$dark_orange: darken( $home_orange, 30% );
 
- $home_red:   #ED3419;
- $dark_red: darken( $home_red, 30% ) ;
- $home_green: #00A055;
- $dark_green: darken( $home_green, 30% ) ;
- $home_blue: #2222ED;
- $dark_blue: darken( $home_blue, 30% ) ;
- $home_orange: #FF4E34;
- $dark_orange: darken( $home_orange, 30% );
-
- body:before, body:after {
+body:before, body:after {
   content: "";
   position: fixed;
   background: white;
@@ -970,4 +965,50 @@ h3 .best_in_place:hover {
 
 .caption a:hover, .caption a:hover {
      background:#202020;
+}
+
+#no_events {
+  color: white;
+  font-size: 24px;
+  a {
+  text-decoration: none;
+  color: $home_green;
+  }
+  a:hover{
+  color: white;
+  }
+}
+
+#new_button_created {
+  margin: 30px 0 0;
+  text-align: center;
+  width: 900px;
+  a {
+    color: $home_red;
+    font-size: 9em;
+    font-weight: bold;
+    margin: 0 30px;
+    text-decoration: none;
+    -webkit-text-stroke: 2px white;
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+#new_button_invited {
+  margin: 30px 0 0;
+  text-align: center;
+  width: 900px;
+  a {
+    color: $home_blue;
+    font-size: 9em;
+    font-weight: bold;
+    margin: 0 30px;
+    text-decoration: none;
+    -webkit-text-stroke: 2px white;
+    &:hover {
+      color: white;
+    }
+  }
 }
