@@ -17,7 +17,6 @@ class EventsController < ApplicationController
     emails = params[:event][:emails].values.delete_if {|v| v.empty?}
     params[:event][:emails] = emails.join(', ')
     params[:event][:down_payment] = (params[:event][:down_payment].to_f * 100).to_i unless params[:event][:down_payment].blank?
-    p params.inspect
     @event = Event.new(params[:event])
     if @event.save
       emails.each {|email| UserMailer.event_invitee(email, current_user, @event).deliver }
