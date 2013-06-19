@@ -22,6 +22,11 @@ class Invitee < ActiveRecord::Base
     self.status_return(events, "No")
   end
 
+  def reset_conditions
+    self.conditions.destroy_all
+    self.update_attributes(:status => 'Pending', :responded => 'false')
+  end
+
   def charge
     Stripe.api_key = ENV['STRIPE_SECRET_KEY']
     event = Event.find(self.event_id)

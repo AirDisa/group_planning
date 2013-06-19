@@ -7,11 +7,11 @@
 <div id='condition-box'>
   <p >Your conditions </p>
   <ul id='your_conditions'>
-    <% @invitee.conditions.each_with_index do |condition, index| %>
+    <% @invitee.conditions.each do |condition| %>
       <% if condition.method == 'specific_person' %>
         <li><%= User.find(condition.value).first_name %> needs to attend</li>
       <% elsif condition.method == 'required_count' %>
-        <li><%= pluralize(condition.value, 'other person') %> must go </li>
+        <li><%= pluralize(condition.value, 'other person') %> must go</li>
       <% end %>
     <% end %>
   </ul>
@@ -23,10 +23,7 @@
   </div>
 <% end %>
 
-
 <h3 class="bolder"><%= pluralize(event.emails.split(',').count + 1, "invitee") %></h3>
-
-
 
 <% if event.going.count > 0 %>
 <h3>Down to have fun:</h3>

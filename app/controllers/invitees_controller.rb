@@ -20,8 +20,7 @@ class InviteesController < ApplicationController
 
   def reset
     invitee = Invitee.find(params[:id])
-    invitee.conditions.destroy_all
-    invitee.update_attributes(:status => 'Pending', :responded => 'false')
+    invitee.reset_conditions
     redirect_to event_path(invitee.event.url)
   end
 
