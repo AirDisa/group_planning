@@ -25,6 +25,7 @@ end
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'fog'
 gem 'acts_as_commentable', '3.0.1'
 gem 'icalendar'
 gem 'mail_view', :git => 'https://github.com/37signals/mail_view.git'
