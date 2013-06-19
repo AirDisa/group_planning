@@ -1,6 +1,5 @@
 class CreatorMailer < ActionMailer::Base
-  default to:   User,
-          from: DEFAULT_FROM
+  default from: DEFAULT_FROM
 
   def event_creation(creator, event)
     @creator = creator
