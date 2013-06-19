@@ -15,6 +15,7 @@ $(document).ready(function() {
     var id = $(this).data('invitee_id');
     if (screen === 'Yes') {
       $.post('/invitees/'+id, {status: 'Yes'} , function(){
+        ajaxSide();
         $('.conditional').fadeOut();
         $('.yes').fadeIn();
       });
@@ -23,6 +24,7 @@ $(document).ready(function() {
       $('.yes_if').fadeIn();
     } else if (screen === 'No') {
       $.post('/invitees/'+id, {status: 'No'} , function(){
+        ajaxSide();
         $('.conditional').fadeOut();
         $('.no').fadeIn();
       });
@@ -34,6 +36,7 @@ $(document).ready(function() {
     e.preventDefault();
     var data = $('form').serialize();
     $.post('/conditions', data, function(){
+      ajaxSide();
       $('.yes_if').fadeOut();
       $('.thanks').fadeIn();
     });
@@ -64,3 +67,11 @@ $(document).ready(function() {
     $('#condition_list').hide();
   });
 });
+
+var ajaxSide = function() {
+  var eventURL = $('.wrapper').attr('id');
+    $.get('/events/' + eventURL, function(response){
+      var results = $(response).find('.vertical').html();
+      $('.vertical').html(results);
+    });
+}
