@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  attr_accessible :commit_date, :creator_id, :description, :title, :image, 
+  attr_accessible :commit_date, :creator_id, :description, :title, :image,
                   :emails, :down_payment, :creator_api, :start_time
   acts_as_url :title
   acts_as_commentable
@@ -16,6 +16,7 @@ class Event < ActiveRecord::Base
                           :too_short => "must include at least one invitee"}
   validates :commit_date, :presence => true
   validate  :commit_date_is_in_the_future
+  validate  :event_date_is_after_commit_date
   validates :down_payment, :format => {:with => /^\d{1,}$/}, :allow_nil => true
 
   def waffling
@@ -55,7 +56,7 @@ class Event < ActiveRecord::Base
   def start_time=(params)
     if params
       write_attribute :start_time, DateTime.parse(params['date'] + ' ' + params['time']) + 5.hours
-    end 
+    end
   end
 
   def commit_date=(date)
@@ -85,7 +86,7 @@ class Event < ActiveRecord::Base
   end
 
   def settle_event
-    self.update_attributes(:settled => true)
+    self.update_attribute("settled", true)
   end
 
   def closed?
@@ -100,5 +101,9 @@ class Event < ActiveRecord::Base
     end
   end
 
+  def event_date_is_after_commit_date
+    if start_time && start_time < commit_date
+      errors.add(:start_time, "must be after commit date")
+    end
+  end
 end
-
