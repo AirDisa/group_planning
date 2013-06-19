@@ -807,6 +807,7 @@ footer {
   }
 }
 
+<<<<<<< HEAD
 .file-upload {
   position: relative;
   overflow: hidden;
@@ -847,4 +848,35 @@ footer {
   cursor: pointer;
   opacity: 0;
   filter: alpha(opacity=0);
+
+.best_in_place form {
+  font-size: 20px;
+}
+
+.best_in_place input {
+  color: $dark_red;
+  width: 550px;
+  height:32px;
+  background-color: $home_red;
+  border: none;
+  font-weight: lighter;
+}
+
+.best_in_place textarea {
+  color: white;
+  width: 550px;
+  height: 180px;
+  font-size: 22px;
+  background-color: $home_red;
+  border: none;
+}
+
+h2 .best_in_place:hover {
+  padding-right: 0.9em;
+  background: url("/assets/events/small_pen.png") no-repeat right;
+}
+
+h3 .best_in_place:hover {
+  padding-right: 0.9em;
+  background: url("/assets/events/tiny_pen.png") no-repeat right;
 }
