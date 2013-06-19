@@ -7,6 +7,8 @@ addPunctuation = function(input){
   }
 };
 
+var counter = 0
+
 $(document).ready(function() {
 
   //Transition and posting between yes, yes-if, no.
@@ -55,6 +57,7 @@ $(document).ready(function() {
 
   $('.wrapper').on('click', '#number_of_people', function(e){
     e.preventDefault();
+    counter ++;
     $('span.condition-dropdown').before($('#minNumSelection')).before('and if');
     $('#number_of_people').hide();
     $('#condition_list').hide();
@@ -62,9 +65,17 @@ $(document).ready(function() {
 
   $('.wrapper').on('click', '#certain_person_goes', function(e){
     e.preventDefault();
-    var person = $('#personSelection').clone();
-    $('span.condition-dropdown').before(person).before('and if');
-    $('#condition_list').hide();
+    counter ++;
+    if (counter == 3) {
+      var person = $('#personSelection').clone();
+      $('span.condition-dropdown').before(person).before('.');
+      $('#condition_list').hide();
+      $('#condition_link').remove();
+    } else {
+      var person = $('#personSelection').clone();
+      $('span.condition-dropdown').before(person).before('and if');
+      $('#condition_list').hide();
+    }
   });
 });
 
