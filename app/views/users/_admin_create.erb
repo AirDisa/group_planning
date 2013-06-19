@@ -32,6 +32,7 @@
           <%= email.text_field 0, :placeholder => "To invite a friend, enter their email", :class => "friend-email" %>
           <%= email.text_field 1, :placeholder => "Add another friend", :class => "friend-email" %>
           <%= email.text_field 2, :placeholder => "Add another friend", :class => "friend-email" %>
+          <%= button_tag "Back", :type => "button", :id => "event_back", :class => "back-button" %>
           <%= button_tag "Invite More Friends", :type => "button", :id => "add", :class => "email-button" %>
           <%= e.button "Create Event", :class => "email-button", :id => "create_event_button" %>
         <% end %>
