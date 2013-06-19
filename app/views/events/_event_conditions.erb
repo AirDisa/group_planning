@@ -5,7 +5,7 @@
   <span id="timeToCommit" data-commitDate="<%= @event.commit_date.to_i %>"></span>
   left to make up your mind.</div>
   <div class ='cond_buttons'>
-    <% if @event.down_payment %>
+    <% if @event.down_payment && @event.creator != current_user %>
       <button id="yes_with_payment" class="stripeButton", data-invitee_id=<%=invitee.id%>>yes</button>
 
       <%= form_tag charges_path, :class => "stripe_payment" do  %>
