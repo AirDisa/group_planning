@@ -341,7 +341,6 @@ a.home_form_close {
   }
 }
 
-#event_title, #event_description, .friend-email {
 #description {
 color: white;
 display: block;
@@ -353,7 +352,12 @@ top: 0;
 height: 318px;
 z-index: 90;
 }
+
+
+#event_title, #event_description, .friend-email {
+  width: 95.5%;
 }
+
 div.explain  {
   position: relative;
   #explain-down-payment {
