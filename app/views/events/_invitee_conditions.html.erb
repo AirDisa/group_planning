@@ -39,7 +39,7 @@
 
 <div class="hide">
   <span id="minNumSelection">
-    at least <%= select(:event, :invitees, (2..event.emails.split(',').count)) %> people go
+    at least <%= select(:event, :invitees, (2..event.emails.split(',').count + 1)) %> people go
   </span>
 
   <span id="personSelection">

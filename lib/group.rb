@@ -17,6 +17,8 @@ class Group
 
   def get_rid_of_party_poopers
     going.reject! { |invitee| invitee.status == "No" }
+    going.reject! { |invitee| invitee.status == "Pending" &&
+                              invitee.conditions.empty? }
   end
 
   def filter_by_person_condition

@@ -1,34 +1,59 @@
 <p>Event created by:</p>
 <%= image_tag User.find(@event.creator_id).profile_pic.thumb, :class => "profile_pic", :size => "120x120" %>
 <h2><%= link_to User.find(@event.creator_id).full_name, profile_path(User.find(@event.creator_id).url) %></h2>
-<h3 class="bolder"><%= pluralize(event.emails.split(',').count, "invitee") %></h3>
+
+<% unless @invitee.conditions.empty? && @invitee.status == "Pending" %>
+
+<div id='condition-box'>
+  <p >Your conditions </p>
+  <ul id='your_conditions'>
+    <% @invitee.conditions.each_with_index do |condition, index| %>
+      <% if condition.method == 'specific_person' %>
+        <li><%= User.find(condition.value).first_name %> needs to attend</li>
+      <% elsif condition.method == 'required_count' %>
+        <li><%= pluralize(condition.value, 'other person') %> must go </li>
+      <% end %>
+    <% end %>
+  </ul>
+  <span id='user_profile_pic'>
+    <%= form_for @invitee, :url => reset_path(@invitee), :method => :post, :id=>"conditions_reset" do |f| %>
+    <%= f.button "reset conditions", :id=>"reset_button" %>
+    <% end %>
+    </span>
+  </div>
+<% end %>
+
+
+<h3 class="bolder"><%= pluralize(event.emails.split(',').count + 1, "invitee") %></h3>
+
+
 
 <% if event.going.count > 0 %>
-  <h3>Down to have fun:</h3>
-  <% event.going.each do |invitee| %>
-    <li class='invited'>
-      <%= image_tag User.find(invitee.user_id).profile_pic.thumb, :size => '35x35' %>
-      <%= link_to User.find(invitee.user_id).full_name, profile_path(User.find(invitee.user_id).url) %>
-    </li>
-    <% end %>
+<h3>Down to have fun:</h3>
+<% event.going.each do |invitee| %>
+<li class='invited'>
+  <%= image_tag User.find(invitee.user_id).profile_pic.thumb, :size => '35x35' %>
+  <%= link_to User.find(invitee.user_id).full_name, profile_path(User.find(invitee.user_id).url) %>
+</li>
+<% end %>
 <% end %>
 
 <% if event.waffling.count > 0 %>
-  <h3>Waffling:</h3>
-  <% event.waffling.each do |invitee| %>
-    <li class='invited'>
-      <%= image_tag User.find(invitee.user_id).profile_pic.thumb, :size => '35x35' %>
-      <%= link_to User.find(invitee.user_id).full_name, profile_path(User.find(invitee.user_id).url) %>
-    </li>
-    <% end %>
+<h3>Waffling:</h3>
+<% event.waffling.each do |invitee| %>
+<li class='invited'>
+  <%= image_tag User.find(invitee.user_id).profile_pic.thumb, :size => '35x35' %>
+  <%= link_to User.find(invitee.user_id).full_name, profile_path(User.find(invitee.user_id).url) %>
+</li>
+<% end %>
 <% end %>
 
 <% if event.not_going.count > 0 %>
-  <h3>Missing out:</h3>
-  <% event.not_going.each do |invitee| %>
-    <li class='invited'>
-      <%= image_tag User.find(invitee.user_id).profile_pic.thumb, :size => '35x35' %>
-      <%= link_to User.find(invitee.user_id).full_name, profile_path(User.find(invitee.user_id).url) %>
-    </li>
-    <% end %>
+<h3>Missing out:</h3>
+<% event.not_going.each do |invitee| %>
+<li class='invited'>
+  <%= image_tag User.find(invitee.user_id).profile_pic.thumb, :size => '35x35' %>
+  <%= link_to User.find(invitee.user_id).full_name, profile_path(User.find(invitee.user_id).url) %>
+</li>
+<% end %>
 <% end %>
