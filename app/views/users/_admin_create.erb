@@ -1,30 +1,35 @@
 <div id="create_event" class="admin_block">
-    <a id="new"></a>
-    <div class="wrapper event-creation">
-        <h2>create a groupact:</h2>
+  <a id="new"></a>
+  <div class="wrapper event-creation">
+    <h2>create a groupact:</h2>
 
-        <%= form_for @event do |e| %>
-        <%= e.text_field :title, :placeholder => "Event Title" %>
-        <%= e.text_area :description, :placeholder => "Event Description" %>
-        <div class="explain">
-        <%= image_tag "events/dollar.png", :height => "55", :id => "dollar" %>
-        <%= e.text_field :down_payment, :placeholder => "Cost (Not Required)" %>
-        <span class="info">
-          <%= image_tag "explain.png", :id => "explain-down-payment" %>
-          <div style="display: none">If you'd like, you can enter in a required payment for all attendees here. This is helpful if, for example, you want to make a group order for tickets. At the end of the commit date, all attendees whose conditions are met will be charged and the money will be transferred to your account.</div>
-        </span>
-        <%= e.text_field :commit_date, :placeholder => "Commit Date", :class=>'datepicker' %>
-        <span class="info">
-          <%= image_tag "explain.png", :id => "explain-commit-date" %>
-          <div style="display: none">This is the final date that invitees can respond. After this date, the final attendees will be determined and the results will be emailed to the group. If a required payment was specified, all attendee credit cards will also be charged and the money will be transferred to your account.</div>
-        </span>
-        </div>
-        <%= e.select(:image, image_options ) %>
-        <%= hidden_field_tag('event[creator_id]', current_user.id) %><br>
-        <%= button_tag "Next", :type => "button", :id => "next"%>
-        <ul id='errors'></ul>
-        <p class="user_admin_nav"><a href="#top">top</a></p>
+    <%= form_for @event do |e| %>
+    <%= e.text_field :title, :placeholder => "Event Title" %>
+    <%= e.text_area :description, :placeholder => "Event Description" %>
+    <%= e.fields_for :start_time do |start_time| %>
+      <%= start_time.text_field 'time', :placeholder => "Event Start Time", :class=>'timepicker', :id => 'event_start_time' %>
+      <%= start_time.text_field 'date', :placeholder => "Event Start Date", :class=>'datepicker', :id => 'event_start_date' %>
+    <% end %>
+
+    <div class="explain">
+      <%= image_tag "events/dollar.png", :height => "55", :id => "dollar" %>
+      <%= e.text_field :down_payment, :placeholder => "Cost (Not Required)" %>
+      <span class="info">
+        <%= image_tag "explain.png", :id => "explain-down-payment" %>
+        <div style="display: none">If you'd like, you can enter in a required payment for all attendees here. This is helpful if, for example, you want to make a group order for tickets. At the end of the commit date, all attendees whose conditions are met will be charged and the money will be transferred to your account.</div>
+      </span>
+      <%= e.text_field :commit_date, :placeholder => "Commit Date", :class=>'datepicker' %>
+      <span class="info">
+        <%= image_tag "explain.png", :id => "explain-commit-date" %>
+        <div style="display: none">This is the final date that invitees can respond. After this date, the final attendees will be determined and the results will be emailed to the group. If a required payment was specified, all attendee credit cards will also be charged and the money will be transferred to your account.</div>
+      </span>
     </div>
+    <%= e.select(:image, image_options ) %>
+    <%= hidden_field_tag('event[creator_id]', current_user.id) %><br>
+    <%= button_tag "Next", :type => "button", :id => "next"%>
+    <ul id='errors'></ul>
+    <p class="user_admin_nav"><a href="#top">top</a></p>
+  </div>
 
       <div class="wrapper event-creation" id="emails" style="display: none;">
         <h2>invite your friends:</h2>
@@ -37,8 +42,8 @@
           <%= e.button "Create Event", :class => "email-button", :id => "create_event_button" %>
         <% end %>
 
-      <% end %>
-      <p class="user_admin_nav"><a href="#top">top</a></p>
-    </div>
+    <% end %>
+    <p class="user_admin_nav"><a href="#top">top</a></p>
+  </div>
 
 </div>

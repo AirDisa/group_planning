@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
-  attr_accessible :commit_date, :creator_id, :description, :title, :image, :emails, :down_payment, :creator_api
+  attr_accessible :commit_date, :creator_id, :description, :title, :image, 
+                  :emails, :down_payment, :creator_api, :start_time
   acts_as_url :title
   acts_as_commentable
 
@@ -51,12 +52,19 @@ class Event < ActiveRecord::Base
     cal
   end
 
-def commit_date=(date)
-  if date
-    date = Time.parse(date)
-    write_attribute :commit_date, Time.new(date.year, date.month, date.day, 23, 59, 59, "-05:00")
+  def start_time=(params)
+    puts params.inspect
+    if params
+      write_attribute :start_time, DateTime.parse(params['date'] + ' ' + params['time']) + 5.hours
+    end 
   end
-end
+
+  def commit_date=(date)
+    if date
+      date = Time.parse(date)
+      write_attribute :commit_date, Time.new(date.year, date.month, date.day, 23, 59, 59, "-05:00")
+    end
+  end
 
   def self.closeout_all_expired
     self.all.each do |event|

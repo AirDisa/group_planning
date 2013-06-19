@@ -12,6 +12,7 @@
 <h2>
   <%= best_in_place_if current_user.id == @event.creator_id, @event, :title, :type => :input %>
 </h2>
+<h5 id="start_time">Event Date - <%= @event.start_time.strftime("%A, %b %e") %></h5>
 <h3 class='description'>
   <%=  best_in_place_if current_user.id == @event.creator_id, @event, :description, :type => :textarea, :nil => "click here to edit this field" %>
 </h3>
