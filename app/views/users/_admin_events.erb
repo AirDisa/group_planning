@@ -11,7 +11,7 @@
 
       <div class='slider'>
         <ul>
-          <% user.events.reverse.each do |event| %>
+          <% user.events.open_events.reverse.each do |event| %>
           <li>
             <%= link_to (image_tag event.image, :size => "219.375x105", :class=>'captify'), event_path(event.url) %>
             <span class="event_image_title">
@@ -28,7 +28,7 @@
     </div>
 
     <ul id='list_of_all_events'>
-      <% user.events.reverse.each do |event| %>
+      <% user.events.open_events.reverse.each do |event| %>
       <li>
         <%= link_to (image_tag event.image, :size =>'125x65'), event_path(event.url) %>
         <span id='event_quick_quick_title'>
