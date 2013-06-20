@@ -1,13 +1,23 @@
 @import "compass/reset";
 
-$home_red:   #ED3419;
-$dark_red: darken( $home_red, 30% ) ;
-$home_green: #00A055;
-$dark_green: darken( $home_green, 30% ) ;
-$home_blue: #2222ED;
-$dark_blue: darken( $home_blue, 30% ) ;
-$home_orange: #FF4E34;
+$home_red:  lighten( #ED3419, 10% );
+$dark_red: darken( $home_red, 30% );
+$home_green: lighten( #00A055, 10%);
+$dark_green: darken( $home_green, 30% );
+$home_blue: lighten( #2222ED, 10% );
+$dark_blue: darken( $home_blue, 30% );
+$home_orange: lighten( #FF4E34,10% );
 $dark_orange: darken( $home_orange, 30% );
+
+::-moz-selection {
+    background-color: $home_red;
+    color: white;
+}
+
+::selection {
+    background-color: $home_red;
+    color: white;
+}
 
 body:before, body:after {
   content: "";
@@ -169,7 +179,7 @@ ul#errors li {
 input, textarea {
   border: 3.75px solid white;
   color: gray;
-  font-size: 2em;
+  font-size: 1.5em;
   -webkit-box-shadow:
   inset 0 0 6px  rgba(0,0,0,0.1),
   0 0 12px rgba(0,0,0,0.1);
@@ -183,6 +193,7 @@ input, textarea {
   background: rgba(255,255,255,0.75);
   margin: 0 0 7.5px 0;
   width: 495px;
+  height: 30px;
 }
 
 #user_profile_pic {
@@ -230,7 +241,8 @@ a.home_form_close {
   min-height: 900px;
 }
 
-img.story_image {
+.story_image {
+  background: url('/assets/story.png');
   height: 175.25px;
   margin: 30px 0 0;
   width: 675px;
@@ -276,12 +288,8 @@ img.story_image {
   background: $home_green;
 }
 
-#invited_events {
-  background: $home_blue;
-}
-
 #created_events {
-  background: $home_orange;
+  background: $home_blue;
 }
 
 .wrapper {
@@ -334,7 +342,7 @@ img.story_image {
   .event_image_title a {
     background: rgba(20, 20, 20, .9);
     border: 3px solid white;
-    color: $home_red;
+    color: $home_green;
     display: block;
     font-size: 30px;
     margin: 0 1.325px;
@@ -372,24 +380,25 @@ img.story_image {
 
 
 div.explain  {
+  line-height: 14px;
   position: relative;
   #explain-down-payment {
     position: absolute;
     right: 356.25px;
-    top: 84.75px;
+    top: 79.75px;
     opacity: .7;
   }
   #explain-commit-date {
     position: absolute;
     padding-bottom: 22.5px;
     right: 12px;
-    top: 84.75px;
+    top: 79.75px;
     opacity: .7;
   }
   #dollar {
     position: absolute;
     left:7.5px;
-    padding: 77px 0;
+    padding: 78px 0;
     float: left;
     opacity: .3;
   }
@@ -403,6 +412,7 @@ div.explain  {
     border: .75px solid #ccc;
     padding: 7.5px;
     font-size: 15px;
+    line-height: 18px;
   }
   span.info:nth-of-type(1) div {
     right: 160px;
@@ -1099,5 +1109,20 @@ h3 .best_in_place:hover {
   0 0 12px rgba(0,0,0,0.7);
   p {
     text-align:center;
+  }
+}
+
+#blackhawks .picker__holder {
+  border: solid 2px white;
+  border-radius: 8px;
+  margin: 200px auto;
+  width: 300px !important;
+  li {
+    margin: 8px 0;
+    text-indent: 12px;
+    &:hover {
+      background: $home_blue;
+      color: white;
+    }
   }
 }
