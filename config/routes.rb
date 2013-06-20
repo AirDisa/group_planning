@@ -16,7 +16,7 @@ Planning::Application.routes.draw do
   post 'validate/email' => 'users#validate_email'
   get '/stripe' => 'users#stripe'
   post '/invitees/:id/conditions' => 'invitees#reset', :as => 'reset'
-  get '/faq' => 'home#faq'
+  get '/about' => 'home#about'
 
   if Rails.env.development?
     mount MailPreview => 'mail_view'
