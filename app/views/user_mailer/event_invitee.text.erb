@@ -1,18 +1,26 @@
 <% if @user %>
-Hey <% @user.first_name %>,
+Hey <%= @user.first_name %>,
 <% else %>
 Hey there,
 <% end %>
 ===============================================
 
-<%= @creator.full_name %> just invited you to the event <%= @event.title %>!
+<%= @creator.full_name %> just invited you to the event "<%= @event.title %>"! Congrats on being loved!
 
 If this is your first time participating in a grouPACT, here's how it works:
 
-1. Click this link to visit the event page: www.groupact.me/events/<%= @event.url %>
+1. Click this link to visit the event page: <a href="http://www.grouPACT.me/events/<%= @event.url %>" target="_blank"><%= @event.title %></a>
 2. Respond to the event invite with yes, no, or yes IF.
-3. Once everyone has responded or the event deadline (<%= @event.commit_date.strftime("%A, %b %e") %>) rolls around, you'll get an email letting you know if your conditions were met.
+3. If you choose yes IF, you'll be allowed to enter in conditions that need to be met before you are willing to go, such as a certain number of people or even a specific person from the invitee list.
+4. Once everyone has responded or the event deadline (in this case, <%= @event.commit_date.strftime("%A, %B %e") %>) rolls around, you'll get an email letting you know if your conditions were met.
 
-And that's all there is to it! Pretty easy, right?
+<% if @event.down_payment %>
+Just as a heads up, the event organizer has asked for a payment of <%= number_to_currency(@event.down_payment / 100.0) %> if you attend this event. Most likely, this is because that person is planning to make a group purchase of some sort. However, if you are unsure why that person is requesting a payment, please reach out to them directly to find out!
 
-Happy planning!
+Note that your credit card will <strong>only</strong> be charged if your conditions for attendence were met. At midnight on the commit date, all people whose conditions were met will be charged the requested amount and the money will be transfered to the organizer.
+<% end %>
+
+And that's all there is to it! Pretty easy, right? And if it isn't, let us know so we can keep improving!
+
+Happy (conditional) planning,
+The grouPACT Team

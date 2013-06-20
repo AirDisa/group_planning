@@ -2,6 +2,7 @@ class EventMailer < ActionMailer::Base
   default from: DEFAULT_FROM
 
   def charge_email(user, event)
+    attachments['home_logo.jpg'] = File.read('./app/assets/images/home_logo.jpg')
     @user = user
     @event = event
     email_with_name = "#{@user.full_name} <#{@user.email}>"
@@ -10,6 +11,7 @@ class EventMailer < ActionMailer::Base
   end
 
   def confirm_email(user, event)
+    attachments['home_logo.jpg'] = File.read('./app/assets/images/home_logo.jpg')
     @user = user
     @event = event
     email_with_name = "#{@user.full_name} <#{@user.email}>"

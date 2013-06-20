@@ -1,8 +1,15 @@
 Hey <%= @creator.first_name %>,
 ===============================================
 
-This is just to confirm that you successfully created the event <%= @event.title %>.
+Congrats! You successfully created the event "<%= @event.title %>"! The people you invited (all <%= @event.emails.split(',').count %> of them) will be getting an email shortly asking them to visit the event page and select their conditions for attendance. Don't be shy about reaching out to them as well.
 
-Per your request, invitees will be given until <%= @event.commit_date.strftime("%A, %b %e") %> to respond before the final group is determined.
+<% if @event.down_payment %>
+Since you've requested a payment of <%= number_to_currency(@event.down_payment / 100.0) %> from each attendee, anyone who responds 'yes' or 'yes IF' to the event invitation will be asked to fill out a form with their credit card information. At midnight on the commit date, all invitees whose conditions have been satisfied will be charged the requested amount. That money will then be transfered to your account, less the small fee that Stripe takes.
+<% end %>
+
+Per your request, invitees will be given until mightnight on <strong><%= @event.commit_date.strftime("%A, %b %e") %></strong> to respond before the final group is determined. As always, you can check back at any time to see the current status of the event.
 
 You can check back at any time to see the current status of the event. Happy planning!
+
+Happy (conditional) planning,
+The grouPACT Team
