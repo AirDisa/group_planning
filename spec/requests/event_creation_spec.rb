@@ -15,7 +15,7 @@ describe 'Event Creation' do
       fill_in "event_description", with: "Event Description"
       select "Sporting", from: "event_image"
       find("#event_commit_date").click
-      find(".picker__nav--next").click
+      page.all(".picker__nav--next")[1].click
       page.all(".picker__day.picker__day--infocus")[0].click
       click_on("next")
       page.should have_content("You must enter an event title and a commit date")
@@ -53,7 +53,7 @@ describe 'Event Creation' do
       fill_in "event_description", with: "Event Description"
       select "Sporting", from: "event_image"
       find("#event_commit_date").click
-      find(".picker__nav--next").click
+      find("#event_commit_date .picker__nav--next").click
       page.all(".picker__day.picker__day--infocus")[0].click
       click_on "next"
     end
