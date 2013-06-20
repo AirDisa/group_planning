@@ -51,8 +51,6 @@ describe 'user condition entry', :js => true do
       page.should have_content("I will attend this event IF")
     end
 
-    it "should test other functionalities once they're finalized"
-
   end
 
   context 'when the user has already responded' do
