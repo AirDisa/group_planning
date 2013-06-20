@@ -999,13 +999,20 @@ h3 .best_in_place:hover {
  cursor:pointer;
  float:left;
  padding-top:99px;
-
+ opacity:0.3;
+ &:hover {
+  opacity:1;
+};
 }
 
 .next {
  cursor:pointer;
  float:right;
  padding-top:99px;
+ opacity:0.3;
+ &:hover {
+  opacity:1;
+};
 }
 
 .caption-top, .caption-bottom {
@@ -1034,6 +1041,26 @@ h3 .best_in_place:hover {
 
 .caption a:hover, .caption a:hover {
  background:#202020;
+}
+
+#list_of_all_events {
+  li{
+    a{
+      margin: 0 4px 8px;
+    }
+  }
+  clear:both;
+  margin:0 auto;  
+}
+
+#event_quick_quick_title {
+  position:absolute;
+  margin-top:-70px;
+  margin-left:5px;
+  a{
+    font-size: 12px;
+    padding:0 5px;
+  }
 }
 
 #no_events {
