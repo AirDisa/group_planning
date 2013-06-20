@@ -12,6 +12,9 @@ $(document).ready(function(){
       $('ul#errors:last').append('<li class="email">Your start date must be after your commit date</li>').hide().slideDown(100)
     } else {
       $('.wrapper.event-creation').toggle("slide");
+      $('html, body').stop().animate({
+        scrollTop: $('#create_event').offset().top
+      }, 500);
     }
   });
 
