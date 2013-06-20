@@ -36,22 +36,23 @@ describe User do
                            testing and nothing else.').for(:profile)}
   it { should allow_value("ac_22AAaAaaaA0AAaAA0aAaaAAaAaa5aaaa").for(:stripe_token)}
 
-  context 'user model method' do
+  context 'public methods' do
 
-  before(:each) do
+    before(:each) do
       @user   = FactoryGirl.create(:user)
-      @event  = FactoryGirl.create(:event)
-      @event_one  = FactoryGirl.build(:event_one)
-      @invitee = Invitee.create(:user_id => @user.id, :event_id => @event.id, :status =>"Yes")
-      @invitee_one = Invitee.create(:user_id => @user.id, :event_id => @event_one.id, :status =>"Yes") 
     end
 
     it 'should concact the first and last name' do
-      "#{@user.first_name} #{@user.last_name}" == @user.full_name
+      @user.full_name.should eq "#{@user.first_name} #{@user.last_name}"
     end
 
-    it 'should know which event user has attended' do
-      @user.events_attended == @invitee_one
+    it 'should be able to return the events attended in the past' do
+      FactoryGirl.create(:event).invitees << Invitee.create(:user_id => @user.id, :status =>"Yes")
+      past_event = FactoryGirl.create(:event)
+      past_event.update_attribute('commit_date', 'Fri, 2 Jan 2009')
+      Invitee.create(:user_id => @user.id, :event_id => past_event.id, :status =>"Yes")
+
+      @user.events_attended.should eq [past_event]
     end
   end
 end
