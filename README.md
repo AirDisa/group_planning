@@ -2,4 +2,6 @@
 grouPACT
 ==============
 
-Group planning, conditionally
+Group planning, conditionally.
+
+Check out the live website at [grouPACT.me](http://groupact.me).
