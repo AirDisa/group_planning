@@ -1,0 +1,15 @@
+Hey <%= @user.first_name %>,
+===============================================
+
+You are now confirmed for <%= @event.title %>! We hope you enjoy it!
+
+Here's a list of the people that will be joining you:
+<% @event.going.each do |invitee| %>
+-<%= invitee.user.first_name %>
+<% end %>
+<% if @event.down_payment %>
+By the way, now that you are confirmed for the event you should be seeing a charge for <%= number_to_currency(@event.down_payment / 100.0) %> appear within the next day or two.
+<% end %>
+
+Happy (conditional) planning,
+The grouPACT Team

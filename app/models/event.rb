@@ -81,17 +81,17 @@ class Event < ActiveRecord::Base
   def settle_with_payment
     invitees.each do |invitee|
       if invitee.user_id == self.creator_id
-        # Email creator
-      else
-        invitee.charge_email
-        EventMailer.charge_email(invitee.user, event).deliver
+        EventMailer.notify_creator(invitee.user, event).deliver
+      elsif invitee.status == "Yes"
+        invitee.charge
+        EventMailer.confirmed(invitee.user, event).deliver
       end
     end
   end
 
   def settle_without_payment
     invitees.each do |invitee|
-      EventMailer.confirm_email(invitee.user, event).deliver
+      EventMailer.confirmed(invitee.user, event).deliver
     end
   end
 

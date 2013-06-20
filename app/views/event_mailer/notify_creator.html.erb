@@ -329,29 +329,19 @@
                                                     <tr>
                                                         <td valign="top" class="bodyContent">
                                                             <div mc:edit="std_content00">
-                                                                <% if @user %>
-                                                                <h2 class="h2">Hey <%= @user.first_name %>,</h2>
-                                                                <% else %>
-                                                                <h2 class="h2">Hey there,</h2>
+                                                                <h2 class="h2">Hey <%= @creator.first_name %>,</h2>
+                                                                <br />
+                                                                Congrats! Your event "<%= @event.title %>" has been confirmed!
+                                                                <br /><br />
+                                                                Here's a list of the people that will be joining you:
+                                                                <ul>
+                                                                <% @event.going.each do |invitee| %>
+                                                                    <li><%= invitee.user.first_name %></li>
                                                                 <% end %>
-                                                                <br />
-                                                                 <%= @creator.full_name %> just invited you to the event "<%= @event.title %>"! Congrats on being loved!
-                                                                  <br><br>
-                                                                  If this is your first time participating in a grouPACT, here's how it works:
-                                                                  <ol>
-                                                                    <li>Click this link to visit the event page: <a href="http://www.grouPACT.me/events/<%= @event.url %>" target="_blank"><%= @event.title %></a></li>
-                                                                    <li>Respond to the event invite with yes, no, or yes IF.</li>
-                                                                    <li>If you choose yes IF, you'll be allowed to enter in conditions that need to be met before you are willing to go, such as a certain number of people or even a specific person from the invitee list.</li>
-                                                                    <li>Once everyone has responded or the event deadline (in this case, <%= @event.commit_date.strftime("%A, %B %e") %>) rolls around, you'll get an email letting you know if your conditions were met.</li>
-                                                                  </ol>
-                                                                <br />
+                                                                </ul>
                                                                 <% if @event.down_payment %>
-                                                                  Just as a heads up, the event organizer has asked for a payment of <%= number_to_currency(@event.down_payment / 100.0) %> if you attend this event. Most likely, this is because that person is planning to make a group purchase of some sort. However, if you are unsure why that person is requesting a payment, please reach out to them directly to find out!
-                                                                  <br><br>
-                                                                  Note that your credit card will <strong>only</strong> be charged if your conditions for attendence were met. At midnight on the commit date, all people whose conditions were met will be charged the requested amount and the money will be transfered to the organizer.
-                                                                  <br /><br />
+                                                                By the way, now that everyone is confirmed for the event you should be seeing a deposit for roughly <%= number_to_currency(@event.down_payment / 100.0 * (@event.going.count - 1))%> appear within the next few days.
                                                                 <% end %>
-                                                                And that's all there is to it! Pretty easy, right? And if it isn't, let us know so we can keep improving!
                                                                 <br /><br />
                                                                 <strong>Happy (conditional) planning,</strong>
                                                                 <br />
