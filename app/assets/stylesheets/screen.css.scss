@@ -105,7 +105,7 @@ h5 {
 
 #home_intro,  #home_hover {
   color: white;
-  font-size: 16.5px;
+  font-size: 20px;
   font-weight: lighter;
   line-height: 24px;
   margin: 52.5px  auto 0;
@@ -363,7 +363,9 @@ img.story_image {
   z-index: 90;
 }
 
-
+#new_event {
+  font-size:14px;
+}
 #event_title, #event_description, .friend-email {
   width: 95.5%;
 }
@@ -374,20 +376,20 @@ div.explain  {
   #explain-down-payment {
     position: absolute;
     right: 356.25px;
-    top: 92.75px;
+    top: 84.75px;
     opacity: .7;
   }
   #explain-commit-date {
     position: absolute;
     padding-bottom: 22.5px;
     right: 12px;
-    top: 92.75px;
+    top: 84.75px;
     opacity: .7;
   }
   #dollar {
     position: absolute;
     left:7.5px;
-    padding: 84px 0;
+    padding: 77px 0;
     float: left;
     opacity: .3;
   }
@@ -1013,7 +1015,7 @@ h3 .best_in_place:hover {
 
 #no_events {
   color: white;
-  font-size: 18px;
+  font-size: 24px;
   a {
     text-decoration: none;
     color: $home_green;
