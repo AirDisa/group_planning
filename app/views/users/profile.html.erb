@@ -1,11 +1,11 @@
 <div class="wrapper">
 
-<%= render :partial => "users/profile_head", :locals => { :user => @user } %>
-
 <%= render :partial => "users/profile_side", :locals => { :user => @user } %>
 
-<%= render :partial => "users/profile_writeup", :locals => { :user => @user } %>
+<div class="main-profile">
+<%= render :partial => "users/profile_main", :locals => { :user => @user } %>
+</div>
 
-  <div class="clear"></div>
+<div class="clear"></div>
 
 </div>

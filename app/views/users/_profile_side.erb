@@ -1,14 +1,20 @@
 <div class="profile_side">
-  <h4>Events:</h4>
-  <h3>Attended: <%= user.events_attended.count %></h3>
-  <h3>Invited To: <%= user.events.count %></h3>
-  <div class="clear"></div>
-  <% if user == current_user && user.events_attended.count > 0 %>
-  <h4>Past Events:</h4>
-  <ul>
-    <% user.events_attended.each do |event| %>
-      <li><%= link_to event.title, event_path(event.url) %></li>
-    <% end %>
-  </ul>
+  <%= image_tag user.profile_pic, :class => "profile_pic", :size => "250x250" %>
+  <h2><span class="bolder"><%= user.full_name %></span></h2>
+  <hr>
+  <span class="icons">
+    <%= image_tag "mail_icon.png", :size => "25x25" %>
+    <%= mail_to(user.email) %>
+  </span>
+  <span class="icons">
+    <%= image_tag "clock_icon.png", :width => "25" %>
+    Joined on <span class="bolder"><%= user.created_at.strftime('%b %e, %Y') %></span>
+  </span>
+  <% if user.web %>
+    <hr>
+    <span class="icons">
+      <%= image_tag "link_icon.png", :width => "25" %>
+      <%= link_to user.web, 'http://' + user.web, :target => "_blank" %>
+    </span>
   <% end %>
 </div>
