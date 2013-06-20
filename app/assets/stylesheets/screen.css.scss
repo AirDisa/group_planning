@@ -1285,3 +1285,18 @@ h3 .best_in_place:hover {
     line-height:18px;
   }
 }
+.easter-egg {
+  position: relative;
+  img.x-mark {
+    visibility: hidden;
+    position: absolute;
+    top: -416px;
+    left: 378px;
+  }
+}
+
+.easter-egg:hover {
+  img.x-mark {
+    visibility: visible;
+  }
+}
