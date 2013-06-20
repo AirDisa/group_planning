@@ -2,14 +2,14 @@ class UserMailer < ActionMailer::Base
   default from: DEFAULT_FROM
 
   def welcome_email(user)
-    attachments['home_logo.jpg'] = File.read('./app/assets/images/home_logo.jpg')
+    attachments['logo.jpg'] = File.read('./app/assets/images/logo_500_100.jpg')
     @user = user
     email_with_name = "#{@user.full_name} <#{@user.email}>"
     mail(:to => email_with_name, :subject => "Welcome to grouPACT!")
   end
 
   def event_invitee(email, creator, event)
-    attachments['home_logo.jpg'] = File.read('./app/assets/images/home_logo.jpg')
+    attachments['logo.jpg'] = File.read('./app/assets/images/logo_500_100.jpg')
     @user  = User.where(:email => email).first
     @event = event
     @creator = creator
