@@ -103,6 +103,10 @@ class Event < ActiveRecord::Base
     commit_date < Time.now
   end
 
+  def self.open_events
+    self.where('commit_date > ?', Time.now)
+  end
+
   private
 
   def commit_date_is_in_the_future
