@@ -1,11 +1,11 @@
 <div id="created_events" class="admin_block">
 
-<a id="events"></a>
+  <a id="events"></a>
   <div class="wrapper admin-event-list admin-created">
 
-  <h2>your grou<span class="bolder">pact</span> events:</h2>
+    <h2>your grou<span class="bolder">pact</span> events:</h2>
 
-  <% unless user.created_events.empty?  %>
+    <% unless user.created_events.empty?  %>
     <div id='list'>
       <div class="prev"><%= image_tag 'prev.png', :size=> '75x75' %></div>
 
@@ -23,14 +23,26 @@
         </ul>
       </div>
 
+
       <div class="next"><%= image_tag 'next.png', :size => '75x75' %></div>
     </div>
-  <% else %>
-  <div id='sad_panda'><%= image_tag 'sad_panda_chibi_by_mshydeplz.png' %><br>
-    <span id="no_events">You do not have any events yet! </span></div>
-    <div class="user_admin_nav" id='new_button_created'><a href="#new">new</a></div>
-  <% end %>
 
-  <p class="user_admin_nav"><a href="#top">top</a></p>
+    <ul id='list_of_all_events'>
+      <% user.events.reverse.each do |event| %>
+      <li>
+        <%= link_to (image_tag event.image, :size =>'125x65'), event_path(event.url) %>
+        <span id='event_quick_quick_title'>
+          <%= link_to truncate(event.title, :length=> 25, :seperator => ' '), event_path(event.url) %>
+        </span>
+      </li>
+      <% end %>
+    </ul>
+    <% else %>
+    <div id='sad_panda'><%= image_tag 'sad_panda_chibi_by_mshydeplz.png' %><br>
+      <span id="no_events">You do not have any events yet! </span></div>
+      <div class="user_admin_nav" id='new_button_created'><a href="#new">new</a></div>
+      <% end %>
+
+      <p class="user_admin_nav"><a href="#top">top</a></p>
+    </div>
   </div>
-</div>
