@@ -5,7 +5,6 @@ class UserMailer < ActionMailer::Base
     attachments['home_logo.jpg'] = File.read('./app/assets/images/home_logo.jpg')
     @user = user
     email_with_name = "#{@user.full_name} <#{@user.email}>"
-    @url  = "www.groupact.me"
     mail(:to => email_with_name, :subject => "Welcome to grouPACT!")
   end
 
@@ -19,19 +18,19 @@ class UserMailer < ActionMailer::Base
   end
 
   # Needs to be implemented tested!
-  def confirm_event(user, event)
-    @user  = user
-    @event = event
-    mail( :to => @user.email,
-          :subject => "You are now confirmed for #{@event.title}!") do |format|
-       format.ics {
-       ical = Icalendar::Calendar.new
-       ical.add_event(@event.to_ics)
-       ical.publish
-       ical.to_ical
-       render :text => ical, :layout => false
-      }
-    end
-  end
+  # def calendar_reminder(user, event)
+  #   @user  = user
+  #   @event = event
+  #   mail( :to => @user.email,
+  #         :subject => "You are now confirmed for #{@event.title}!") do |format|
+  #      format.ics {
+  #      ical = Icalendar::Calendar.new
+  #      ical.add_event(@event.to_ics)
+  #      ical.publish
+  #      ical.to_ical
+  #      render :text => ical, :layout => false
+  #     }
+  #   end
+  # end
 
 end
