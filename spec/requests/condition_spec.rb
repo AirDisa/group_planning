@@ -6,7 +6,7 @@ describe 'user condition entry', :js => true do
   before(:each) do
     @user   = FactoryGirl.create(:user)
     @event  = FactoryGirl.create(:event)
-    @invite = Invitee.create(:user_id => @user.id, :event_id => @event.id)
+    @invitee = Invitee.create(:user_id => @user.id, :event_id => @event.id)
     user_login(@user)
     visit event_path(@event.url)
   end
@@ -57,7 +57,7 @@ describe 'user condition entry', :js => true do
 
   context 'when the user has already responded' do
     before do
-      @invite.update_attribute("responded", true)
+      @invitee.update_attribute("responded", true)
       visit event_path(@event.url)
     end
 
@@ -66,6 +66,18 @@ describe 'user condition entry', :js => true do
       page.has_button?('No').should eq false
       page.has_button?('yes_if').should eq false
     end
+  end
 
+  context 'reset conditions' do
+
+    it 'should not show reset conditions button when user has not made a choice' do
+      page.should_not have_selector('#reset_button')
+    end
+
+    it 'should show reset condition when user has responded' do
+      @invitee.update_attributes(:responded => true, :status => "Yes")
+      visit event_path(@event.url)
+      page.should have_selector('#reset_button')
+    end
   end
 end
