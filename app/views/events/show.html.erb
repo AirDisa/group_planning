@@ -2,6 +2,7 @@
   <div id="stripe_link">
     <p>To collect payments from attendees, please...</p>
     <%= link_to image_tag('/assets/stripe_light.png'), "https://connect.stripe.com/oauth/authorize?response_type=code&client_id=#{ENV['STRIPE_CLIENT_ID']}&scope=read_write" %>
+    <p class="stripe-msg">Don't be intimidated by Stripe's form. Feel free to use your grou<span class="bolder">pact</span> <%= link_to 'personal profile URL', profile_path(current_user.url), :target => '_blank' %> as your 'Product Website.' No tax information needs to be entered, and you can use your full name in place of 'Business Name.' That's it, soon you'll be able collect downpayments for your event.</p>
   </div>
 <% end %>
 
