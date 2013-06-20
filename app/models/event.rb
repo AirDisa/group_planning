@@ -19,6 +19,12 @@ class Event < ActiveRecord::Base
   validate  :event_date_is_after_commit_date
   validates :down_payment, :format => {:with => /^\d{1,}$/}, :allow_nil => true
 
+  before_save :downpayment_zero_to_nil
+
+  def downpayment_zero_to_nil
+    self.down_payment = nil if self.down_payment == 0
+  end
+
   def waffling
     invitees.select { |invitee| invitee.status == "Pending" }
   end
