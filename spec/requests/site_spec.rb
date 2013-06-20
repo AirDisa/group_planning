@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'grouPACT' do
 
   it 'should be sweet' do
-    true
+    true.should eq true
   end
 
 end
