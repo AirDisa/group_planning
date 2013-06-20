@@ -34,7 +34,7 @@ describe "Footer" do
 
     it "should link to their profile page from their full name" do
       click_link(@user.full_name)
-      page.should have_content('your groupact profile:')
+      page.should have_content('groupact profile')
     end
 
     it "should have a Your Portal link" do
@@ -43,7 +43,7 @@ describe "Footer" do
 
     it "should link to their portal page" do
       click_link('Your Portal')
-      page.should have_content('your groupact portal: '+ @user.full_name)
+      page.should have_content('your groupact portal: ' + @user.full_name)
     end
 
     it "should have a Sign Out link" do
