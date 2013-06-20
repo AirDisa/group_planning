@@ -10,13 +10,13 @@ $home_orange: lighten( #FF4E34,10% );
 $dark_orange: darken( $home_orange, 30% );
 
 ::-moz-selection {
-    background-color: $home_red;
-    color: white;
+  background-color: $home_red;
+  color: white;
 }
 
 ::selection {
-    background-color: $home_red;
-    color: white;
+  background-color: $home_red;
+  color: white;
 }
 
 body:before, body:after {
@@ -468,7 +468,7 @@ div.explain  {
 }
 
 
- .event-creation #next, .email-button, #event_back {
+.event-creation #next, .email-button, #event_back {
   color: $home_green;
   clear: both;
   margin: 15px 0 0;
@@ -484,7 +484,7 @@ div.explain  {
 }
 
 #create_event_button {
-    float:right;
+  float:right;
 }
 
 /* Profile Page */
@@ -558,6 +558,7 @@ footer {
   background: white;
   color: gray;
   height: 30px;
+  font-size:14px;
   font-weight: normal;
   margin: 0 30% 0;
   min-width: 487.5px;
@@ -599,11 +600,11 @@ footer {
     margin: 0 0 9px;
   }
   div.closed {
-  margin: 0 0 9px;
-  width: 444px;
-  height: 215.25px;
-  position: absolute;
-  background-color: rgba(0,0,0,0.7);
+    margin: 0 0 9px;
+    width: 444px;
+    height: 215.25px;
+    position: absolute;
+    background-color: rgba(0,0,0,0.7);
     img{
       margin: 3px 0 0 2.25px;
     }
@@ -1135,5 +1136,50 @@ h3 .best_in_place:hover {
       background: $home_blue;
       color: white;
     }
+  }
+}
+
+#faq_header {
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  margin-bottom:10px;
+}
+
+#faq_pic {
+  margin-top: 20px;
+  border: 5px solid rgba(255, 255, 255, 0.2);
+  border-radius:5px;
+  -webkit-box-shadow:
+  inset 0 0 40px  rgba(0,0,0,0.7),
+  0 0 50px rgba(0,0,0,0.9);
+  -moz-box-shadow:
+  inset 0 0 40px  rgba(0,0,0,0.7),
+  0 0 50px rgba(0,0,0,0.9);
+  box-shadow:
+  inset 0 0 40px  rgba(0,0,0,0.7),
+  0 0 50px rgba(0,0,0,0.9);
+}
+
+.description_columns {
+  float:left;
+}
+
+.individual_description {
+  margin: 20px 5px;
+  border-radius: 5px;
+  width: 199px;
+  float:left;
+  padding: 0px 8px;
+  text-align:center;
+  #faq_header {
+    margin: 15px 50px;
+    border-bottom:1px solid white;
+  }
+  p {
+    text-align:left;
+    color:white;
+    font-size:16px;
+    line-height:18px;
   }
 }
