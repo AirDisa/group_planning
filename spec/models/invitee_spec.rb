@@ -12,10 +12,9 @@ describe Invitee do
 
   context "methods" do
 
-    after(:each) do
-      Invitee.delete_all
-      Event.delete_all
-      User.delete_all
+    before(:each) do
+      @user = FactoryGirl.create(:user)
+      @event = FactoryGirl.create(:event)
     end
 
     it "should be able to reset it's condition" do
@@ -25,24 +24,18 @@ describe Invitee do
     end
 
     it "should be able to return events with a status of 'No'" do
-      user = FactoryGirl.create(:user)
-      event = FactoryGirl.create(:event)
-      invitee = FactoryGirl.create(:not_going, :user_id => user.id, :event_id => event.id)
-      Invitee.not_going(Event.all).should eq [event]
+      invitee = FactoryGirl.create(:not_going, :user_id => @user.id, :event_id => @event.id)
+      Invitee.not_going(Event.all).should eq [@event]
     end
 
     it "should be able to return events with a status of 'Yes'" do
-      user = FactoryGirl.create(:user)
-      event = FactoryGirl.create(:event)
-      invitee = FactoryGirl.create(:going, :user_id => user.id, :event_id => event.id)
-      Invitee.going(Event.all).should eq [event]
+      invitee = FactoryGirl.create(:going, :user_id => @user.id, :event_id => @event.id)
+      Invitee.going(Event.all).should eq [@event]
     end
 
     it "should be able to return events with a status of 'Pending'" do
-      user = FactoryGirl.create(:user)
-      event = FactoryGirl.create(:event)
-      invitee = FactoryGirl.create(:pending, :user_id => user.id, :event_id => event.id)
-      Invitee.going(Event.all).should eq [event]
+      invitee = FactoryGirl.create(:pending, :user_id => @user.id, :event_id => @event.id)
+      Invitee.pending(Event.all).should eq [@event]
     end
 
   end
