@@ -54,7 +54,7 @@ class Event < ActiveRecord::Base
   end
 
   def start_time=(params)
-    if params
+    unless params['date'].empty?
       write_attribute :start_time, DateTime.parse(params['date'] + ' ' + params['time']) + 5.hours
     end
   end

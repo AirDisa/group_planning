@@ -1,9 +1,10 @@
 require 'spec_helper'
 
 describe 'Event Creation' do
+  include LoginHelpers
+  include CalendarHelpers
 
   context "filling in event fields", :js => true do
-    include LoginHelpers
 
     before(:each) do
       @user = FactoryGirl.create(:user)
@@ -14,9 +15,7 @@ describe 'Event Creation' do
     it "requires event title" do
       fill_in "event_description", with: "Event Description"
       select "Sporting", from: "event_image"
-      find("#event_commit_date").click
-      page.all(".picker__nav--next")[1].click
-      page.all(".picker__day.picker__day--infocus")[0].click
+      select_future_commit_date
       click_on("next")
       page.should have_content("You must enter an event title and a commit date")
     end
@@ -32,17 +31,13 @@ describe 'Event Creation' do
     it "should have next button enabled when required fields are filled in" do
       fill_in "event_title", with: "Event Title"
       fill_in "event_description", with: "Event Description"
-      select "Sporting", from: "event_image"
-      find("#event_commit_date").click
-      find(".picker__nav--next").click
-      page.all(".picker__day.picker__day--infocus")[0].click
+      select_future_commit_date
       click_on("next")
       page.should have_content("invite your friends:")
     end
   end
 
   context "filling in email fields", :js=>true do
-    include LoginHelpers
 
     before do
       @user = FactoryGirl.create(:user)
@@ -52,9 +47,7 @@ describe 'Event Creation' do
       fill_in "event_title", with: "Event Title"
       fill_in "event_description", with: "Event Description"
       select "Sporting", from: "event_image"
-      find("#event_commit_date").click
-      find("#event_commit_date .picker__nav--next").click
-      page.all(".picker__day.picker__day--infocus")[0].click
+      select_future_commit_date
       click_on "next"
     end
 
