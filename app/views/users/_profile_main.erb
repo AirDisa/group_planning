@@ -25,7 +25,7 @@
 
   <div class="top">
 
-    <h2><span class="bolder">events</span></h2>
+    <h2><span class="bolder">stats</span></h2>
 
     <hr>
 
@@ -46,7 +46,7 @@
 
   <div class="bottom">
 
-    <h2><span class="bolder">past</span></h2>
+    <h2><span class="bolder">events</span></h2>
 
     <hr>
 
@@ -55,10 +55,10 @@
         <th>event</td>
         <th>date</th>
       </tr>
-      <% user.events_attended.each do |event| %>
+      <% user.events.order('commit_date DESC').each do |event| %>
       <tr>
-        <td><%= link_to event.title, event_path(event.url) %></td>
-        <td><%= event.commit_date.strftime('%b %e, %Y') %></td>
+        <td><%= link_to truncate(event.title, :length => 20), event_path(event.url) %></td>
+        <td><%= event.commit_date.strftime('%b %d, %Y') %></td>
       </tr>
       <% end %>
     </table>
