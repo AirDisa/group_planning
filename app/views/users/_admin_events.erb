@@ -7,13 +7,13 @@
 
   <% unless user.created_events.empty?  %>
     <div id='list'>
-      <div class="prev"><%= image_tag 'prev.png', :size=> '100x100' %></div>
+      <div class="prev"><%= image_tag 'prev.png', :size=> '75x75' %></div>
 
       <div class='slider'>
         <ul>
           <% user.events.reverse.each do |event| %>
           <li>
-            <%= link_to (image_tag event.image, :size => "292.5x140", :class=>'captify'), event_path(event.url) %>
+            <%= link_to (image_tag event.image, :size => "219.375x105", :class=>'captify'), event_path(event.url) %>
             <span class="event_image_title">
               <%= link_to truncate(event.title, :length=> 25, :seperator => ' '), event_path(event.url) %>
               <span id='description'><%= truncate(event.description, :length => 450) %></span>
@@ -23,7 +23,7 @@
         </ul>
       </div>
 
-      <div class="next"><%= image_tag 'next.png', :size => '100x100' %></div>
+      <div class="next"><%= image_tag 'next.png', :size => '75x75' %></div>
     </div>
   <% else %>
   <div id='sad_panda'><%= image_tag 'sad_panda_chibi_by_mshydeplz.png' %><br>
