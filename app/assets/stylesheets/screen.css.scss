@@ -495,62 +495,130 @@ img.profile_pic {
   float: left;
   margin: 0 15px 0 0;
 }
-
-#profile {
-  float: left;
-  padding: 22.5px 0;
-  position: relative;
-  li, li a {
-    color: white;
-    font-size: 36px;
-    font-weight: lighter;
-    span {
-      color: $dark_red;
+.main-profile {
+  h2 {
+    display: inline-block;
     }
+  .edit-profile {
     a {
-      display: inline;
-      text-decoration: underline;
-      &:hover {
-        text-decoration: none;
-      }
+      margin-left: 12px;
+      font-size: 28px;
+      text-decoration: none;
+      color: rgba(55,55,160, .4);
+    }
+    a:hover {
+      color: white;
     }
   }
-  li.edit a {
-    font-size: 13.5px;
-    position: absolute;
-    top: 0;
+}
+.writeup {
+  color: white;
+  font-size: 18px;
+  font-weight: lighter;
+  line-height: 1.4em;
+  margin: 0 0 10px;
+  padding: 10px;
+  min-height: 170px;
+  width: 360px;
+  float: right;
+  a {
+      text-decoration: none;
+      color: rgba(255,255,255, .4);
+  }
+  a:hover {
+    color: white;
+  }
+}
+.profile_events {
+  float: right;
+  clear: right;
+  width: 380px;
+  h2 {
+    text-decoration: none;
+  }
+  hr {
+    border: none;
+    margin: -20px 0 20px;
+    height: 1px;
+    background-color: white;
+    opacity: .5;
+  }
+  table {
+    margin-left: 20px;
+  }
+  .top {
+    width: 100%;
+    td {
+      color: $dark_red;
+      font-size: 28px;
+      font-weight: lighter;
+      padding: 10px 10px;
+    }
+  }
+  .bottom {
+    width: 100%;
+    tr th {
+      color: $dark_red;
+      font-size: 28px;
+      font-weight: lighter;
+      padding: 10px 10px;
+    }
+    tr td {
+      a {
+        text-decoration: none;
+        color: rgb(55,55,160);
+      }
+      color: $dark_red;
+      font-size: 18px;
+      font-weight: lighter;
+      padding: 10px 20px 0 10px;
+    }
   }
 }
 
 .profile_side {
   float: left;
   padding: 0 2% 0 0;
-  width: 28%;
+  width: 250px;
+  line-height: 25px;
+  margin-right: 28px;
+  hr {
+    border: none;
+    height: 1px;
+    background-color: white;
+    opacity: .5;
+  }
+  img.profile_pic {
+  background: black;
+  border: solid 1.5px white;
+  float: left;
+  margin: 0 0 10px 0;
+  }
+  h2 {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
   h3 {
     color: white;
     font-size: 13.5px;
     margin: 0px 0px 6px;
   }
-  ul {
-    margin-bottom: 15px;
+  a {
+    text-decoration: none;
+    color: rgb(55,55,160);
+  }
+  .icons {
+    img {
+      position: relative;
+      top: 4px;
+    }
+    line-height: 25px;
+    margin: 0;
+    display: block;
   }
 }
 
-.writeup {
-  float: left;
-  width: 70%;
-  p {
-    font-size: 16.5px;
-    font-weight: light;
-    line-height: 22.5px;
-    a {
-      color: white;
-      &:hover {
-        text-decoration: none;
-      }
-    }
-  }
-}
 
 /* Footer */
 

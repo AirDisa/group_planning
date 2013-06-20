@@ -1,0 +1,70 @@
+<h2>grou<span class="bolder">pact</span> profile</h2>
+<% if user.id == current_user.id %>
+  <span class="edit-profile">
+    <%= link_to 'edit', edit_user_path(user.id) %>
+  </span>
+<% end %>
+
+<div class="writeup">
+  <% if current_user == user %>
+    <% if user.profile %>
+      <p><%= user.profile %></p>
+    <% else %>
+      <p>You have not yet written a bio yet. You may do so at any time by clicking <%= link_to "here", edit_user_path(user.id) %>.</p>
+    <% end %>
+  <% else %>
+    <% if user.profile %>
+      <p><%= user.profile %></p>
+    <% else %>
+      <p><%= user.full_name %> has not written a bio yet.</p>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="profile_events">
+
+  <div class="top">
+
+    <h2><span class="bolder">events</span></h2>
+
+    <hr>
+
+    <table>
+      <tr>
+        <td>attended</td>
+        <td><%= user.events_attended.count %></td>
+      </tr>
+      <tr>
+        <td>invited</td>
+        <td><%= user.events.count %></td>
+      </tr>
+    </table>
+
+    <div class="clear"></div>
+
+  </div>
+
+  <div class="bottom">
+
+    <h2><span class="bolder">past</span></h2>
+
+    <hr>
+
+    <table>
+      <tr>
+        <th>event</td>
+        <th>date</th>
+      </tr>
+      <% user.events_attended.each do |event| %>
+      <tr>
+        <td><%= link_to event.title, event_path(event.url) %></td>
+        <td><%= event.commit_date.strftime('%b %e, %Y') %></td>
+      </tr>
+      <% end %>
+    </table>
+
+  </div>
+
+</div>
+
+<div class="clear"></div>
