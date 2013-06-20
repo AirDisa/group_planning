@@ -2,7 +2,7 @@
   <footer>
     You are logged in as <%= link_to current_user.full_name, profile_path(current_user.url) %>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
     <%= link_to "Your Portal", admin_path(current_user.url) %>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
-    <%= link_to "FAQ", faq_path %>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+    <%= link_to "About", about_path %>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
     <%= link_to "Sign Out", logout_path %>
   </footer>
 <% end %>
