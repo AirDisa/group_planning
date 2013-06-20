@@ -2,7 +2,7 @@ class EventMailer < ActionMailer::Base
   default from: DEFAULT_FROM
 
   def confirmed(user, event)
-    attachments['home_logo.jpg'] = File.read('./app/assets/images/home_logo.jpg')
+    attachments['logo.jpg'] = File.read('./app/assets/images/logo_500_100.jpg')
     @user = user
     @event = event
     email_with_name = "#{@user.full_name} <#{@user.email}>"
@@ -10,7 +10,7 @@ class EventMailer < ActionMailer::Base
   end
 
   def notify_creator(user, event)
-    attachments['home_logo.jpg'] = File.read('./app/assets/images/home_logo.jpg')
+    attachments['logo.jpg'] = File.read('./app/assets/images/logo_500_100.jpg')
     @creator = user
     @event = event
     email_with_name = "#{@creator.full_name} <#{@creator.email}>"
