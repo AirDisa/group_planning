@@ -1,3 +1,4 @@
+require 'spec_helper'
 require 'carrierwave/test/matchers'
 
 describe ImageUploader do
@@ -7,7 +8,7 @@ describe ImageUploader do
     ImageUploader.enable_processing = true
     @event     = FactoryGirl.create(:event)
     @uploader = ImageUploader.new(@event, :image)
-    @uploader.store!(File.open(Rails.root.join "app", "assets", "images", "rails.png"))
+    @uploader.store!(File.open(Rails.root.join "app", "assets", "images", "home_logo.jpg"))
   end
 
   after do

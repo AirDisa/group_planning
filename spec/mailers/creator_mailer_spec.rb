@@ -8,7 +8,7 @@ describe CreatorMailer do
     let(:mail)  { CreatorMailer.event_creation(user, event) }
 
     it 'should render the subject' do
-      mail.subject.should == "You just created #{event.title}!"
+      mail.subject.should == "You just created: #{event.title}!"
     end
 
     it 'should renders the correct user email' do
