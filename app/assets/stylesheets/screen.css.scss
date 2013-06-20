@@ -946,7 +946,15 @@ footer {
   width: 750px;
   z-index: 98;
   p {
+    color: $dark_blue;
+    font-weight: bold;
     margin-bottom: 9px;
+  }
+  p.stripe-msg {
+    color: gray;
+    font-weight: normal;
+    margin: 12px 0 0;
+    text-align: justify;
   }
 }
 
