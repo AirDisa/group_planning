@@ -8,11 +8,11 @@
     <%= e.text_area :description, :placeholder => "Event Description" %>
     <%= e.fields_for :start_time do |start_time| %>
       <%= start_time.text_field 'date', :placeholder => "Event Start Date", :class=>'datepicker', :id => 'event_start_date' %>
-      <%= start_time.text_field 'time', :placeholder => "Event Start Time", :class=>'timepicker', :id => 'event_start_time' %>
+      <div id="blackhawks"><%= start_time.text_field 'time', :placeholder => "Event Start Time", :class=>'timepicker', :id => 'event_start_time' %></div>
     <% end %>
 
     <div class="explain">
-      <%= image_tag "events/dollar.png", :height => "55", :id => "dollar" %>
+      <%= image_tag "events/dollar.png", :height => "45", :id => "dollar" %>
       <%= e.text_field :down_payment, :placeholder => "Cost (Not Required)" %>
       <span class="info">
         <%= image_tag "explain.png", :id => "explain-down-payment" %>

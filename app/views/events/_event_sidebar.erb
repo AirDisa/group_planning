@@ -1,5 +1,5 @@
 <p>Event created by:</p>
-<%= image_tag User.find(@event.creator_id).profile_pic.thumb, :class => "profile_pic", :size => "120x120" %>
+<%= image_tag User.find(@event.creator_id).profile_pic.thumb, :class => "profile_pic", :size => "90x90" %>
 <h2><%= link_to User.find(@event.creator_id).full_name, profile_path(User.find(@event.creator_id).url) %></h2>
 
 <% unless @invitee.conditions.empty? && @invitee.status == "Pending" %>
@@ -29,7 +29,7 @@
 <h3>Down to have fun:</h3>
 <% event.going.each do |invitee| %>
 <li class='invited'>
-  <%= image_tag User.find(invitee.user_id).profile_pic.thumb, :size => '35x35' %>
+  <%= image_tag User.find(invitee.user_id).profile_pic.thumb, :size => '26x26' %>
   <%= link_to User.find(invitee.user_id).full_name, profile_path(User.find(invitee.user_id).url) %>
 </li>
 <% end %>
@@ -39,7 +39,7 @@
 <h3>Waffling:</h3>
 <% event.waffling.each do |invitee| %>
 <li class='invited'>
-  <%= image_tag User.find(invitee.user_id).profile_pic.thumb, :size => '35x35' %>
+  <%= image_tag User.find(invitee.user_id).profile_pic.thumb, :size => '26x26' %>
   <%= link_to User.find(invitee.user_id).full_name, profile_path(User.find(invitee.user_id).url) %>
 </li>
 <% end %>
@@ -49,7 +49,7 @@
 <h3>Missing out:</h3>
 <% event.not_going.each do |invitee| %>
 <li class='invited'>
-  <%= image_tag User.find(invitee.user_id).profile_pic.thumb, :size => '35x35' %>
+  <%= image_tag User.find(invitee.user_id).profile_pic.thumb, :size => '26x26' %>
   <%= link_to User.find(invitee.user_id).full_name, profile_path(User.find(invitee.user_id).url) %>
 </li>
 <% end %>

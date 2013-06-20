@@ -11,14 +11,14 @@ class ProfilePicUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  process :resize_to_fill => [600, 600]
+  process :resize_to_fill => [450, 450]
 
   version :thumb do
-    process :resize_to_fill => [120, 120]
+    process :resize_to_fill => [90, 90]
   end
 
   version :mini do
-    process :resize_to_fill => [60, 60]
+    process :resize_to_fill => [45, 45]
   end
 
   def extension_white_list

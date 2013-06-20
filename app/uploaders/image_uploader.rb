@@ -11,10 +11,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  process :resize_to_fit => [600, 600]
+  process :resize_to_fit => [450, 450]
 
   version :thumb do
-    process :resize_to_fit => [64, 64]
+    process :resize_to_fit => [48, 48]
   end
 
   def extension_white_list

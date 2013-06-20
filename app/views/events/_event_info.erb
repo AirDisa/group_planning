@@ -3,7 +3,7 @@
     <%= image_tag "events/expired.png", :height => "280" %>
   </div>
 <% end %>
-<%= image_tag @event.image, :class => "event_page_image" %>
+<%= image_tag @event.image, :class => "event_page_image", :size=>"440x210" %>
 <% if event.down_payment %>
 <span class="payment-required">
   The organizer of this event has required a payment of <%= number_to_currency(event.down_payment / 100.0) %> to RSVP.<br><br>
