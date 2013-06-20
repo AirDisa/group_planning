@@ -59,7 +59,7 @@ describe 'User' do
     end
 
     it "should have a logout link" do
-      page.should have_link "Sign Out"
+      page.should have_link "sign out"
     end
 
     it "should have the user's name" do
@@ -76,7 +76,7 @@ describe 'User' do
     it "should not display the logout link" do
       user = FactoryGirl.create(:user)
       user_login(user)
-      click_link "Sign Out"
+      click_link "sign out"
 
       page.should have_content 'You successfully logged out!'
       page.should_not have_content user.first_name
