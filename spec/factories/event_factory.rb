@@ -1,3 +1,5 @@
+params = {'date' => '2021-01-01', 'time' => ' 00:00:00'}
+
 FactoryGirl.define do
   factory :event do
     title 'Test Event'
@@ -5,5 +7,6 @@ FactoryGirl.define do
     creator_id 1
     image  "events/default.jpg"
     emails 'test@test.com'
+    start_time params
   end
 end
