@@ -38,20 +38,20 @@ describe "Footer" do
     end
 
     it "should have a Your Portal link" do
-      page.should have_link('Your Portal')
+      page.should have_link('your portal')
     end
 
     it "should link to their portal page" do
-      click_link('Your Portal')
+      click_link('your portal')
       page.should have_content('your groupact portal: ' + @user.full_name)
     end
 
     it "should have a Sign Out link" do
-      page.should have_link('Sign Out')
+      page.should have_link('sign out')
     end
 
     it "should sign out the user with the Sign Out link" do
-      click_link('Sign Out')
+      click_link('sign out')
       page.should_not have_css('footer')
     end
 
