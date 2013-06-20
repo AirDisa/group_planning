@@ -93,6 +93,10 @@ h1 a {
   font-weight: bold !important;
 }
 
+.center {
+  text-align: center;
+}
+
 h3 {
   color: $dark_red;
   font-size: 25.5px;
@@ -264,8 +268,16 @@ a.home_form_close {
     font-weight: lighter;
     text-align: center;
   }
+  p {
+    color: white;
+    font-size: 20px;
+    font-weight: lighter !important;
+    text-align: justify;
+    line-height: 26px;
+    margin: 18px 0 0;
+  }
   ul.user_admin_nav {
-    margin: 18.75px 0 0;
+    margin: -2px 0 0;
     text-align: center;
     width: 675px;
     li {
