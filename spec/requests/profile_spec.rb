@@ -36,12 +36,12 @@ describe 'Profile Page' do
     end
 
     it "should display an EDIT link if it's the current user's page" do
-      page.should have_link('Edit')
+      page.should have_link('edit')
     end
 
     it "should not have an EDIT link for another user's profile page" do
       visit profile_path(@user2.url)
-      page.should_not have_link('Edit')
+      page.should_not have_link('edit')
     end
 
     it "should not display a URL header if the user doesn't have one" do
@@ -58,8 +58,8 @@ describe 'Profile Page' do
       page.should have_content(@user2.profile)
     end
 
-    it "should display a placeholder if the is no written profile" do
-      page.should have_content('You have not yet written a profile, you may do so here')
+    it "should display a placeholder if there is no written profile" do
+      page.should have_content('You have not yet written a bio yet.')
     end
 
     it "should have a link to add a profile if the user doesn't have one saved" do
@@ -83,11 +83,11 @@ describe 'Profile Page' do
     end
 
     it "should display a count of invited events" do
-      page.should have_content('Invited To: 1')
+      page.should have_content('invited 1')
     end
 
     it "should display a list of attended events" do
-      page.should have_content('Attended: 0')
+      page.should have_content('attended 0')
     end
 
   end
