@@ -1048,14 +1048,13 @@ h3 .best_in_place:hover {
 }
 
 #new_button_created {
-  margin: 22.5px 0 0;
+  margin-top: 22.5px;
   text-align: center;
-  width: 675px;
+  width: 716px;
   a {
-    color: $home_red;
+    color: $home_blue;
     font-size: 9em;
     font-weight: bold;
-    margin: 0 22.5px;
     text-decoration: none;
     -webkit-text-stroke: 1.5px white;
     &:hover {
