@@ -4,7 +4,7 @@
   <%= hidden_field_tag 'invitee_id', invitee.id%>
   <%= hidden_field_tag 'event_id', event.id %>
   <% if event.down_payment && event.creator != current_user %>
-      <button id="yesIF_with_payment" class="stripeButton", data-invitee_id=<%=invitee.id%>>Commit</button>
+      <button id="condition_button" class="stripeButton", data-invitee_id=<%=invitee.id%>>Commit</button>
 
       <%= form_tag charges_path, :class => "stripe_payment" do  %>
       <%= hidden_field_tag 'event_id', event.id %>
