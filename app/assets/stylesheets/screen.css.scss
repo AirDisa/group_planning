@@ -1208,6 +1208,9 @@ h3 .best_in_place:hover {
   margin-left:15.75px;
   margin-top: 3.75px;
   color: white;
+  li {
+    margin-left: -15px;
+  }
 }
 
 #condition-box {
@@ -1222,7 +1225,7 @@ h3 .best_in_place:hover {
   inset 0 0 6px  rgba(0,0,0,0.7),
   0 0 12px rgba(0,0,0,0.7);
   p {
-    text-align:center;
+    text-align:left;
   }
 }
 
