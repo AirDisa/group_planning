@@ -101,10 +101,6 @@ class Event < ActiveRecord::Base
     end
   end
 
-  def settle_event
-    self.update_attribute("settled", true)
-  end
-
   def closed?
     commit_date < Time.now
   end
