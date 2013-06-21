@@ -28,6 +28,7 @@ class Invitee < ActiveRecord::Base
   end
 
   def charge
+    Stripe.api_key = ENV['STRIPE_SECRET_KEY']
     event = Event.find(self.event_id)
     begin
       charge = Stripe::Charge.create(
