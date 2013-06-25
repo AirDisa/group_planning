@@ -1287,19 +1287,33 @@ h3 .best_in_place:hover {
     font-size:16px;
     line-height:18px;
   }
-}
-.easter-egg {
-  position: relative;
-  img.x-mark {
-    visibility: hidden;
-    position: absolute;
-    top: -416px;
-    left: 378px;
+  h1 {
+    display: inline;
+    a {
+      background: none;
+      color: white;
+      height: auto;
+      margin: 0px;
+      text-indent: 0;
+      width: auto;
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 }
+// .easter-egg {
+//   position: relative;
+//   img.x-mark {
+//     visibility: hidden;
+//     position: absolute;
+//     top: -416px;
+//     left: 378px;
+//   }
+// }
 
-.easter-egg:hover {
-  img.x-mark {
-    visibility: visible;
-  }
-}
+// .easter-egg:hover {
+//   img.x-mark {
+//     visibility: visible;
+//   }
+// }
