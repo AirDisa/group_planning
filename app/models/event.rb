@@ -13,10 +13,9 @@ class Event < ActiveRecord::Base
   validates :title,       :length => {:minimum => 4,
                           :too_short => "must have at least %{count} letters"}
   validates :creator_id,  :presence => true
-  validates :emails,      :length => {:minimum => 1,
-                          :too_short => "must include at least one invitee"}
   validates :commit_date, :presence => true
   validate  :commit_date_is_in_the_future
+  validate  :contains_one_email
   validate  :event_date_is_after_commit_date
   validates :down_payment, :format => {:with => /^\d{1,}$/}, :allow_nil => true
 
@@ -122,5 +121,11 @@ class Event < ActiveRecord::Base
 
   def reject_empty_emails
     self.emails.reject!(&:blank?)
+  end
+
+  def contains_one_email
+    if emails.first.blank?
+     errors.add(:emails, "must include at least one invitee")
+   end
   end
 end

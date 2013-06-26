@@ -19,7 +19,7 @@ class EventsController < ApplicationController
     emails = params[:event][:emails].values
     @event = Event.new(params[:event].merge(:emails => emails))
 
-    if @event.save!
+    if @event.save
       @event.emails.each {|email| UserMailer.event_invitee(email, current_user, @event).deliver }
       CreatorMailer.event_creation(current_user, @event).deliver
       flash[:success] = "Your new event was created successfully!"
