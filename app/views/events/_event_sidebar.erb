@@ -8,22 +8,22 @@
   <p >Your conditions </p>
   <ul id='your_conditions'>
     <% @invitee.conditions.each do |condition| %>
-      <% if condition.method == 'specific_person' %>
-        <li><%= User.find(condition.value).first_name %> needs to attend</li>
-      <% elsif condition.method == 'required_count' %>
-        <li><%= pluralize(condition.value, 'other person') %> must go</li>
-      <% end %>
+    <% if condition.method == 'specific_person' %>
+    <li><%= User.find(condition.value).first_name %> needs to attend</li>
+    <% elsif condition.method == 'required_count' %>
+    <li><%= pluralize(condition.value, 'other person') %> must go</li>
+    <% end %>
     <% end %>
   </ul>
   <span id='user_profile_pic'>
     <%= form_for @invitee, :url => reset_path(@invitee), :method => :post, :id=>"conditions_reset" do |f| %>
     <%= f.button "reset conditions", :id=>"reset_button" %>
     <% end %>
-    </span>
-  </div>
+  </span>
+</div>
 <% end %>
 
-<h3 class="bolder"><%= pluralize(event.emails.split(',').count + 1, "invitee") %></h3>
+<h3 class="bolder"><%= pluralize(event.emails.length + 1, "invitee") %></h3>
 
 <% if event.going.count > 0 %>
 <h3>Down to have fun:</h3>

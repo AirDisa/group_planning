@@ -1,6 +1,8 @@
 class Event < ActiveRecord::Base
   attr_accessible :commit_date, :creator_id, :description, :title, :image,
                   :emails, :down_payment, :creator_api, :start_time
+  serialize :emails
+
   acts_as_url :title
   acts_as_commentable
 
@@ -11,7 +13,7 @@ class Event < ActiveRecord::Base
   validates :title,       :length => {:minimum => 4,
                           :too_short => "must have at least %{count} letters"}
   validates :creator_id,  :presence => true
-  validates :emails,      :length => {:minimum => 6,
+  validates :emails,      :length => {:minimum => 1,
                           :too_short => "must include at least one invitee"}
   validates :commit_date, :presence => true
   validate  :commit_date_is_in_the_future
@@ -19,6 +21,7 @@ class Event < ActiveRecord::Base
   validates :down_payment, :format => {:with => /^\d{1,}$/}, :allow_nil => true
 
   before_save :downpayment_zero_to_nil
+  before_save :reject_empty_emails
 
   ## To turn on custom image uploading for events
   # mount_uploader :image, ImageUploader
@@ -59,6 +62,11 @@ class Event < ActiveRecord::Base
       date = Time.parse(date)
       write_attribute :commit_date, Time.new(date.year, date.month, date.day, 23, 59, 59, "-05:00")
     end
+  end
+
+  def down_payment=(down_payment)
+    as_cents = (down_payment.to_f * 100).to_i unless down_payment.blank?
+    write_attribute :down_payment, as_cents
   end
 
   def self.closeout_all_expired
@@ -110,5 +118,9 @@ class Event < ActiveRecord::Base
     if start_time && start_time < commit_date
       errors.add(:start_time, "must be after commit date")
     end
+  end
+
+  def reject_empty_emails
+    self.emails.reject!(&:blank?)
   end
 end

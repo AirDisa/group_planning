@@ -6,7 +6,8 @@ class EventsController < ApplicationController
     session[:event_id] = @event.id
     @invitee = Invitee.find_by_user_id_and_event_id(current_user.id, @event.id)
     @all_comments = @event.comments
-    if @event.emails.match(current_user.email) || current_user.id == @event.creator_id
+
+    if @event.emails.include?(current_user.email) || current_user.id == @event.creator_id
       @invitee = Invitee.find_or_create_by_user_id_and_event_id(current_user.id, @event.id)
     else
       flash[:error] = "You must be invited to the event to see this page"
@@ -15,12 +16,11 @@ class EventsController < ApplicationController
   end
 
   def create
-    emails = params[:event][:emails].values.delete_if {|v| v.empty?}
-    params[:event][:emails] = emails.join(', ')
-    params[:event][:down_payment] = (params[:event][:down_payment].to_f * 100).to_i unless params[:event][:down_payment].blank?
-    @event = Event.new(params[:event])
-    if @event.save
-      emails.each {|email| UserMailer.event_invitee(email, current_user, @event).deliver }
+    emails = params[:event][:emails].values
+    @event = Event.new(params[:event].merge(:emails => emails))
+
+    if @event.save!
+      @event.emails.each {|email| UserMailer.event_invitee(email, current_user, @event).deliver }
       CreatorMailer.event_creation(current_user, @event).deliver
       flash[:success] = "Your new event was created successfully!"
       redirect_to event_path(@event.url)

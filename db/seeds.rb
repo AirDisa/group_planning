@@ -306,7 +306,7 @@ end
 
 Event.all.each do |event|
   users.sample(3 + rand(7)).each do |user|
-    event.emails += user.email
+    event.emails << user.email
     Invitee.create(user_id:  user.id,
                    event_id: event.id,
                    status:   STATUS[WEIGHT.sample])

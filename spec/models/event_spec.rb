@@ -11,7 +11,7 @@ describe Event do
 
     it { should allow_value("event description").for(:description) }
 
-    it { should ensure_length_of(:emails).is_at_least(6).
+    it { should ensure_length_of(:emails).is_at_least(1).
                 with_message(/must include at least one invitee/)}
 
     it { should belong_to(:creator).class_name(User) }
