@@ -14,7 +14,7 @@ Check out the live website at [grouPACT.me](http://groupact.me). Note that curre
 
 ![grouPACT Screenshot](app/assets/images/groupact_screenshot.png)
 
-To run this app on your local server, make sure you have Rails installed and then follow these steps:
+To run this app on your local server, make sure you have Rails and Postgres installed and then follow these steps:
 
     git clone https://github.com/dontmitch/group_planning.git groupact_clone
     cd groupact_clone
@@ -22,7 +22,7 @@ To run this app on your local server, make sure you have Rails installed and the
     rake db:create && rake db:migrate && rake db:seed
     rails s
 
-This app requires Stripe and AWS API keys for some of its advanced features. You must provide your own keys in order for those features to work.
+This app requires Stripe and AWS API keys for some of its advanced features. You must provide your own keys in order for those features to work. Also, the seeds file may take a minute to run; we went a bit overboard :wink: .
 
 ###Copyright Information
 
