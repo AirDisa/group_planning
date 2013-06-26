@@ -16,7 +16,7 @@ Check out the live website at [grouPACT.me](http://groupact.me). Note that curre
 
 To run this app on your local server, make sure you have Rails installed and then follow these steps:
 
-    git clone git://github.com/group_planning.git groupact_clone
+    git clone https://github.com/dontmitch/group_planning.git groupact_clone
     cd groupact_clone
     bundle install
     rake db:create && rake db:migrate && rake db:seed
