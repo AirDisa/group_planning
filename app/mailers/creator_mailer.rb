@@ -9,5 +9,4 @@ class CreatorMailer < ActionMailer::Base
     mail( :to => email_with_name,
           :subject => "You just created: #{@event.title}!")
   end
-
 end

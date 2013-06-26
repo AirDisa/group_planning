@@ -7,13 +7,13 @@ addPunctuation = function(input){
   }
 };
 
-var counter = 0
+var counter = 0;
 
 $(document).ready(function() {
 
   //Transition and posting between yes, yes-if, no.
   $('.cond_buttons button').click(function(){
-    var screen = $(this).attr('id')
+    var screen = $(this).attr('id');
     var id = $(this).data('invitee_id');
     if (screen === 'Yes') {
       $.post('/invitees/'+id, {status: 'Yes'} , function(){
@@ -44,7 +44,7 @@ $(document).ready(function() {
     });
   });
 
-  //closes message window
+  // Closes message window
   $('.wrapper').on('click', '#close_window', function(){
     $(this).parent().fadeOut();
   });
@@ -85,4 +85,4 @@ var ajaxSide = function() {
       var results = $(response).find('.vertical').html();
       $('.vertical').html(results);
     });
-}
+};

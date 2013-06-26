@@ -6,11 +6,10 @@ var inviteeEmail = function(index) {
 $(document).ready(function(){
   $('#create_event #next').click(function(){
     $('ul#errors').html('');
-    debugger;
     if ( ($('#event_title').val() == '') || ($('#event_commit_date').val() == '')) {
-      $('ul#errors').append('<li class="email">You must enter an event title and a commit date</li>').hide().slideDown(100)
+      $('ul#errors').append('<li class="email">You must enter an event title and a commit date</li>').hide().slideDown(100);
     } else if ( Date.parse($('#event_start_date').val()) < Date.parse($('#event_commit_date').val()) ) {
-      $('ul#errors:last').append('<li class="email">Your start date must be after your commit date</li>').hide().slideDown(100)
+      $('ul#errors:last').append('<li class="email">Your start date must be after your commit date</li>').hide().slideDown(100);
     } else {
       $('.wrapper.event-creation').toggle("slide");
       $('html, body').stop().animate({
@@ -45,6 +44,7 @@ $(document).ready(function(){
     });
   });
 
+  // Show helper text only after .5 continuous seconds
   var timeoutID = null;
   $('span.info').hover( function() {
     var mySpan = $(this);

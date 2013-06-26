@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   include StripeHelper
 
   protect_from_forgery
-
   before_filter :require_login
 
   private

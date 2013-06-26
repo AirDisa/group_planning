@@ -11,5 +11,4 @@ class Comment < ActiveRecord::Base
   def time
     ((Time.now() - self.created_at) / 3600.0).round(1)
   end
-
 end

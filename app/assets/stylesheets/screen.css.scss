@@ -498,7 +498,7 @@ img.profile_pic {
 .main-profile {
   h2 {
     display: inline-block;
-    }
+  }
   .edit-profile {
     a {
       margin-left: 12px;
@@ -522,8 +522,8 @@ img.profile_pic {
   width: 360px;
   float: right;
   a {
-      text-decoration: none;
-      color: rgba(255,255,255, .4);
+    text-decoration: none;
+    color: rgba(255,255,255, .4);
   }
   a:hover {
     color: white;
@@ -589,10 +589,10 @@ img.profile_pic {
     opacity: .5;
   }
   img.profile_pic {
-  background: black;
-  border: solid 1.5px white;
-  float: left;
-  margin: 0 0 10px 0;
+    background: black;
+    border: solid 1.5px white;
+    float: left;
+    margin: 0 0 10px 0;
   }
   h2 {
     color: white;

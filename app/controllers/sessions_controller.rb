@@ -25,5 +25,4 @@ class SessionsController < ApplicationController
     flash[:success] = "You successfully logged out!"
     redirect_to root_path
   end
-
 end

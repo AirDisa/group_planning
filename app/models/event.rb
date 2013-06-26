@@ -7,7 +7,6 @@ class Event < ActiveRecord::Base
   has_many :invitees
   belongs_to :creator, :class_name => "User"
   has_many :users, :through => :invitees
-  # mount_uploader :image, ImageUploader
 
   validates :title,       :length => {:minimum => 4,
                           :too_short => "must have at least %{count} letters"}
@@ -20,6 +19,9 @@ class Event < ActiveRecord::Base
   validates :down_payment, :format => {:with => /^\d{1,}$/}, :allow_nil => true
 
   before_save :downpayment_zero_to_nil
+
+  ## To turn on custom image uploading for events
+  # mount_uploader :image, ImageUploader
 
   def downpayment_zero_to_nil
     self.down_payment = nil if self.down_payment == 0
@@ -44,19 +46,6 @@ class Event < ActiveRecord::Base
   def update_invitees_statuses(going)
     invitees.each { |invitee| invitee.update_attribute("status", "Pending") if invitee.status == "Yes" }
     going.each    { |invitee| invitee.update_attribute("status", "Yes") }
-  end
-
-  def to_ics
-    cal = Icalendar::Event.new
-    cal.start = DateTime.now.strftime("%Y%m%dT%H%M%S")
-    cal.end = (DateTime.now+1.day).strftime("%Y%m%dT%H%M%S")
-    cal.summary = self.title
-    cal.description = self.description
-    cal.klass = "PUBLIC"
-    cal.created = self.created_at
-    cal.last_modified = self.updated_at
-    cal.uid = cal.url = "http://groupact.me/events/#{self.url}"
-    cal
   end
 
   def start_time=(params)

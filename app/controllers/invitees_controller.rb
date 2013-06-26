@@ -23,5 +23,4 @@ class InviteesController < ApplicationController
     invitee.reset_conditions
     redirect_to event_path(invitee.event.url)
   end
-
 end
