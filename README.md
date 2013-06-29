@@ -19,7 +19,7 @@ To run this app on your local server, make sure you have Rails and Postgres inst
     git clone https://github.com/dontmitch/group_planning.git groupact_clone
     cd groupact_clone
     bundle install
-    rake db:create && rake db:migrate && rake db:seed
+    rake db:setup
     rails s
 
 This app requires Stripe and AWS API keys for some of its advanced features. You must provide your own keys in order for those features to work. Also, the seeds file may take a minute to run; we went a bit overboard :wink: .
